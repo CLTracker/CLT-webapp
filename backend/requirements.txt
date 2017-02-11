@@ -1,0 +1,5 @@
+Flask==0.12
+gevent==1.2.1
+Flask-Cors==3.0.2
+Flask-Security==1.7.5
+Flask-SQLAlchemy==2.1
