@@ -5,7 +5,7 @@ This is the web app repository for the convention logistics tracker. Inside this
 * A Flask backend
 * A docker configuration for deploying to production
 
-Repo is based off https://github.com/ansrivas/angular2-flask
+The backend is based off https://github.com/ansrivas/angular2-flask 
 
 ## Info
 
@@ -41,13 +41,13 @@ Repo is based off https://github.com/ansrivas/angular2-flask
     # install project related dependencies
     npm install
 
-    # run server
-    npm run server:dev:hmr
+    # run server with hot module replacement
+    npm run start:hmr
+    # run server without hot module replacement
+    npm run start
     ```
 
-4.  Now navigate to `http://localhost:8080` and login using default credential : `admin:admin`
-
-### Docker support:
+### Docker support (UNTESTED, WIP):
 
 The current build is using `nginx` to serve static files. The pre-requisite is to run the following commands and then use `docker-compose`
 
