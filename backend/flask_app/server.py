@@ -14,9 +14,9 @@ logger = logging.getLogger(__name__)
 app = create_app()
 
 
-@app.before_first_request
-def init():
-    create_user(app)
+# @app.before_first_request
+# def init():
+    # create_user(app)
 
 
 @app.route("/api/logoutuser", methods=['POST'])
@@ -35,8 +35,7 @@ def login():
     return token_login.login_with_token(request, app)
 
 
-@app.route('/api/getdata', methods=['POST'])
-@auth_token_required
+@app.route('/api/getdata', methods=['GET'])
 def get_data():
     """Get dummy data returned from the server."""
     data = {'Heroes': ['Hero1', 'Hero2', 'Hero3']}
@@ -49,7 +48,7 @@ def get_data():
 def main():
     """Main entry point of the app."""
     try:
-        http_server = WSGIServer(('0.0.0.0', 8080),
+        http_server = WSGIServer(('0.0.0.0', 3030),
                                  app,
                                  log=logging,
                                  error_log=logging)

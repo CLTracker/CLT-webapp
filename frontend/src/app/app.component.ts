@@ -11,9 +11,18 @@ import '../style/app.scss';
 })
 export class AppComponent {
   url = 'https://github.com/CLTracker';
-  title: string;
+  title: string = 'hello';
+  data: string;
 
   constructor(private api: ApiService) {
-    this.title = this.api.title;
+    this.api.getData()
+      .subscribe(
+        res => {
+          this.data = JSON.stringify(res);
+        },
+        error => {
+          console.log('Error!', error);
+        }
+      );
   }
 }
