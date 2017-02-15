@@ -1,0 +1,6 @@
+flask
+flask_cors
+mysql_connector
+configparser
+simplejson
+sqlalchemy
