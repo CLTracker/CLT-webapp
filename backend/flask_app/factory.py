@@ -11,7 +11,7 @@ from flask_security import Security, utils
 
 from .app_utils import utilities
 from .config import CONFIG
-from .models import User, db, user_datastore
+from .models import user_datastore
 
 
 def create_app():
@@ -27,12 +27,3 @@ def create_app():
     app.config['CORS_HEADERS'] = 'Content-Type'
 
     return app
-
-
-def create_user(app):
-    db.create_all()
-    if not User.query.first():
-        user_datastore.create_user(
-            email=app.config['ADMIN_USER'],
-            password=utils.encrypt_password(app.config['ADMIN_PASSWORD']))
-    db.session.commit()
