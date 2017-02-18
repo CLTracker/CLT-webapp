@@ -1,20 +1,69 @@
-<header>
-  <nav>
-    <a [routerLink]="['']">Home</a>
-    <a [routerLink]="['about']">About</a>
+<div id="page-wrapper">
+
+  <!-- Header -->
+  <header id="header" class="alt">
+    <h1><a href="">CLTracker</a></h1>
+    <nav>
+      <a href="#menu">Menu</a>
+    </nav>
+  </header>
+
+  <!-- Menu -->
+  <nav id="menu">
+    <div class="inner">
+      <h2>Menu</h2>
+      <ul class="links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generic.html">Generic</a></li>
+        <li><a href="elements.html">Elements</a></li>
+        <li><a href="#">Log In</a></li>
+        <li><a href="#">Sign Up</a></li>
+      </ul>
+      <a href="#" class="close">Close</a>
+    </div>
   </nav>
-</header>
-<main>
-  <h1>Hello from {{title}}!</h1>
 
-  <!-- Images (and assets) are parsed and loaded from within the public directory -->
-  <img src="/img/angular.png">
-
-  <p>Here's some data from the server:</p>
-  <code>{{ data }}</code>
-
+  <!-- Content -->
   <router-outlet></router-outlet>
-</main>
-<footer>
-  <a [href]="url">Convention Logistics Tracker</a>
-</footer>
+
+  <!-- Footer -->
+    <section id="footer">
+      <div class="inner">
+        <h2 class="major">Get in touch</h2>
+        <p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+        <form method="post" action="#">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="4"></textarea>
+          </div>
+          <ul class="actions">
+            <li><input type="submit" value="Send Message" /></li>
+          </ul>
+        </form>
+        <ul class="contact">
+          <li class="fa-home">
+            Untitled Inc<br />
+            1234 Somewhere Road Suite #2894<br />
+            Nashville, TN 00000-0000
+          </li>
+          <li class="fa-phone">(000) 000-0000</li>
+          <li class="fa-envelope"><a href="#">information@untitled.tld</a></li>
+          <li class="fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
+          <li class="fa-facebook"><a href="#">facebook.com/untitled-tld</a></li>
+          <li class="fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; CLT Inc. All rights reserved.</li><li>Template: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </section>
+</div>
+ 
