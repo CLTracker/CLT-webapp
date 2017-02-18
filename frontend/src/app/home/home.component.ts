@@ -1,7 +1,9 @@
 import { Component, AfterViewInit } from '@angular/core';
 
 declare var $: any;
+declare var skel: any;
 
+import '../../public/js/jquery.scrollex.min.js';
 @Component({
   selector: 'my-home',
   templateUrl: './home.component.html',
@@ -22,7 +24,27 @@ export class HomeComponent implements AfterViewInit {
 
     // get reference to body and #menu element
     let $menu = $('#menu');
-    let $body = $('body')
+    let $body = $('body');
+    let	$window = $(window);
+    let $header = $('#header');
+    let $banner = $('#banner');
+
+    // Header.
+    if (skel.vars.IEVersion < 9)
+      $header.removeClass('alt');
+
+    if ($banner.length > 0
+    &&	$header.hasClass('alt')) {
+
+      $window.on('resize', function() { $window.trigger('scroll'); });
+
+      $banner.scrollex({
+        bottom:		$header.outerHeight(),
+        terminate:	function() { $header.removeClass('alt'); },
+        enter:		function() { $header.addClass('alt'); },
+        leave:		function() { $header.removeClass('alt'); }
+      });
+    }
 
     // Stops the menu from being opened again.
     $menu._locked = false;
