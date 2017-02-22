@@ -13,7 +13,7 @@ from sqlalchemy import create_engine
 
 
 '''
-None of these are needed yet, but better to have them here now
+Noone of these are needed yet, but better to have them here now
 
 #Getting config information for mysql login
 #Reading config information for mysql from file in order to 
