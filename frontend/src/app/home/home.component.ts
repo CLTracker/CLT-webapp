@@ -103,18 +103,21 @@ export class HomeComponent implements AfterViewInit {
       })
       .on('click', 'a', function(event) {
         // TODO use angular router here instead of jquery href
-        let href = $(this).attr('href');
+        if ($(this).attr('href')) {
+        
+          let href = $(this).attr('href');
 
-        event.preventDefault();
-        event.stopPropagation();
+          event.preventDefault();
+          event.stopPropagation();
 
-        // hide
-        $menu._hide();
+          // hide
+          $menu._hide();
 
-        // redirect
-        window.setTimeout(function() {
-        window.location.href = href;
-        }, 350);
+          // redirect
+          window.setTimeout(function() {
+            window.location.href = href;
+          }, 350);
+        }
       });
 
       $body
