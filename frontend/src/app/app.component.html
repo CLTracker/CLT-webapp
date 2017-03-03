@@ -15,8 +15,8 @@
       <ul class="links">
         <li><a href="">Home</a></li>
         <li><a href="">Conventions</a></li>
-        <li><a href="">Log In</a></li>
-        <li><a href="">Sign Up</a></li>
+        <li *ngIf="!auth.authenticated()" ><a (click)="auth.login()">Log In/Sign Up</a></li>
+        <li *ngIf="auth.authenticated()" ><a (click)="auth.logout()">Log Out</a></li>
       </ul>
       <a href="#" class="close">Close</a>
     </div>

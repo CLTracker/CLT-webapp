@@ -1,6 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 
 import { ApiService } from './shared';
+import { Auth }       from './shared';
 
 import '../style/app.scss';
 
@@ -9,14 +10,14 @@ declare var $: any;
 @Component({
   selector: 'my-app', // <my-app></my-app>
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   url = 'https://github.com/CLTracker';
   title: string = 'hello';
   data: string;
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService, private auth: Auth) {
     this.api.getData()
       .subscribe(
         res => {
