@@ -15,6 +15,8 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         // and correctly authenticated. If not, the user will be redirected to a page
         // asking the user to sign in before proceeding.
 
+        console.log('Checking...');
+
         let url: string = state.url;
         if(!this.auth.authenticated()) {
             // redirect away from /profile and into /notloggedin
@@ -30,6 +32,8 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         // This function protects any CHILD routes of the route being accessed, this function
         // is only procd when the route is successfully activated, and a child route is requested.
         // We'll use this to redirect an authenticated user that does not have an organization yet.
+
+        console.log('CChecking...');
 
         let url: string = state.url;
 
