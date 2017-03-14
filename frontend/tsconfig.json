@@ -6,16 +6,17 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "noEmitHelpers": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "types" : [ "node", "jasmine", "core-js" ]
   },
   "compileOnSave": false,
   "buildOnSave": false,
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,
     "useWebpackText": true
-},
-"exclude": [
+  },
+  "exclude": [
     "node_modules",
     "**/*.spec.ts"
-    ]
+  ]
 }

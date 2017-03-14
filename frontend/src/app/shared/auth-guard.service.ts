@@ -17,12 +17,12 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
         console.log('Checking...');
 
-        let url: string = state.url;
-        if(!this.auth.authenticated()) {
-            // redirect away from /profile and into /notloggedin
-            this.router.navigate(['notloggedin']);
-            return false;
-        }
+        // let url: string = state.url;
+        // if(!this.auth.authenticated()) {
+        //     // redirect away from /profile and into /notloggedin
+        //     this.router.navigate(['notloggedin']);
+        //     return false;
+        // }
 
         // otherwise, user is authenticated so let them through
         return true;
@@ -38,10 +38,10 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         let url: string = state.url;
 
         // TODO: how will user data access work?
-        if(this.auth.authenticated() /* && ?? */) {
-            this.router.navigate(['join']);
-            return false;
-        }
+        // if(this.auth.authenticated() /* && ?? */) {
+        //     this.router.navigate(['join']);
+        //     return false;
+        // }
 
         // otherwise, user has is logged in and has an organization, so we let them through
         return true;

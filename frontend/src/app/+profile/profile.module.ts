@@ -4,6 +4,7 @@ import { HttpModule }               from '@angular/http';
 import { AuthGuard }                from './../shared';
 import { ProfileRoutingModule }     from './profile.routing';
 import { ProfileComponent }         from './profile.component';
+import { ProfileHomeComponent }     from './profile-home.component';
 
 @NgModule({
     imports: [
@@ -13,7 +14,8 @@ import { ProfileComponent }         from './profile.component';
     ],
     exports: [],
     declarations: [
-        ProfileComponent
+        ProfileComponent,
+        ProfileHomeComponent
     ],
     providers: [
         AuthGuard

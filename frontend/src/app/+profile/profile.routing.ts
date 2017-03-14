@@ -3,6 +3,7 @@ import { RouterModule, Routes }             from '@angular/router';
 
 import { AuthGuard }                        from './../shared/auth-guard.service';
 import { ProfileComponent }                 from './profile.component';
+import { ProfileHomeComponent }             from './profile-home.component';
 
 const profileRoutes: Routes = [
     {
@@ -10,7 +11,8 @@ const profileRoutes: Routes = [
         component: ProfileComponent,
         canActivateChild: [AuthGuard],
         children: [
-              { path: '', component: ProfileComponent }
+              { path: 'home', component: ProfileHomeComponent },
+              { path: '', redirectTo: 'home', pathMatch: 'full' }
         ]
     }
 ];
