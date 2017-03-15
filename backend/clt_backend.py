@@ -7,6 +7,10 @@ from flask_cors import CORS
 
 #custom imports
 from login import loginRoutes
+from event import eventRoutes
+from infoedit import infoRoutes
+from attendee import attendeeRoutes
+
 
 
 # For reference
@@ -19,7 +23,10 @@ CORS(app)
 
 #Registering of routes relating to user management
 app.register_blueprint(loginRoutes)
+app.register_blueprint(eventRoutes)
+app.register_blueprint(infoRoutes)
+app.register_blueprint(attendeeRoutes)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True, port = 8080, threaded=True)
+    app.run(host="192.168.1.7", debug=True, port = 8080, threaded=True)
     print("Running dev server on port 8080")

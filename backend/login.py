@@ -25,6 +25,14 @@ def login():
         print(request.json)
         return Response("Got it"), 200
 
+# body: auth0 token
+# does : if(token.user_id is in database)
+#         token.user_metadata = db.get(user)
+#       else:
+#           create user 
+#           send token
+#return token
+
 
 
 @loginRoutes.route("/user/<string:userId>", methods=["GET", "PATCH"])
@@ -38,4 +46,14 @@ def userInfo(userId):
         content = request.json
         status = updateUserData(userId, content)
         return status
-    
+#GET
+#does: if(id is in database)
+#           send db.get(id)
+#      else
+#           sendStatus(404)
+
+#PATCH
+# body: auth0 token
+# does: replaces db entry
+# return: status(200 or 400)
+
