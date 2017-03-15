@@ -1,4 +1,16 @@
-<div>
-    <h1>Profile view (ProfileComponent)</h1>
-    <router-outlet></router-outlet>
+<div id="profile-wrapper">
+    <div class="container-fluid">
+        <h1>Convention Logistics Tracker</h1>
+    </div>
+    <div class="content-view">
+        <div class="container-fluid">
+            <div class="col-md-3" id="nav">
+                <div class="fill">
+                </div>
+            </div>
+            <div class="col-md-9" id="primary">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
 </div>

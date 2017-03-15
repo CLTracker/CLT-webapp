@@ -1,19 +1,42 @@
-div {
+#profile-wrapper {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: grey;
+    background: _palette(bg);
     height: 100%;
     width: 100%;
+    padding: 25px;
+}
+
+.content-view {
+    height: 100%;
+    padding-bottom: 50px;
+
+    .container-fluid {
+        height: 100%;   
+    }
+
+    #nav {
+        height: 100%;
+    }
+
+    #primary {
+        height: 100%;
+    }
+}
+
+.fill {
+    min-height: 100%;
+    background-color: white;
 }
 
 h1 {
-    margin-bottom: 50px;
+    line-height: 60px;
 }
 
 /* angular2 directive to make css property extend beyond scope */
 /deep/ #header {
-    position: absolute !important;
-    top: 0;
+    position: relative !important;
+    top: 25px;
     left: 0;
 }

@@ -1,9 +1,16 @@
+.margined {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.centered {
+    text-align: center;
+}
 div {
-    height: 100%;
     background-color: white;
 
     p {
         color: black;
+        background-color: grey;
     }
 
 }
