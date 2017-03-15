@@ -5,12 +5,18 @@
     background: _palette(bg);
     height: 100%;
     width: 100%;
-    padding: 25px;
+}
+
+md-card {
+    height: 100%;
+    padding: 0;
 }
 
 .content-view {
     height: 100%;
     padding-bottom: 50px;
+    padding-top: 25px;
+    background-color: #E5E5E5;
 
     .container-fluid {
         height: 100%;   
@@ -37,6 +43,6 @@ h1 {
 /* angular2 directive to make css property extend beyond scope */
 /deep/ #header {
     position: relative !important;
-    top: 25px;
+    top: 10px;
     left: 0;
 }
