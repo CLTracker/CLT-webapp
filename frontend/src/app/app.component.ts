@@ -19,26 +19,31 @@ export class AppComponent {
   data: string;
 
   constructor(private api: ApiService, private auth: Auth) {
-    this.api.getData()
-      .subscribe(
-        res => {
-          this.data = JSON.stringify(res);
-        },
-        error => {
-          console.log('Error!', error);
-        }
-      );
 
+    // test api call to backend server
+    // this.api.getData()
+    //   .subscribe(
+    //     res => {
+    //       this.data = JSON.stringify(res);
+    //     },
+    //     error => {
+    //       console.log('Error!', error);
+    //     }
+    //   );
+
+    // get jquery handles to body
     var	$window = $(window),
     $body = $('body');
 
     // Disable animations/transitions until the page has loaded.
     $body.addClass('is-loading');
 
+    // Remove loading class once DOM is loaded, so we can trigger the
+    // intro animations
     $window.on('load', function() {
-    window.setTimeout(function() {
-      $body.removeClass('is-loading');
-    }, 100);
+      window.setTimeout(function() {
+        $body.removeClass('is-loading');
+      }, 100);
     });
   }
 
