@@ -9,7 +9,7 @@ import { AuthGuard }      from './shared';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile', loadChildren: './+profile/profile.module#ProfileModule' },
-  /* { path: 'notloggedin', loadChildren: './notloggedin/login.module#LoginModule' }, */
+  { path: 'notloggedin', loadChildren: './+notloggedin/login.module#LoginModule' },
   { path: 'join', canActivate: [AuthGuard], loadChildren: './+join/join.module#JoinModule' },
   { path: 'about', component: AboutComponent}
 ];

@@ -2,17 +2,17 @@ import { NgModule }                         from '@angular/core';
 import { RouterModule, Routes }             from '@angular/router';
 
 import { AuthGuard }                        from './../shared/auth-guard.service';
-import { JoinComponent }                 from './join.component';
+import { LoginComponent }                 from './login.component';
 
-const joinRoutes: Routes = [
+const notLoggedInRoutes: Routes = [
     {
         path: '',
-        component: JoinComponent
+        component: LoginComponent
     }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(joinRoutes)],
+    imports: [RouterModule.forChild(notLoggedInRoutes)],
     exports: [RouterModule]
 })
-export class JoinRoutingModule { }
+export class notLoggedInRoutingModule { }

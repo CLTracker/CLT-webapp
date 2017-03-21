@@ -1,0 +1,24 @@
+.join-wrapper {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+#header-logo-text {
+    line-height: 70px;
+    cursor: pointer;
+}
+.centered-box {
+    text-align: center;
+    margin-top: 30%;
+}
+/* angular2 directive to make css property extend beyond scope */
+/deep/ #header {
+    position: relative !important;
+    top: 5px;
+    left: 0;
+    z-index: 2;
+}
+

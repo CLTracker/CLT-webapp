@@ -31,8 +31,8 @@ export class Auth {
                 profile.user_metadata = profile.user_metadata || {};
                 localStorage.setItem('profile', JSON.stringify(profile));
                 this.userProfile = profile;
+                this.router.navigate(['/profile']);
             });
-            this.router.navigate(['/profile']);
         });
     }
 
