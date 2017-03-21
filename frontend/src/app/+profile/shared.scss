@@ -1,0 +1,19 @@
+.fill-height {
+    height: 100%;
+    background-color: white;
+}
+.profile-banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;    
+    height: 60px;
+    background-color: #CCCCCC;
+    width: 100%;
+}
+.banner-text {
+    h3 {
+        line-height: 60px;
+        color: black;
+        text-align: center;
+    }
+}
