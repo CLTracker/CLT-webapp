@@ -5,7 +5,22 @@
                 Convention Logistics Tracker
         </h1>
     </div>
-    <div class="centered-box">
-        <h3>Welcome! Please enter your organization</h3>
+    <div id="join-content">
+        <md-card>
+            <h3>Welcome! Please enter your organization</h3>
+            <div class="col-md-8">
+                <md-input-container>
+                    <input mdInput 
+                        placeholder="organization"
+                        [(ngModel)]="org">
+                </md-input-container>
+            </div>
+            <div class="col-md-4">
+                <button md-raised-button color="primary" (click)="joinOrg()">
+                    Enter
+                </button>
+            </div>
+
+        </md-card>
     </div>
 </div>
