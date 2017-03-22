@@ -1,7 +1,14 @@
+.no-overlap-menu {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 h1 {
     line-height: 70px;
     margin: 0;
     cursor: pointer;
+    display: inline-block;
 }
 button {
     /* override material style of color: #fff */
@@ -9,12 +16,11 @@ button {
 }
 #profile-wrapper {
     position: absolute;
-    top: 0;
+    top: 70px;
     left: 0;
     background: _palette(bg);
     height: 100%;
     width: 100%;
-    z-index: 10;
 }
 md-card {
     height: 100%;
@@ -45,10 +51,10 @@ md-card {
     height: 100%;
 }
 
-/* angular2 directive to make css property extend beyond scope */
+/* change fixed header to relative position header */
 /deep/ #header {
     position: relative !important;
     top: 5px;
     left: 0;
-    z-index: 2;
+    z-index: 1;
 }
