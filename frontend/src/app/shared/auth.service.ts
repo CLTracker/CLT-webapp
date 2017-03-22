@@ -6,10 +6,26 @@ declare var Auth0Lock: any;
 
 @Injectable()
 export class Auth {
-    lock = new Auth0Lock(
+    OrganizerLock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
         'clt-global.auth0.com', 
-        {}
+        {
+            auth: { redirectUrl: 'http://localhost:8080/org/profile' }
+        }
+    );
+    ExhibitorLock = new Auth0Lock(
+        'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
+        'clt-global.auth0.com', 
+        {
+            //auth: { redirectUrl: 'http://localhost:8080/xhb/profile' }
+        }
+    );
+    AdministratorLock = new Auth0Lock(
+        'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
+        'clt-global.auth0.com', 
+        {
+            auth: { redirectUrl: 'http://localhost:8080/adm/profile' }
+        }
     );
 
     userProfile: any;
@@ -19,10 +35,10 @@ export class Auth {
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
         // callback event for authenticated users
-        this.lock.on('authenticated', (authResult) => {
+        this.OrganizerLock.on('authenticated', (authResult) => {
             localStorage.setItem('id_token', authResult.idToken);
 
-            this.lock.getProfile(authResult.idToken, (error, profile) => {
+            this.OrganizerLock.getProfile(authResult.idToken, (error, profile) => {
                 if (error) {
                     alert(error);
                     return;
@@ -31,14 +47,51 @@ export class Auth {
                 profile.user_metadata = profile.user_metadata || {};
                 localStorage.setItem('profile', JSON.stringify(profile));
                 this.userProfile = profile;
-                this.router.navigate(['/profile']);
+            });
+        });
+        this.ExhibitorLock.on('authenticated', (authResult) => {
+            localStorage.setItem('id_token', authResult.idToken);
+            console.log('here!');
+            this.OrganizerLock.getProfile(authResult.idToken, (error, profile) => {
+                if (error) {
+                    alert(error);
+                    return;
+                }
+                console.log('also here!');
+                profile.user_metadata = profile.user_metadata || {};
+                localStorage.setItem('profile', JSON.stringify(profile));
+                this.userProfile = profile;
+            });
+        });
+        this.AdministratorLock.on('authenticated', (authResult) => {
+            localStorage.setItem('id_token', authResult.idToken);
+
+            this.OrganizerLock.getProfile(authResult.idToken, (error, profile) => {
+                if (error) {
+                    alert(error);
+                    return;
+                }
+
+                profile.user_metadata = profile.user_metadata || {};
+                localStorage.setItem('profile', JSON.stringify(profile));
+                this.userProfile = profile;
             });
         });
     }
 
-    public login() {
+    public loginOrganizer() {
         // display Auth0 Widget
-        this.lock.show();
+        this.OrganizerLock.show();
+    }
+
+    public loginExhibitor() {
+        // diplay Auth0 Widget
+        this.ExhibitorLock.show();
+    }
+
+    public loginAdministrator() {
+        // display Auth0 Widget
+        this.AdministratorLock.show();
     }
 
     public authenticated() {
