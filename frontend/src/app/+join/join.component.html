@@ -1,26 +1,25 @@
 <div class="join-wrapper">
-    <div class="container-fluid">
-        <div class="profile-banner-bg"></div>
-        <h1 [routerLink]="''" id="header-logo-text">
-                Convention Logistics Tracker
-        </h1>
+    <div class="no-overlap-menu">
+        <div class="container-fluid">
+            <div class="profile-banner-bg"></div>
+            <h1 [routerLink]="''" id="header-logo-text">
+                    Convention Logistics Tracker
+            </h1>
+        </div>
     </div>
     <div id="join-content">
         <md-card>
-            <h3>Welcome! Please enter your organization</h3>
-            <div class="col-md-8">
-                <md-input-container>
-                    <input mdInput 
-                        placeholder="organization"
-                        [(ngModel)]="org">
-                </md-input-container>
-            </div>
-            <div class="col-md-4">
-                <button md-raised-button color="primary" (click)="joinOrg()">
-                    Enter
-                </button>
-            </div>
-
+            <h3>Sign in to your conference</h3>
+            <p>Enter your <strong>conference ID</strong></p>
+            <md-input-container>
+                <input mdInput 
+                    placeholder="organization"
+                    [(ngModel)]="org">
+            </md-input-container>
+            <button md-button color="primary" (click)="joinOrg()">
+                Enter
+            </button>
+            <span><a id="forgot-id"><em>Don't know your conference ID?</em></a></span>
         </md-card>
     </div>
 </div>
