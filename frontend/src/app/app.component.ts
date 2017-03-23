@@ -1,5 +1,10 @@
 import { Component, AfterViewInit } from '@angular/core';
-
+import {  Router,
+          Event as RouterEvent,
+          NavigationStart,
+          NavigationEnd,
+          NavigationCancel,
+          NavigationError }     from '@angular/router';
 import { ApiService } from './shared';
 import { Auth }       from './shared';
 
@@ -14,22 +19,16 @@ declare var skel: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  url = 'https://github.com/CLTracker';
-  title: string = 'hello';
-  data: string;
+  private url = 'https://github.com/CLTracker';
+  private title: string = 'hello';
+  private data: string;
+  private loading: boolean = false;
 
-  constructor(private api: ApiService, private auth: Auth) {
+  constructor(private api: ApiService, private auth: Auth, private router: Router) {
 
-    // test api call to backend server
-    // this.api.getData()
-    //   .subscribe(
-    //     res => {
-    //       this.data = JSON.stringify(res);
-    //     },
-    //     error => {
-    //       console.log('Error!', error);
-    //     }
-    //   );
+    this.router.events.subscribe((event: RouterEvent) => {
+      this.navigationInterceptor(event);
+    })
 
     // get jquery handles to body
     var	$window = $(window),
@@ -162,5 +161,23 @@ export class AppComponent {
             if (event.keyCode == 27)
               $menu._hide();
         });
+  }
+
+  navigationInterceptor(event: RouterEvent): void {
+    if (event instanceof NavigationStart) {
+      this.loading = true;
+    }
+
+    if (event instanceof NavigationEnd) {
+      this.loading = false;
+    }
+
+    // Set loading state to false in both of the below events to hide the spinner in case a request fails
+    if (event instanceof NavigationCancel) {
+        this.loading = false;
+    }
+    if (event instanceof NavigationError) {
+        this.loading = false;
+    }
   }
 }

@@ -33,4 +33,4 @@ import { ProfileNotifyComponent }       from './profile-notify.component';
         AuthGuard
     ]
 })
-export class ProfileModule { }
+export class ExhibitorProfileModule { }
