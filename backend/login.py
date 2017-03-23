@@ -4,7 +4,7 @@ import simplejson
 
 #custom imports
 from database import dbPool
-
+ 
 loginRoutes = Blueprint("loginRoutes", __name__)
 
 def getUserData(userId):
@@ -18,12 +18,61 @@ def updateUserData(userId, content):
     stat = 200
     return stat
 
+def check_permitted_exhibitor(userId):
+    #putting here for now
+    return True 
+
+def  check_organizer(userId):
+    #putting here for now
+    return True     
+
+def exhibitor_login(content):
+    #exhibitor login   
+  
+    #check if it is in permitted_exhibitor list
+    #check_exhibitors_list = check permitted_exhibitor list (true or false)
+    check_exhibitors_list = check_permitted_exhibitor(content["user_id"])
+    if check_exhibitors_list == True:
+        #proceed as normal
+        jsonObject, stat = getUserData(content["user_id"])
+        return jsonObject,stat
+
+    else:
+        #prints out an error
+        print("Not in permitted_exhibitor list")
+        stat = 404
+        return jsonObject, stat     
+
+def organizers_login(content):
+    #organizer login
+
+    #check organizer table
+    #check_organizer_table = check if id is in organizer table
+    check_organizer_table = check_organizer(content["user_id"])
+    if check_organizer_table == True :
+        #proceed as normal
+        jsonObject, stat= getUserData(content["user_id"])
+        return jsonObject, stat
+    else:
+        #prints out an error
+        print("Organizer not permitted")
+        stat = 404
+        return jsonObject, stat
+
+
+
 
 @loginRoutes.route("/login", methods=["POST"])
 def login():
     if request.method == "POST":
         print(request.json)
-        return Response("Got it"), 200
+        #loginType is a flag to show which login they used
+        if request["loginType"] == "exhibitor":
+            jsonObject, status = exhibitor_login(request.json)
+        if request["loginType"] == "organizers":
+                jsonObject, status = organizers_login(request.json)
+        return Response(jsonObject, mimetype="application/json"), status
+
 
 # body: auth0 token
 # does : if(token.user_id is in database)
