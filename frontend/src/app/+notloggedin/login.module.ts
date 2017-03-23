@@ -19,4 +19,4 @@ import { LoginComponent }         from './login.component';
         AuthGuard
     ]
 })
-export class JoinModule { }
+export class LoginModule { }

@@ -19,7 +19,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         // if the user is at the join page, they actually belong there and should 
         // not be redirected
 
-        console.log('checking if we can enter join...');
         let url: string = state.url;
 
         console.log('url: ' + url);

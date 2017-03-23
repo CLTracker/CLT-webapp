@@ -1,5 +1,7 @@
 import { Component }        from '@angular/core';
-import { Router }                   from '@angular/router';
+import { Router }           from '@angular/router';
+
+import { Auth }             from '../shared';
 
 @Component({
     selector: 'my-profile',
@@ -8,5 +10,8 @@ import { Router }                   from '@angular/router';
 })
 
 export class ProfileComponent {
-    constructor() {}
+    constructor(private auth: Auth) {
+        console.log('checking...');
+        console.log(this.auth.authenticated());
+    }
 }

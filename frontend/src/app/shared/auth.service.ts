@@ -9,23 +9,17 @@ export class Auth {
     OrganizerLock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
         'clt-global.auth0.com', 
-        {
-            auth: { redirectUrl: 'http://localhost:8080/org/profile' }
-        }
+        {}
     );
     ExhibitorLock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
         'clt-global.auth0.com', 
-        {
-            auth: { redirectUrl: 'http://localhost:8080/xhb/profile' }
-        }
+        {}
     );
     AdministratorLock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
         'clt-global.auth0.com', 
-        {
-            auth: { redirectUrl: 'http://localhost:8080/adm/profile' }
-        }
+        {}
     );
 
     userProfile: any;
@@ -37,7 +31,7 @@ export class Auth {
         // callback event for authenticated users
         this.OrganizerLock.on('authenticated', (authResult) => {
             localStorage.setItem('id_token', authResult.idToken);
-
+            console.log('here!');
             this.OrganizerLock.getProfile(authResult.idToken, (error, profile) => {
                 if (error) {
                     alert(error);
@@ -47,6 +41,8 @@ export class Auth {
                 profile.user_metadata = profile.user_metadata || {};
                 localStorage.setItem('profile', JSON.stringify(profile));
                 this.userProfile = profile;
+
+                this.router.navigate(['/org/profile']);
             });
         });
         this.ExhibitorLock.on('authenticated', (authResult) => {
@@ -57,10 +53,11 @@ export class Auth {
                     alert(error);
                     return;
                 }
-                console.log('also here!');
                 profile.user_metadata = profile.user_metadata || {};
                 localStorage.setItem('profile', JSON.stringify(profile));
                 this.userProfile = profile;
+
+                this.router.navigate(['/xhb/profile']);
             });
         });
         this.AdministratorLock.on('authenticated', (authResult) => {
@@ -75,6 +72,8 @@ export class Auth {
                 profile.user_metadata = profile.user_metadata || {};
                 localStorage.setItem('profile', JSON.stringify(profile));
                 this.userProfile = profile;
+
+                this.router.navigate(['/adm/profile']);
             });
         });
     }
