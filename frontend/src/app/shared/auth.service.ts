@@ -17,7 +17,7 @@ export class Auth {
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
         'clt-global.auth0.com', 
         {
-            //auth: { redirectUrl: 'http://localhost:8080/xhb/profile' }
+            auth: { redirectUrl: 'http://localhost:8080/xhb/profile' }
         }
     );
     AdministratorLock = new Auth0Lock(
@@ -52,7 +52,7 @@ export class Auth {
         this.ExhibitorLock.on('authenticated', (authResult) => {
             localStorage.setItem('id_token', authResult.idToken);
             console.log('here!');
-            this.OrganizerLock.getProfile(authResult.idToken, (error, profile) => {
+            this.ExhibitorLock.getProfile(authResult.idToken, (error, profile) => {
                 if (error) {
                     alert(error);
                     return;
@@ -66,7 +66,7 @@ export class Auth {
         this.AdministratorLock.on('authenticated', (authResult) => {
             localStorage.setItem('id_token', authResult.idToken);
 
-            this.OrganizerLock.getProfile(authResult.idToken, (error, profile) => {
+            this.AdministratorLock.getProfile(authResult.idToken, (error, profile) => {
                 if (error) {
                     alert(error);
                     return;
