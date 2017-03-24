@@ -4,30 +4,26 @@ import { CommonModule }                 from '@angular/common';
 import { HttpModule }                   from '@angular/http';
 import { AuthGuard }                    from './../shared';
 import { ProfileRoutingModule }         from './profile.routing';
-import { ProfileComponent }             from './profile.component';
-import { ProfileHomeComponent }         from './profile-home.component';
-import { ProfileMapComponent }          from './profile-map.component';
-import { ProfileExhibitorsComponent }   from './profile-exhibitors.component';
-import { ProfileScheduleComponent }     from './profile-schedule.component';
-import { ProfileNewsComponent }         from './profile-news.component';
-import { ProfileNotifyComponent }       from './profile-notify.component';
+import { ProfileComponent }                 from './profile.component';
+import { ProfileHomeComponent }             from './profile-home.component';
+import { ProfileLogoComponent }             from './profile-logo.component';
+import { ProfileStaffComponent }            from './profile-staff.component';
+import { ProfileEventsComponent }           from './profile-events.component';
 
 @NgModule({
     imports: [
         CommonModule,
         HttpModule,
         ProfileRoutingModule,
-        MaterialModule.forRoot()
+        MaterialModule
     ],
     exports: [],
     declarations: [
         ProfileComponent,
         ProfileHomeComponent,
-        ProfileMapComponent,
-        ProfileExhibitorsComponent,
-        ProfileScheduleComponent,
-        ProfileNewsComponent,
-        ProfileNotifyComponent
+        ProfileLogoComponent,
+        ProfileStaffComponent,
+        ProfileEventsComponent
     ],
     providers: [
         AuthGuard
