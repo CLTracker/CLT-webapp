@@ -25,6 +25,17 @@ export class AppComponent {
   private data: string;
   private loading: boolean = false;
 
+  get perms(): string {
+    if(this.auth.userProfile) {
+      if (this.auth.userProfile.user_metadata && this.auth.userProfile.user_metadata.permissions) {
+        return this.auth.userProfile.user_metadata.permissions;
+      } else {
+        throw Error('no permissions set for user');
+      }
+    }
+    return '';
+  }
+
   constructor(private api: ApiService, 
     private auth: Auth,
     private router: Router) {

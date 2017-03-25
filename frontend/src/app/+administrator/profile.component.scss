@@ -9,12 +9,18 @@ button {
 }
 #profile-wrapper {
     position: absolute;
-    top: 0;
+    top: 70px;
     left: 0;
     background: _palette(bg);
     height: 100%;
     width: 100%;
     z-index: 10;
+}
+.overlay-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 md-card {
     height: 100%;
@@ -50,5 +56,5 @@ md-card {
     position: relative !important;
     top: 5px;
     left: 0;
-    z-index: 2;
+    z-index: 1;
 }
