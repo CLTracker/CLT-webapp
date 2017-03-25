@@ -31,7 +31,6 @@ export class Auth {
                 localStorage.setItem('profile', JSON.stringify(profile));
                 this.userProfile = profile;
 
-                console.log('got here...');
                 let redirectUrl = JSON.parse(sessionStorage.getItem('redir'));
                 this.router.navigate(redirectUrl);
             });
@@ -44,12 +43,12 @@ export class Auth {
     }
 
     public loginExhibitor() {
-        sessionStorage.setItem('redir', JSON.stringify(['org', 'profile']));
+        sessionStorage.setItem('redir', JSON.stringify(['xhb', 'profile']));
         this.Lock.show();
     }
 
     public loginAdministrator() {
-        sessionStorage.setItem('redir', JSON.stringify(['org', 'profile']));
+        sessionStorage.setItem('redir', JSON.stringify(['adm', 'profile']));
         this.Lock.show();
     }
 
