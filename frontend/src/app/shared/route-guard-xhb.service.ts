@@ -15,16 +15,33 @@ export class XhbRouteGuard implements CanActivateChild {
             this.auth.userProfile.user_metadata.organization
     }
 
+    private hasPermissions(): boolean {
+        return this.auth.userProfile.user_metadata && 
+            this.auth.userProfile.user_metadata.permissions
+    }
+
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        // TODO: change from Auth0 database to our own database
+
         this.auth.refresh();
 
-        let url: string = state.url;
+        let url: Array<string> = state.url.split('/');
 
-        // TODO: fix how user data is accessed here. We probably don't want to use Auth0 
-        // data once we have a database connection setup with the backend
-        if(this.auth.authenticated() && !this.hasOrg()) {
-            console.log('no org... redirecting to join');
-            this.router.navigate(['/join']);
+        // if user is no longer signed in
+        if(!this.auth.authenticated()) {
+            this.router.navigate(['/notloggedin']);
+            return false;
+        }
+
+        // if the user doesn't have an organization yet, redirect them
+        if(!this.hasOrg()) {
+            this.router.navigate(['/join', url[1]]);
+            return false;
+        }
+
+        // if the user has permissions but they aren't as an exhibitor, do not allow
+        if(this.hasPermissions() && this.auth.userProfile.user_metadata.permissions !== 'xhb') {
+            this.router.navigate(['']);
             return false;
         }
 

@@ -16,7 +16,6 @@ export class RouteGuard implements CanActivate {
 
         let url: string = state.url;
 
-        console.log('url: ' + url);
         if(!this.auth.authenticated()) {
             // redirect away from /join and into /notloggedin
             this.router.navigate(['/notloggedin']);
