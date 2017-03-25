@@ -184,7 +184,14 @@ export class AppComponent {
     }
   }
 
-  private authenticated(): boolean {
-    return tokenNotExpired();
+  public gotoProfile() {
+    if(this.auth.userProfile.user_metadata && this.auth.userProfile.user_metadata.permissions) {
+      this.router.navigate([
+        this.auth.userProfile.user_metadata.permissions,
+        'profile'
+      ]);
+    } else {
+      console.log('user has no permissions but is logged in?');
+    }
   }
 }

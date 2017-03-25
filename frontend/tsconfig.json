@@ -7,7 +7,14 @@
     "sourceMap": true,
     "noEmitHelpers": true,
     "noImplicitAny": false,
-    "types" : [ "node", "jasmine", "core-js" ]
+    "types" : [ "node", "jasmine", "core-js" ],
+    "lib": [
+      "es5",
+      "es2015",
+      "es2017",
+      "dom",
+      "scripthost"
+    ]
   },
   "compileOnSave": false,
   "buildOnSave": false,
