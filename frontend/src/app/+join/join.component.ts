@@ -1,6 +1,8 @@
-import { Component }        from '@angular/core';
-import { Router }           from '@angular/router';
-import { AuthHttp }         from 'angular2-jwt';
+import { Component, OnInit }        from '@angular/core';
+import { Router, ActivatedRoute,
+    Params }                        from '@angular/router';
+import { Auth }                     from '../shared';
+import { AuthHttp }                 from 'angular2-jwt';
 
 @Component({
     selector: 'my-join-page',
@@ -8,35 +10,45 @@ import { AuthHttp }         from 'angular2-jwt';
     styleUrls: ['./join.component.scss']
 })
 
-export class JoinComponent {
+export class JoinComponent implements OnInit {
     private org: String = "";
+    private perm: String = "";
     constructor(
+        private auth: Auth,
         private authHttp: AuthHttp,
-        private router: Router) { }
+        private router: Router,
+        private route: ActivatedRoute) { }
+
+    ngOnInit(): void {
+        this.route.params
+            // (+) converts string 'id' to a number
+            .subscribe((params: Params) => this.perm = params['portal']);
+    }
 
     joinOrg(): void {
         console.log('join that org!');
-        // let headers: any = {
-        //     'Accept': 'application/json',
-        //     'Content-Type': 'application/json'
-        // };
+        let headers: any = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        };
 
-        // let data: any = JSON.stringify({
-        //     user_metadata: {
-        //         organization: this.org
-        //     }
-        // });
+        let data: any = JSON.stringify({
+            user_metadata: {
+                organization: this.org,
+                permissions: this.perm
+            }
+        });
 
-        // this.authHttp
-        //     .patch('https://' + 'clt-global.auth0.com' + '/api/v2/users/' + this.auth.userProfile.user_id, data, {headers: headers})
-        //     .map(response => response.json())
-        //     .subscribe(
-        //         response => {
-        //             this.auth.userProfile = response;
-        //             localStorage.setItem('profile', JSON.stringify(response));
-        //             this.router.navigate(['profile']);
-        //         },
-        //         error => alert(error.json().message)
-        //     );
+        this.authHttp
+            .patch('https://' + 'clt-global.auth0.com' + '/api/v2/users/' + this.auth.userProfile.user_id, data, {headers: headers})
+            .map(response => response.json())
+            .subscribe(
+                response => {
+                    this.auth.userProfile = response;
+                    localStorage.setItem('profile', JSON.stringify(response));
+                    this.router.navigate([this.perm, 'profile']);
+                },
+                error => alert(error.json().message)
+            );
     }
 }

@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'xhb/profile', loadChildren: './+exhibitor/profile.module#ExhibitorProfileModule' },
   { path: 'adm/profile', loadChildren:  './+administrator/profile.module#AdminProfileModule' },
   { path: 'notloggedin', loadChildren:  './+notloggedin/login.module#LoginModule' },
-  { path: 'join', canActivate: [RouteGuard], loadChildren: './+join/join.module#JoinModule' },
+  { path: 'join/:portal', canActivate: [RouteGuard], loadChildren: './+join/join.module#JoinModule' },
   { path: 'about', component: AboutComponent}
 ];
 
