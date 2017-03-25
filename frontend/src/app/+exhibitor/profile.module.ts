@@ -2,7 +2,7 @@ import { NgModule }                     from '@angular/core';
 import { MaterialModule }               from '@angular/material';
 import { CommonModule }                 from '@angular/common';
 import { HttpModule }                   from '@angular/http';
-import { AuthGuard }                    from './../shared';
+import { XhbRouteGuard }                    from './../shared';
 import { ProfileRoutingModule }         from './profile.routing';
 import { ProfileComponent }                 from './profile.component';
 import { ProfileHomeComponent }             from './profile-home.component';
@@ -26,7 +26,7 @@ import { ProfileEventsComponent }           from './profile-events.component';
         ProfileEventsComponent
     ],
     providers: [
-        AuthGuard
+        XhbRouteGuard
     ]
 })
 export class ExhibitorProfileModule { }

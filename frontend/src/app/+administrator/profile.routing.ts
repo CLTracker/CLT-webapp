@@ -1,7 +1,7 @@
 import { NgModule }                         from '@angular/core';
 import { RouterModule, Routes }             from '@angular/router';
 
-import { AuthGuard }                        from './../shared/auth-guard.service';
+import { AdmRouteGuard }                    from './../shared';
 import { ProfileComponent }                 from './profile.component';
 import { ProfileHomeComponent }             from './profile-home.component';
 import { ProfileMapComponent }              from './profile-map.component';
@@ -14,7 +14,7 @@ const profileRoutes: Routes = [
     {
         path: '',
         component: ProfileComponent,
-        canActivateChild: [AuthGuard],
+        canActivateChild: [AdmRouteGuard],
         children: [
               { path: 'basic', component: ProfileHomeComponent },
               { path: 'map', component: ProfileMapComponent },

@@ -1,12 +1,13 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit }     from '@angular/core';
 import {  Router,
           Event as RouterEvent,
           NavigationStart,
           NavigationEnd,
           NavigationCancel,
-          NavigationError }     from '@angular/router';
-import { ApiService } from './shared';
-import { Auth }       from './shared';
+          NavigationError }             from '@angular/router';
+import { ApiService }                   from './shared';
+import { Auth }                         from './shared';
+import { tokenNotExpired }              from 'angular2-jwt';
 
 import '../style/app.scss';
 
@@ -24,7 +25,9 @@ export class AppComponent {
   private data: string;
   private loading: boolean = false;
 
-  constructor(private api: ApiService, private auth: Auth, private router: Router) {
+  constructor(private api: ApiService, 
+    private auth: Auth,
+    private router: Router) {
 
     this.router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
@@ -179,5 +182,9 @@ export class AppComponent {
     if (event instanceof NavigationError) {
         this.loading = false;
     }
+  }
+
+  private authenticated(): boolean {
+    return tokenNotExpired();
   }
 }

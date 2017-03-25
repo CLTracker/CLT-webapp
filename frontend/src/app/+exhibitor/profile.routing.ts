@@ -1,7 +1,7 @@
 import { NgModule }                         from '@angular/core';
 import { RouterModule, Routes }             from '@angular/router';
 
-import { AuthGuard }                        from './../shared/auth-guard.service';
+import { XhbRouteGuard }                    from './../shared';
 import { ProfileComponent }                 from './profile.component';
 import { ProfileHomeComponent }             from './profile-home.component';
 import { ProfileLogoComponent }             from './profile-logo.component';
@@ -12,7 +12,7 @@ const profileRoutes: Routes = [
     {
         path: '',
         component: ProfileComponent,
-        canActivateChild: [AuthGuard],
+        canActivateChild: [XhbRouteGuard],
         children: [
               { path: 'basic', component: ProfileHomeComponent },
               { path: 'logo', component: ProfileLogoComponent },

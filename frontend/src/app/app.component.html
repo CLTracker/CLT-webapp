@@ -15,10 +15,10 @@
       <ul class="links">
         <li><a href="">Home</a></li>
         <li><a href="">Conventions</a></li>
-        <li *ngIf="!auth.authenticated()" ><a (click)="auth.loginOrganizer()">Organizer Log In/Sign Up</a></li>
-        <li *ngIf="!auth.authenticated()" ><a (click)="auth.loginExhibitor()">Exhibitor Log In/Sign Up</a></li>
-        <li *ngIf="auth.authenticated()" ><a href="/profile">Profile</a></li>
-        <li *ngIf="auth.authenticated()" ><a (click)="auth.logout()">Log Out</a></li>
+        <li *ngIf="!authenticated()" ><a (click)="auth.loginOrganizer()">Organizer Log In/Sign Up</a></li>
+        <li *ngIf="!authenticated()" ><a (click)="auth.loginExhibitor()">Exhibitor Log In/Sign Up</a></li>
+        <li *ngIf="authenticated()" ><a href="/profile">Profile</a></li>
+        <li *ngIf="authenticated()" ><a (click)="auth.logout()">Log Out</a></li>
       </ul>
       <a href="#" class="close">Close</a>
     </div>

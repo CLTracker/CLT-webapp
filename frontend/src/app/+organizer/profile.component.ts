@@ -11,7 +11,5 @@ import { Auth }             from '../shared';
 
 export class ProfileComponent {
     constructor(private auth: Auth) {
-        console.log('checking...');
-        console.log(this.auth.authenticated());
     }
 }
