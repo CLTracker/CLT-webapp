@@ -3,4 +3,48 @@
     <div class="col-md-12 banner-text">
         <h3> Exhibitor List - [Conference] </h3>
     </div>
+    <div class="col-md-12 description-field">
+        <p> In order for exhibitors to log in and customize their module within the mobile app, you'll need to give them access. You'll also be able to view an exhibitors information here and make your own changes.</p>
+    </div>
+    <button md-button color="primary">
+        Add Exhibitor
+    </button>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Company</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+                <td>Grant Mercer</td>
+                <td>Gmercer015@gmail.com</td>
+                <td>CLTracker</td>
+                <td>Complete</td>
+            </tr>
+            <tr>
+                <td colspan="4" class="hiddenRow">
+                    <div class="accordian-body collapse" id="demo1">
+                        Edit
+                    </div>
+                </td>
+            </tr>
+            <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+                <td>Steven Brooks</td>
+                <td>sbrooks@something.com</td>
+                <td>UNLV</td>
+                <td>Incomplete</td>
+            </tr>
+            <tr>
+                <td colspan="4" class="hiddenRow">
+                    <div class="accordian-body collapse" id="demo2">
+                        Edit
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

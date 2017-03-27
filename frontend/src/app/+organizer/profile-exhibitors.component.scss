@@ -1,1 +1,15 @@
 @import 'shared.scss';
+
+table {
+    margin-top: 0;
+    border-collapse: collapse;
+    th {
+        color: #1b1b1b;
+    }
+}
+button {
+    margin: 10px 0;
+}
+.hiddenRow {
+    padding: 0 !important;
+}
