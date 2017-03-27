@@ -3,25 +3,121 @@
     <div class="col-md-12 banner-text">
         <h3> Basic Settings - [Conference] </h3>
     </div>
+    <div class="col-md-12 description-field">
+        <p>Configure the fields below as you would like them to appear on the mobile app for conference attendees.</p>
+    </div>
     <md-grid-list cols="2" rowHeight="fit">
         <md-grid-tile colspan="2">
             <div class="padded">
                 <md-card>
-                    <p>Edit some settings</p>
+                    <h3>General Information</h3>
+                    <div class="crow">
+                        <div class="col-md-6">
+                            <p class="field-title">Conference Name</p>
+                        </div>
+                        <div class="col-md-6">
+                            <md-input-container>
+                                <input mdInput
+                                placeholder="name">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="crow">
+                        <div class="col-md-6">
+                            <p class="field-title">Location</p>
+                        </div>
+                        <div class="col-md-6">
+                            <md-input-container>
+                                <input mdInput
+                                placeholder="location">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="crow">
+                        <div class="col-md-6">
+                            <p class="field-title">Logo</p>
+                        </div>
+                        <div class="col-md-6">
+                            <button md-button color="primary">
+                                Upload
+                            </button>
+                            <img id="logo-preview" 
+                            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=Logo&w=350&h=150"/>
+                        </div>
+                    </div>
                 </md-card>
             </div>
         </md-grid-tile>
         <md-grid-tile>
             <div class="padded">
                 <md-card>
-                    <p>more settings</p>
+                    <h3>Conference Dates</h3>
+                    <div class="crow">
+                        <div class="col-md-6">
+                            <p class="field-title">Dates of event</p>
+                        </div>
+                        <div class="col-md-6">
+                            <md-input-container class="date-picker">
+                                <input mdInput type="date">
+                            </md-input-container>
+                            <span>to</span>
+                            <md-input-container class="date-picker">
+                                <input mdInput type="date">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="crow">
+                        <div class="col-md-6">
+                            <p class="field-title">Operating hours</p>
+                        </div>
+                        <div class="col-md-6">
+                            <md-input-container class="time-picker">
+                                <input mdInput type="time">
+                            </md-input-container>
+                            <span>to</span>
+                            <md-input-container class="time-picker">
+                                <input mdInput type="time">
+                            </md-input-container>
+                        </div>
+                    </div>
                 </md-card>
             </div>
         </md-grid-tile>
         <md-grid-tile>
             <div class="padded">
                 <md-card>
-                    <p>stuuuuuf</p>
+                    <h3>CLT Secrets</h3>
+                    <div class="crow">
+                        <div class="col-md-6">
+                            <p class="field-title">Conference ID</p>
+                        </div>
+                        <div class="col-md-6">
+                            <md-input-container>
+                                <input mdInput [disabled]="true" value="SeniorDesign-a1bef">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="crow">
+                        <div class="col-md-6">
+                            <p class="field-title">Password</p>
+                        </div>
+                        <div class="col-md-6">
+                            <md-input-container>
+                                <input mdInput value="password123">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="crow">
+                        <div class="col-md-6">
+                            <p class="field-title">Exhibitor List</p>
+                        </div>
+                        <div class="col-md-6">
+                            <button md-button color="primary" class="view-exhibitors-button">
+                                View
+                            </button>
+                        </div>
+                    </div>
                 </md-card>
             </div>
         </md-grid-tile>
