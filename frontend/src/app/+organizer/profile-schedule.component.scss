@@ -1,1 +1,10 @@
 @import 'shared.scss';
+.line-break {
+    border-bottom: 1px solid #1b1b1b;
+    padding: 0 10px;
+    margin: 20px 0;
+    height: 1px;
+    width: 100%;
+    position: relative;
+}
+

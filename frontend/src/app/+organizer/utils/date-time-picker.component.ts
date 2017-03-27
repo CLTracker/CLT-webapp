@@ -1,24 +1,11 @@
 import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-  OnChanges
+  Component, Input, Output, EventEmitter,
+  SimpleChanges, OnChanges
 } from '@angular/core';
 import {
-  getSeconds,
-  getMinutes,
-  getHours,
-  getDate,
-  getMonth,
-  getYear,
-  setSeconds,
-  setMinutes,
-  setHours,
-  setDate,
-  setMonth,
-  setYear
+  getSeconds, getMinutes, getHours,
+  getDate, getMonth, getYear, setSeconds,
+  setMinutes, setHours, setDate, setMonth, setYear
 } from 'date-fns';
 import {
   NgbDateStruct,

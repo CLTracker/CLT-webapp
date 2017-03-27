@@ -40,7 +40,7 @@ export class ProfileScheduleComponent {
 
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
-  view: string = 'month';
+  view: string = 'week';
 
   viewDate: Date = new Date();
 
