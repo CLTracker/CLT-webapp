@@ -3,6 +3,8 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { HttpModule }     from '@angular/http';
 import { FormsModule }    from '@angular/forms';
 import { MaterialModule } from '@angular/material';
+import { NgbModule }      from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule }      from '@angular/platform-browser/animations';
 
 import { AppComponent }   from './app.component';
 import { HomeComponent }  from './home/home.component';
@@ -17,6 +19,7 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     FormsModule,
     MaterialModule,

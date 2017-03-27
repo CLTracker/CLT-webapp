@@ -2,6 +2,10 @@ import { NgModule }                     from '@angular/core';
 import { MaterialModule }               from '@angular/material';
 import { CommonModule }                 from '@angular/common';
 import { HttpModule }                   from '@angular/http';
+import { FormsModule }                  from '@angular/forms';
+import { NgbModule }                    from '@ng-bootstrap/ng-bootstrap';
+import { CalendarModule }               from 'angular-calendar';
+import { CalendarUtilsModule }          from './utils/module';
 import { OrgRouteGuard }                from './../shared';
 import { ProfileRoutingModule }         from './profile.routing';
 import { ProfileComponent }             from './profile.component';
@@ -17,7 +21,11 @@ import { ProfileNotifyComponent }       from './profile-notify.component';
         CommonModule,
         HttpModule,
         ProfileRoutingModule,
-        MaterialModule
+        MaterialModule,
+        FormsModule,
+        CalendarUtilsModule,
+        NgbModule.forRoot(),
+        CalendarModule.forRoot()
     ],
     exports: [],
     declarations: [

@@ -1,5 +1,5 @@
 h1 {
-    line-height: 70px;
+    line-height: 80px;
     margin: 0;
     cursor: pointer;
 }
@@ -9,17 +9,16 @@ button {
 }
 #profile-wrapper {
     position: absolute;
-    top: 70px;
+    top: 80px;
     left: 0;
     background: _palette(bg);
-    height: calc(100% - 70px);
+    height: calc(100% - 90px);
     width: 100%;
     z-index: 10;
     overflow-y: auto;
 }
 .overlay-header {
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
     z-index: 20;
