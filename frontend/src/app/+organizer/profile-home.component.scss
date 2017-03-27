@@ -1,4 +1,8 @@
 @import 'shared.scss';
+.fill-height {
+    height: 1150px;
+    background-color: white;
+}
 p {
     margin: 0;
 }
@@ -21,11 +25,12 @@ md-grid-tile {
             text-align: center;
             border-bottom: 1px solid #1b1b1b;
             padding-bottom: 5px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         md-input-container {
             width: 100%;
+            font-size: 18px;
         }
     }
     md-card {
@@ -38,14 +43,14 @@ md-grid-tile {
 .crow {
     margin-bottom: 1em;
     display: block;
-    height: 50px;
+    height: 40px;
 }
 #logo-preview {
     margin-top: 20px;
     display: block;
 }
 .field-title {
-    font-size: 22px;
+    font-size: 18px;
 }
 .date-picker {
     input {
