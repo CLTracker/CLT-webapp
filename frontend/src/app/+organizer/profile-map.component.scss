@@ -1,1 +1,25 @@
 @import 'shared.scss';
+
+button {
+    margin-top: 25px;
+}
+
+.padded {
+    margin-top: 220px;
+    padding: 10px;
+    width: 100%;
+    height: calc(100% - 230px);
+
+    md-card {
+        height: 100%;
+        width: 100%;
+    }
+
+    .placeholder-image {
+        width: 100%;
+        height: 100%;
+        padding: 25px;
+        border: 1px solid black;
+        background-color: grey;
+    }
+}
