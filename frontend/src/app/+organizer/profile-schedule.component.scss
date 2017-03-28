@@ -45,18 +45,33 @@ button {
     border: 1px solid #eceeef;
     text-align: center;
 }
-/deep/ form {
-    margin: 0 !important;
+
+/* timepicker from bootstrap4 has horrible styling, so
+   we apply our fixes here. Wish there was a cleaner 
+   solution to this
+*/
+/deep/ ngb-timepicker {
+    td {
+        display: inline-block;
+        width: 35px !important;
+    }
+    td > .form-control {
+        border: 1px solid #1b1b1b !important;
+        color: #1b1b1b !important;
+        width: 35px !important;
+        padding: 0 !important;
+    }
+    .btn-link {
+        color: #337ab7 !important;
+        padding: 0 !important;
+    }
+    .btn-outline-primary {
+        color: #337ab7 !important;
+        border-color: #337ab7;
+        font-size: 12px;
+        padding: 3px 6px;
+        margin-left: -17px;
+    }
 }
-/deep/ .form-control {
-    border: 1px solid #1b1b1b !important;
-    color: #1b1b1b !important;
-}
-/deep/ .btn-link {
-    color: #337ab7 !important;
-}
-/deep/ .btn-outline-primary {
-    color: #337ab7 !important;
-    border-color: #337ab7;
-}
+
 

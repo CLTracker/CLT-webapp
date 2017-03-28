@@ -36,7 +36,13 @@ import {
     <ngb-timepicker [(ngModel)]="timeStruct" (ngModelChange)="updateTime()" [meridian]="true"></ngb-timepicker>
   `,
   styles: [`
-    .form-group {
+    .form-inline {
+      margin-bottom: 10px;
+    }
+    .form-inline .form-group {
+      width: 100%;
+    }
+    .form-inline .input-group {
       width: 100%;
     }
   `]
