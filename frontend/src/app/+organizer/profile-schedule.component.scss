@@ -5,6 +5,9 @@
 .col-md-4 {
     text-align: center;
 }
+.glyphicon-trash {
+    cursor: pointer;
+}
 h3 {
     color: #1b1b1b;
 }
@@ -19,13 +22,11 @@ h3 {
 button {
     color: #1b1b1b !important;
 }
-.overflow {
-    overflow-x: scroll;
-}
 .event-editor-table {
   margin-top: 10px;
   border: 1px solid #eceeef;
-  width: 1200px;
+  width: 100%;
+  table-layout: auto;
 }
 
 .event-editor-table thead th {
@@ -51,6 +52,7 @@ button {
    solution to this
 */
 /deep/ ngb-timepicker {
+    text-align: center;
     td {
         display: inline-block;
         width: 35px !important;
@@ -61,16 +63,23 @@ button {
         width: 35px !important;
         padding: 0 !important;
     }
+    td:nth-child(2) {
+        width: 15px !important;
+    }
+    td:nth-child(4) {
+        width: 0 !important;
+    }
     .btn-link {
         color: #337ab7 !important;
         padding: 0 !important;
     }
     .btn-outline-primary {
         color: #337ab7 !important;
-        border-color: #337ab7;
+        border: none;
+        text-decoration: underline;
         font-size: 12px;
-        padding: 3px 6px;
-        margin-left: -17px;
+        height: 38px;
+        padding: 3px 3px;
     }
 }
 
