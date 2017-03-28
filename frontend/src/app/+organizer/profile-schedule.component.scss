@@ -1,4 +1,7 @@
 @import 'shared.scss';
+.fill-height {
+    overflow-x: hidden;
+}
 .line-break {
     border-bottom: 1px solid #1b1b1b;
     padding: 0 10px;
@@ -6,5 +9,50 @@
     height: 1px;
     width: 100%;
     position: relative;
+}
+button {
+    color: #1b1b1b !important;
+}
+.overflow {
+    overflow-x: scroll;
+}
+.event-editor-table {
+  margin-top: 10px;
+  border: 1px solid #eceeef;
+  width: 1200px;
+}
+
+.event-editor-table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #eceeef;
+  color: #1b1b1b;
+}
+
+.event-editor-table th,
+.event-editor-table td {
+  padding: .75rem;
+  vertical-align: top;
+}
+
+.event-editor-table td {
+    color: #1b1b1b !important;
+    border: 1px solid #eceeef;
+}
+/deep/ form {
+    margin: 0 !important;
+
+}
+/deep/ .form-control {
+    border: 1px solid #1b1b1b !important;
+    color: #1b1b1b !important;
+}
+
+/deep/ .btn-link {
+    color: #337ab7 !important;
+}
+
+/deep/ .btn-outline-primary {
+    color: #337ab7 !important;
+    border-color: #337ab7;
 }
 

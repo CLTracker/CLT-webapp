@@ -99,6 +99,7 @@
         <div class="clearfix"></div>
     </h3>
 
+    <div class="col-md-12 overflow">
     <table class="event-editor-table">
 
     <thead>
@@ -134,18 +135,18 @@
           (change)="refresh.next()">
       </td>
       <td>
-        <mwl-demo-utils-date-time-picker
+        <mwl-utils-date-time-picker
           [(date)]="event.start"
           (dateChange)="refresh.next()"
           placeholder="Not set">
-        </mwl-demo-utils-date-time-picker>
+        </mwl-utils-date-time-picker>
       </td>
       <td>
-        <mwl-demo-utils-date-time-picker
+        <mwl-utils-date-time-picker
           [(date)]="event.end"
           (dateChange)="refresh.next()"
           placeholder="Not set">
-        </mwl-demo-utils-date-time-picker>
+        </mwl-utils-date-time-picker>
       </td>
       <td>
         <button
@@ -158,4 +159,5 @@
     </tbody>
 
     </table>
+    </div>
 </div>
