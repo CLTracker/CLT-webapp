@@ -43,20 +43,18 @@ button {
 .event-editor-table td {
     color: #1b1b1b !important;
     border: 1px solid #eceeef;
+    text-align: center;
 }
 /deep/ form {
     margin: 0 !important;
-
 }
 /deep/ .form-control {
     border: 1px solid #1b1b1b !important;
     color: #1b1b1b !important;
 }
-
 /deep/ .btn-link {
     color: #337ab7 !important;
 }
-
 /deep/ .btn-outline-primary {
     color: #337ab7 !important;
     border-color: #337ab7;
