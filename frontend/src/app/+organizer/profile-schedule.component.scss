@@ -1,15 +1,19 @@
 @import 'shared.scss';
 .fill-height {
     overflow-x: hidden;
+    padding-bottom: 10px;
+}
+button {
+    color: #1b1b1b !important;
+}
+h3 {
+    color: #1b1b1b;
 }
 .col-md-4 {
     text-align: center;
 }
 .glyphicon-trash {
     cursor: pointer;
-}
-h3 {
-    color: #1b1b1b;
 }
 .line-break {
     border-bottom: 1px solid #1b1b1b;
@@ -19,28 +23,23 @@ h3 {
     width: 100%;
     position: relative;
 }
-button {
-    color: #1b1b1b !important;
-}
+/* edit event table custom styles */
 .event-editor-table {
-  margin-top: 10px;
-  border: 1px solid #eceeef;
-  width: 100%;
-  table-layout: auto;
+    margin-top: 10px;
+    border: 1px solid #eceeef;
+    width: 100%;
+    table-layout: auto;
 }
-
 .event-editor-table thead th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #eceeef;
-  color: #1b1b1b;
+    vertical-align: bottom;
+    border-bottom: 2px solid #eceeef;
+    color: #1b1b1b;
 }
-
 .event-editor-table th,
 .event-editor-table td {
-  padding: .75rem;
-  vertical-align: top;
+    padding: .75rem;
+    vertical-align: top;
 }
-
 .event-editor-table td {
     color: #1b1b1b !important;
     border: 1px solid #eceeef;

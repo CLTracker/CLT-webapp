@@ -7,20 +7,20 @@ import { CalendarHeaderComponent } from './calendar-header.component';
 import { DateTimePickerComponent } from './date-time-picker.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    NgbDatepickerModule.forRoot(),
-    NgbTimepickerModule.forRoot(),
-    CalendarModule
-  ],
-  declarations: [
-    CalendarHeaderComponent,
-    DateTimePickerComponent
-  ],
-  exports: [
-    CalendarHeaderComponent,
-    DateTimePickerComponent
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        NgbDatepickerModule.forRoot(),
+        NgbTimepickerModule.forRoot(),
+        CalendarModule
+    ],
+    declarations: [
+        CalendarHeaderComponent,
+        DateTimePickerComponent
+    ],
+    exports: [
+        CalendarHeaderComponent,
+        DateTimePickerComponent
+    ]
 })
 export class CalendarUtilsModule {}
