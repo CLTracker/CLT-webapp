@@ -1,3 +1,6 @@
+#database config file
+db_config
+
 #python
 __pycache__
 

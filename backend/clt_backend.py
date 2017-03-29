@@ -28,5 +28,5 @@ app.register_blueprint(infoRoutes)
 app.register_blueprint(attendeeRoutes)
 
 if __name__ == "__main__":
-    app.run(host="192.168.1.7", debug=True, port = 8080, threaded=True)
+    app.run(host="0.0.0.0", debug=True, port = 8080, threaded=True)
     print("Running dev server on port 8080")
