@@ -183,7 +183,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`schedule` (
   `event_name` VARCHAR(45) NOT NULL,
   `start_time` DATETIME NOT NULL,
   `end_time` DATETIME NOT NULL,
-  `date` DATE NOT NULL,
   INDEX `conference_idx` (`conference` ASC),
   CONSTRAINT `conference`
     FOREIGN KEY (`conference`)
