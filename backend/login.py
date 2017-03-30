@@ -2,78 +2,116 @@
 from flask import Flask, request, Response, make_response, Blueprint
 import simplejson
 
+from sqlalchemy import inspect
+from sqlalchemy import select
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import MetaData, Column, Table, ForeignKey, DateTime, Binary,Integer,String
+
 #custom imports
 from database import dbPool
  
 loginRoutes = Blueprint("loginRoutes", __name__)
 
 def getUserData(userId):
-    #actual complex logical database stuff
-    stat = 200
-    sampleObj = {"metadata":"meta"}
-    return sampleObj, stat
+    #get the row from database
+    TableMetadata = MetaData(dbPool, reflect=True)
+    userTable = TableMetadata.tables['users']
+    result = select([userTable.c.user_id,userTable.c.username,userTable.c.login_count,userTable.c.last_login, userTable.c.last_ip, userTable.c.email, userTable.c.gender, userTable.c.permissions]).where(userTable.c.user_id == userId)
+    results =dbPool.execute(result)
+   
+    if results.rowcount == 0:
+        #need to return some error code
+        empty_metadata = {}
+        return simplejson.dumps(empty_metadata),404
+    else:
+        #there shouldn't be more than 1 entry?
+        for row in results:
+            user_metadata= {"user_id":  row['user_id'],
+                        "username": row['username'],
+                        "login_count": row['login_count'],
+                        "last_login": str(row['last_login']),
+                        "last_ip": row['last_ip'],
+                        "email": row['email'],
+                        "gender": row['gender'],
+                        "permissions": row['permissions']
+            }
+        return simplejson.dumps(user_metadata),200
+    
 
 def updateUserData(userId, content):
     #update stuff in database where stuff bound to "userId" user
+
+    #content contains auth0 token and metadata
+    need_update_metadata = content['metadata']
+    print(need_update_metadata)
     stat = 200
     return stat
 
-def check_permitted_exhibitor(userId):
-    #putting here for now
-    return True 
-
-def  check_organizer(userId):
-    #putting here for now
-    return True     
-
-def exhibitor_login(content):
-    #exhibitor login   
-  
-    #check if it is in permitted_exhibitor list
-    #check_exhibitors_list = check permitted_exhibitor list (true or false)
-    check_exhibitors_list = check_permitted_exhibitor(content["user_id"])
-    if check_exhibitors_list == True:
-        #proceed as normal
-        jsonObject, stat = getUserData(content["user_id"])
-        return jsonObject,stat
-
-    else:
-        #prints out an error
-        print("Not in permitted_exhibitor list")
-        stat = 404
-        return jsonObject, stat     
-
+#organizer login
 def organizers_login(content):
-    #organizer login
-
-    #check organizer table
-    #check_organizer_table = check if id is in organizer table
-    check_organizer_table = check_organizer(content["user_id"])
-    if check_organizer_table == True :
-        #proceed as normal
-        jsonObject, stat= getUserData(content["user_id"])
-        return jsonObject, stat
+    #check if the user_id is in userTable
+    
+    TableMetadata = MetaData(dbPool, reflect = True)
+    userTable = TableMetadata.tables['users']
+    result = select([userTable.c.user_id,userTable.c.username,userTable.c.login_count,userTable.c.last_login, userTable.c.last_ip, userTable.c.email, userTable.c.gender, userTable.c.permissions]).where(userTable.c.user_id == 1)
+    execute_result = dbPool.execute(result)
+    if execute_result.rowcount == 0:
+        #not in the userTable, crate new user
+        #status = crateUser(content)
+        return simplejson.dumps(content),200
     else:
-        #prints out an error
-        print("Organizer not permitted")
-        stat = 404
-        return jsonObject, stat
+        #get the metadata
+        for row in execute_result:
+            #check permission if organizer
 
+            #1 == org
+            #2 == admin
+            #3 == exhi
+            #4 == none of the above ???? just in case someone who is not any of the 3
+            
+            if row['permissions'] != 1:
+                #not an organizer
+                print("not an organizer")
+                return simplejson.dumps(content),404
+    """        else:
+                #grab the metadata
+                user_metadata= {"user_id":  row['user_id'],
+                        "username": row['username'],
+                        "login_count": row['login_count'],
+                        "last_login": str(row['last_login']),
+                        "last_ip": row['last_ip'],
+                        "email": row['email'],
+                        "gender": row['gender'],
+                        "permissions": row['permissions']
+                }
+                organizerTable = TableMeta.tables['organizers']
+                result = select([organizerTable.c.organizer_id, organizerTable.c.conference, organizerTable.c.organizer_name,organizerTable.c.contact_phone,organizer.c.contanct_email]).where(user_metadata['user_id'] == organizerTable.c.organizer_id) 
+                execute_org_result =dbPool.execute(result)
+                for row_org in execute_org_result:
+                    org_metadata = {"organizer_id": row_org["organizer_id"],
+                            "conference": row_org["conference_id"],
+                            "organizer_name": row_org["organizer_name"],
+                            "contact_phone": row_org["contact_phone"],
+                            "contact_email": row_org["contact_email"]
+                    }
+                    user_metadata = user_metadata + org_metadata
+                return simplejson.dumps(user_metadata), 200
 
-
+"""
+    return simplejson.dumps(content),200
 
 @loginRoutes.route("/login", methods=["POST"])
 def login():
     if request.method == "POST":
-        print(request.json)
-        #loginType is a flag to show which login they used
-        if request["loginType"] == "exhibitor":
-            jsonObject, status = exhibitor_login(request.json)
-        if request["loginType"] == "organizers":
-                jsonObject, status = organizers_login(request.json)
+        #print(request.json)
+        if request.json["loginType"] == "organizer":
+            jsonObject, status = organizers_login(request.json)
+            print("organizer\n")
+        if request.json["loginType"] == "exhibitor":
+            print("exhibitor\n")
+        status = 200
         return Response(jsonObject, mimetype="application/json"), status
-
-
+        
 # body: auth0 token
 # does : if(token.user_id is in database)
 #         token.user_metadata = db.get(user)
@@ -83,17 +121,19 @@ def login():
 #return token
 
 
-
 @loginRoutes.route("/user/<string:userId>", methods=["GET", "PATCH"])
 def userInfo(userId):
     if request.method == "GET":
         #GET USER DATA GIVEN "userId"
         jsonObject, status = getUserData(userId)
         return Response(jsonObject, mimetype="application/json"), status
+    
     if request.method == "PATCH":
         #Alter user data given "userId"
         content = request.json
-        status = updateUserData(userId, content)
+        print(request.json)
+        #status = updateUserData(userId, content)
+        status = 200
         return status
 #GET
 #does: if(id is in database)
@@ -104,5 +144,4 @@ def userInfo(userId):
 #PATCH
 # body: auth0 token
 # does: replaces db entry
-# return: status(200 or 400)
-
+# return: status(200 or 400)"
