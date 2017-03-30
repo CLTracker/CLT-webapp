@@ -38,6 +38,7 @@ md-card {
 }
 #nav {
     position: fixed;
+    width: 300px;
     .nav-content {
         background-color: white;
 
@@ -48,6 +49,8 @@ md-card {
     }
 }
 #primary {
+    width: calc(100% - 400px);
+    margin-left: 350px;
     position: relative;
     min-height: 100%;
 }
