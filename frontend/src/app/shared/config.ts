@@ -1,7 +1,13 @@
 interface Consts {
-    imgur_client_id: string;
+    routes: any
 }
 
-export const appConsts: Consts = {
-    imgur_client_id: '1cb7d6529178c73'
-}
+export const APP: Consts = {
+    routes: {
+        PostImage: '/img',
+        EditConf: '/edit/conference/',
+        EditNews: '/edit/news/',
+        EditExhibitor: '/edit/exhibitor/',
+        EditSchedules: '/edit/schedules/'
+    }
+};

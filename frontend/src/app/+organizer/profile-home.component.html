@@ -40,10 +40,7 @@
                             <p class="field-title">Logo</p>
                         </div>
                         <div class="col-md-9">
-                            <image-upload></image-upload>
-                            <button md-button color="primary">
-                                Upload
-                            </button>
+                            <input type="file" ng2FileSelect [uploader]="uploader"/>
                             <img id="logo-preview" 
                             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=Logo&w=150&h=150"/>
                         </div>

@@ -1,7 +1,10 @@
-import { Component }        from '@angular/core';
-import { Router }           from '@angular/router';
+import { Component, OnInit }    from '@angular/core';
+import { Router }               from '@angular/router';
+import { FileUploader,
+    FileItem,
+    ParsedResponseHeaders }     from 'ng2-file-upload';
 
-import { appConsts }        from '../shared';
+import { APP }        from '../shared';
 
 @Component({
     selector: 'my-profile-home',
@@ -9,12 +12,21 @@ import { appConsts }        from '../shared';
     styleUrls: ['./profile-home.component.scss']
 })
 
-export class ProfileHomeComponent {
+export class ProfileHomeComponent implements OnInit {
+    public uploader: FileUploader = new FileUploader({url: APP.routes.PostImage});
+
     private conferenceName: string;
     private location: string;
     private imgUrl: string;
 
     constructor() {}
+
+    ngOnInit() {
+        this.uploader.onSuccessItem =
+        (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
+            console.log(response);
+        };
+    }
 
     /**
      * Saves all content under 'General Information' and synchronizes

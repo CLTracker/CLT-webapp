@@ -5,6 +5,7 @@ import { HttpModule }                   from '@angular/http';
 import { FormsModule }                  from '@angular/forms';
 import { NgbModule }                    from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule }               from 'angular-calendar';
+import { FileUploadModule }             from 'ng2-file-upload';
 import { CalendarUtilsModule }          from './utils/module';
 import { OrgRouteGuard }                from './../shared';
 import { ProfileRoutingModule }         from './profile.routing';
@@ -24,6 +25,7 @@ import { ProfileNotifyComponent }       from './profile-notify.component';
         MaterialModule,
         FormsModule,
         CalendarUtilsModule,
+        FileUploadModule,
         NgbModule.forRoot(),
         CalendarModule.forRoot()
     ],
