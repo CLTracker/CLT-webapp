@@ -4,7 +4,7 @@ interface Consts {
 
 export const APP: Consts = {
     routes: {
-        PostImage: '/img',
+        PostImage: 'http://0.0.0.0:5000/img',
         EditConf: '/edit/conference/',
         EditNews: '/edit/news/',
         EditExhibitor: '/edit/exhibitor/',

@@ -17,7 +17,8 @@ export class ProfileHomeComponent implements OnInit {
 
     private conferenceName: string;
     private location: string;
-    private imgUrl: string;
+    // clt-logo: http://i.imgur.com/E7W9wqm.png
+    private imgUrl: string = '';
 
     constructor() {}
 
@@ -25,6 +26,7 @@ export class ProfileHomeComponent implements OnInit {
         this.uploader.onSuccessItem =
         (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
             console.log(response);
+            // imgUrl = response
         };
     }
 

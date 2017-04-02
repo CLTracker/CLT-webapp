@@ -49,6 +49,8 @@ md-grid-tile {
     margin-top: 20px;
     margin-left: 250px;
     display: block;
+    width: 150px;
+    height: 150px;
 }
 #save-button {
     color: #fff !important;
@@ -108,4 +110,8 @@ md-grid-tile {
    so we're going to get rid of them here (usually they are 1em) */
 /deep/ .mat-input-wrapper {
     margin: 0 0 !important;
+}
+
+#upload-chooser {
+    color: #1b1b1b;
 }

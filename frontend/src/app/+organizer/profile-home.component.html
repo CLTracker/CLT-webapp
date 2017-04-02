@@ -42,9 +42,15 @@
                         <div class="col-md-9">
                             <div class="btn btn-default upload-overlay">
                                 UPLOAD
-                                <input id="uploader-input" type="file" ng2FileSelect [uploader]="uploader"/>
+                                <input id="uploader-input" 
+                                type="file" 
+                                ng2FileSelect 
+                                [uploader]="uploader"
+                                (change)="uploader.uploadAll()"/>
                             </div>
-                            <img id="logo-preview" 
+                            <img *ngIf="imgUrl !== ''" id="logo-preview"
+                            [src]="imgUrl">
+                            <img *ngIf="imgUrl === ''" id="logo-preview" 
                             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=Logo&w=150&h=150"/>
                         </div>
                     </div>

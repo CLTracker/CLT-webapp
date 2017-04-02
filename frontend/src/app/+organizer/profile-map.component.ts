@@ -14,7 +14,8 @@ import { APP }                  from '../shared';
 export class ProfileMapComponent implements OnInit{
     public uploader: FileUploader = new FileUploader({url: APP.routes.PostImage});
 
-    private imgUrl: string;
+    // example: http://www.amaconferencecenter.org/images/atlanta-floor-map.png
+    private imgUrl: string = 'http://www.amaconferencecenter.org/images/atlanta-floor-map.png';
 
     constructor() {}
 
@@ -22,6 +23,13 @@ export class ProfileMapComponent implements OnInit{
         this.uploader.onSuccessItem =
         (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
             console.log(response);
+            // imgUrl = response
         };
+    }
+
+    public removeCurrImage(): void {
+        this.imgUrl = '';
+
+        // TODO: reflect this change on the server
     }
 }
