@@ -4,7 +4,7 @@ import { FileUploader,
     FileItem,
     ParsedResponseHeaders }     from 'ng2-file-upload';
 
-import { APP }        from '../shared';
+import { APP }                  from '../shared';
 
 @Component({
     selector: 'my-profile-home',

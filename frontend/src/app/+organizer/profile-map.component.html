@@ -6,9 +6,10 @@
     <div class="col-md-12 description-field">
         <p>Conference maps help attendees navigate booths and reach destinations faster. Upload a floor plan or map here for users to view within the mobileapp</p>
     </div>
-    <button md-button color="primary">
-        Upload Image
-    </button>
+    <div class="btn btn-default upload-overlay">
+        UPLOAD IMAGE
+        <input id="uploader-input" type="file" ng2FileSelect [uploader]="uploader"/>
+    </div>
     <button md-button color="warn">
         Remove Current Image
     </button>
