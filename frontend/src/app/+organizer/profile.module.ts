@@ -4,6 +4,7 @@ import { CommonModule }                 from '@angular/common';
 import { HttpModule }                   from '@angular/http';
 import { FormsModule }                  from '@angular/forms';
 import { NgbModule }                    from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapseModule }               from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule }               from 'angular-calendar';
 import { FileUploadModule }             from 'ng2-file-upload';
 import { CalendarUtilsModule }          from './utils/module';
@@ -27,6 +28,7 @@ import { ProfileNotifyComponent }       from './profile-notify.component';
         CalendarUtilsModule,
         FileUploadModule,
         NgbModule.forRoot(),
+        NgbCollapseModule.forRoot(),
         CalendarModule.forRoot()
     ],
     exports: [],

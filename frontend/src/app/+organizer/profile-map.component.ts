@@ -14,8 +14,8 @@ import { APP }                  from '../shared';
 export class ProfileMapComponent implements OnInit{
     public uploader: FileUploader = new FileUploader({url: APP.routes.PostImage});
 
-    // example: http://www.amaconferencecenter.org/images/atlanta-floor-map.png
-    private imgUrl: string = 'http://www.amaconferencecenter.org/images/atlanta-floor-map.png';
+    // example: https://conferencecenter.ce.byu.edu/sites/conferencecenter.ce.byu.edu/files/map.png
+    private imgUrl: string = 'https://conferencecenter.ce.byu.edu/sites/conferencecenter.ce.byu.edu/files/map.png';
 
     constructor() {}
 

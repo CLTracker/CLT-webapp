@@ -19,32 +19,23 @@
             </tr>
         </thead>
         <tbody>
-            <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-                <td>Grant Mercer</td>
-                <td>Gmercer015@gmail.com</td>
-                <td>CLTracker</td>
-                <td>Complete</td>
-            </tr>
-            <tr>
-                <td colspan="4" class="hiddenRow">
-                    <div class="accordian-body collapse" id="demo1">
-                        Edit
-                    </div>
-                </td>
-            </tr>
-            <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
-                <td>Steven Brooks</td>
-                <td>sbrooks@something.com</td>
-                <td>UNLV</td>
-                <td>Incomplete</td>
-            </tr>
-            <tr>
-                <td colspan="4" class="hiddenRow">
-                    <div class="accordian-body collapse" id="demo2">
-                        Edit
-                    </div>
-                </td>
-            </tr>
+            <ng-template ngFor let-xb [ngForOf]="tempData" let-idx="index">
+                <tr (click)="toggleHidden(idx)"
+                    class="accordion-toggle">
+                    <td>{{ xb.name }}</td>
+                    <td>{{ xb.email }}</td>
+                    <td>{{ xb.company }}</td>
+                    <td>{{ xb.status }}</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="hiddenRow">
+                        <div class="accordian-body collapse" 
+                            [ngbCollapse]="isCollapsed(idx)">
+                            Edit
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
         </tbody>
     </table>
 </div>
