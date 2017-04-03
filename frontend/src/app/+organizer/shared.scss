@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+p, input, span {
+    font-family: 'Roboto Mono', sans-serif;
+}
 .profile-banner-bg {
     position: absolute;
     top: 0;
     left: 0;    
     height: 50px;
-    background-color: #CCCCCC;
+    background-color: #3D9E5E;
     width: 100%;
 }
 .banner-text {
