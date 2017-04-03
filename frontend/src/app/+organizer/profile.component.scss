@@ -2,6 +2,10 @@ h1 {
     line-height: 75px;
     margin: 0;
     cursor: pointer;
+
+    @media screen and (max-width: 1300px) {
+        line-height: 60px;
+    }
 }
 button {
     /* override material style of color: #fff */
@@ -16,6 +20,11 @@ button {
     width: 100%;
     z-index: 10;
     overflow-y: auto;
+
+    @media screen and (max-width: 1300px) {
+        top: 60px;
+        height: calc(100% - 60px);
+    }
 }
 .overlay-header {
     position: fixed;
@@ -47,7 +56,15 @@ md-card {
         button {
             width: 100%;
             border-bottom: 1px solid grey;
+            font-size: 12px !important; 
+            padding-top: 10px;
+            padding-bottom: 10px;
+            line-height: 20px;
         }
+    }
+
+    @media screen and (max-width: 1300px) {
+        width: 220px;
     }
 }
 #primary {
@@ -55,6 +72,11 @@ md-card {
     margin-left: 350px;
     position: relative;
     min-height: 100%;
+
+    @media screen and (max-width: 1300px) {
+        width: calc(100% - 300px);
+        margin-left: 265px;
+    }
 }
 
 /* change z-index of header for the profile page */

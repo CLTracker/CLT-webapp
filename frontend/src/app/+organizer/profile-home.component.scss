@@ -1,14 +1,14 @@
 @import 'shared.scss';
 .fill-height {
-    height: 1150px;
+    height: 950px;
     background-color: white;
 }
 p {
     margin: 0;
 }
 md-grid-list {
-    margin-top: 120px;
-    height: calc(100% - 130px);
+    margin-top: 80px;
+    height: calc(100% - 120px);
 }
 /* grid styling */
 md-grid-tile {
@@ -30,7 +30,7 @@ md-grid-tile {
 
         md-input-container {
             width: 100%;
-            font-size: 18px;
+            font-size: 14px;
         }
     }
     md-card {
@@ -41,25 +41,26 @@ md-grid-tile {
     }
 }
 .crow {
-    margin-bottom: 0.7em;
+    margin-bottom: 0.5em;
     display: block;
     height: 40px;
 }
 #logo-preview {
-    margin-top: 10px;
-    margin-left: 40%;
+    margin-top: calc(50% - 150px);
+    margin-left: calc(50% - 75px);   
     display: block;
     width: 150px;
     height: 150px;
 }
 #save-button {
-    padding-left: 45px;
-    padding-right: 45px;
+    top: -50px;
+    padding: 10px 35px;
+    line-height: 20px;
     color: #fff !important;
     border: none;
 }
 .field-title {
-    font-size: 18px;
+    font-size: 14px;
 }
 .date-picker {
     input {
@@ -90,7 +91,7 @@ md-grid-tile {
     overflow: hidden;
     border-radius: 1px;
     border: 1px solid black;
-    padding: 15px 55px;
+    padding: 10px 55px;
     letter-spacing: 1.4px;
 
     #uploader-input {

@@ -1,9 +1,14 @@
 @import 'shared.scss';
 .fill-height {
-    height: 100vh;
+    height: 800px;
 }
 button {
-    margin-top: 25px;
+    line-height: 21px;
+    height: auto;
+    padding: 10px 20px !important;
+}
+p {
+    margin: 0;
 }
 .padded {
     margin-top: 10px;
@@ -32,9 +37,10 @@ button {
 .upload-overlay {
     position: relative;
     overflow: hidden;
-    border-radius: 1px;
+    border-radius: 2px;
     border: 1px solid black;
-    padding: 15px 25px;
+    padding: 10px 10px;
+    padding-top: 11px;
     letter-spacing: 1.4px;
 
     #uploader-input {

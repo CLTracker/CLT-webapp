@@ -6,6 +6,7 @@
     <div class="col-md-12 description-field">
         <p>Conference maps help attendees navigate booths and reach destinations faster. Upload a floor plan or map here for users to view within the mobileapp</p>
     </div>
+    <div class="col-md-12" style="margin-top: 20px;">
     <div class="btn btn-default upload-overlay">
         UPLOAD IMAGE
         <input id="uploader-input" 
@@ -17,10 +18,13 @@
     <button md-button color="warn" (click)="removeCurrImage()">
         Remove Current Image
     </button>
+    </div>
+    <div class="col-md-12">
     <div class="padded">
         <md-card>
             <img [src]="imgUrl" [ngClass]="{'empty': imgUrl === ''}" class="placeholder-image"/>
         </md-card>
+    </div>
     </div>
 
 </div>

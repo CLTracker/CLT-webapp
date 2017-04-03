@@ -39,7 +39,7 @@
                         <div class="col-md-3">
                             <p class="field-title">Logo</p>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-3">
                             <div class="btn btn-default upload-overlay">
                                 UPLOAD
                                 <input id="uploader-input" 
@@ -48,21 +48,19 @@
                                 [uploader]="uploader"
                                 (change)="uploader.uploadAll()"/>
                             </div>
+                        </div>
+                        <div class="col-md-6">
                             <img *ngIf="imgUrl !== ''" id="logo-preview"
                             [src]="imgUrl">
                             <img *ngIf="imgUrl === ''" id="logo-preview" 
                             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=Logo&w=150&h=150"/>
                         </div>
-                    </div>
-                    <div class="crow">
-                        <div class="col-md-12">
-                            <button md-raised-button
-                                id="save-button"
-                                color="primary"
-                                (click)="saveGeneralContent()">
-                                Save
-                            </button>
-                        </div>
+                        <button md-raised-button
+                            id="save-button"
+                            color="primary"
+                            (click)="saveGeneralContent()">
+                            Save
+                        </button>
                     </div>
                 </md-card>
             </div>
