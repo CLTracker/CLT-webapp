@@ -15,3 +15,26 @@ button {
 .hiddenRow {
     padding: 0 !important;
 }
+/deep/ .modal-dialog {
+    margin-top: 200px !important;
+
+    h2 {
+        color: #1b1b1b;
+        width: 90%;
+    }
+    .add {
+        color: #1b1b1b;
+        padding: 7px 45px;
+    }
+    .close {
+        padding: 2px;
+        height: auto;
+        border: none;
+        color: black;
+    }
+    span {
+        line-height: auto;
+        width: auto;
+    }
+
+}

@@ -1,3 +1,19 @@
+<ng-template #content>
+    <div class="modal-header">
+        <h2 class="modal-title">New Exhibitor</h2>
+        <!--<button type="button" class="close pull-right" aria-label="close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>-->
+    </div>
+    <div class="modal-body">
+        <p>To add an exhibitor to your conference, enter their information below:</p>
+    </div>
+    <div class="modal-footer">
+        <!--<button type="button" md-button color="primary" class="add" (click)="c('Close click')">
+            Add
+        </button>-->
+    </div>
+</ng-template>
 <div class="container-fluid fill-height">
     <div class="profile-banner-bg"></div>
     <div class="col-md-12 banner-text">
@@ -6,7 +22,7 @@
     <div class="col-md-12 description-field">
         <p> In order for exhibitors to log in and customize their module within the mobile app, you'll need to give them access. You'll also be able to view an exhibitors information here and make your own changes.</p>
     </div>
-    <button md-button color="primary">
+    <button md-button color="primary" (click)="addExhibitor(content)">
         Add Exhibitor
     </button>
     <table class="table table-hover">

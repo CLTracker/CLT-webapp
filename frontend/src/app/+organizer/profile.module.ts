@@ -28,7 +28,6 @@ import { ProfileNotifyComponent }       from './profile-notify.component';
         CalendarUtilsModule,
         FileUploadModule,
         NgbModule.forRoot(),
-        NgbCollapseModule.forRoot(),
         CalendarModule.forRoot()
     ],
     exports: [],

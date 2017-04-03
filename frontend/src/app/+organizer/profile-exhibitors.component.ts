@@ -1,4 +1,7 @@
-import { Component }        from '@angular/core';
+import { Component }     from '@angular/core';
+
+import { NgbModal, 
+    ModalDismissReasons }   from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
     selector: 'my-profile-exhibitors',
@@ -7,6 +10,8 @@ import { Component }        from '@angular/core';
 })
 export class ProfileExhibitorsComponent {
     private currentSelected: number;
+    private closeResult: String;
+
     public tempData: any = [
         {
             'name': 'Grant Mercer',
@@ -21,7 +26,18 @@ export class ProfileExhibitorsComponent {
             'status': 'Incomplete'
         }
     ];
-    constructor() {}
+    constructor(private modalService: NgbModal) {}
+
+    public addExhibitor(content: any): void {
+        this.modalService.open(content).result.then(
+            (result) => {
+                this.closeResult = `Closed with: ${result}`;
+            }, (reason) => {
+                console.log('exited');
+            }
+        );
+        
+    }
 
     /**
      * Sets this.currentSelected accordingly to activate the hidden
