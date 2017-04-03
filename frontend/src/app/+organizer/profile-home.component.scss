@@ -37,7 +37,6 @@ md-grid-tile {
         width: 100%;
         height: 100%;
         background-color: #fff;
-        overflow-y: auto;
     }
 }
 .crow {
@@ -46,8 +45,8 @@ md-grid-tile {
     height: 40px;
 }
 #logo-preview {
-    margin-top: 20px;
-    margin-left: 250px;
+    margin-top: 10px;
+    margin-left: 40%;
     display: block;
     width: 150px;
     height: 150px;

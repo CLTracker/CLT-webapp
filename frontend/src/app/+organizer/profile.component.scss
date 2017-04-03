@@ -1,5 +1,5 @@
 h1 {
-    line-height: 60px;
+    line-height: 75px;
     margin: 0;
     cursor: pointer;
 }
@@ -9,10 +9,10 @@ button {
 }
 #profile-wrapper {
     position: absolute;
-    top: 60px;
+    top: 75px;
     left: 0;
     background: _palette(bg);
-    height: calc(100% - 60px);
+    height: calc(100% - 75px);
     width: 100%;
     z-index: 10;
     overflow-y: auto;
@@ -39,6 +39,8 @@ md-card {
 #nav {
     position: fixed;
     width: 300px;
+    margin-left: 15px;
+
     .nav-content {
         background-color: white;
 
