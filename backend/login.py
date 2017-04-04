@@ -12,31 +12,43 @@ from database import dbPool
  
 loginRoutes = Blueprint("loginRoutes", __name__)
 
-def getUserData(userId):
-    #get the row from database
-    TableMetadata = MetaData(dbPool, reflect=True)
-    userTable = TableMetadata.tables['users']
-    result = select([userTable.c.user_id,userTable.c.username,userTable.c.login_count,userTable.c.last_login, userTable.c.last_ip, userTable.c.email, userTable.c.gender, userTable.c.permissions]).where(userTable.c.user_id == userId)
-    results =dbPool.execute(result)
-   
-    if results.rowcount == 0:
-        #need to return some error code
-        empty_metadata = {}
-        return simplejson.dumps(empty_metadata),404
-    else:
-        #there shouldn't be more than 1 entry?
-        for row in results:
-            user_metadata= {"user_id":  row['user_id'],
-                        "username": row['username'],
-                        "login_count": row['login_count'],
-                        "last_login": str(row['last_login']),
-                        "last_ip": row['last_ip'],
-                        "email": row['email'],
-                        "gender": row['gender'],
-                        "permissions": row['permissions']
-            }
-        return simplejson.dumps(user_metadata),200
+def getUserData(userId, confId):
+    db = dbPool.connect().connection
+    cursor = db.cursor(dictionary=True)
+    result = {}
+    status = 403
     
+    query = "SELECT user_id, username, login_count, last_login, last_ip, email, gender, permissions FROM users WHERE user_id = %s"
+    cursor.execute(query, (userId,))
+    row = cursor.fetchone()
+    if(len(row) == 0):
+        return result, status
+    
+    row["gender"] = row["gender"].decode()
+    row["last_login"] = str(row["last_login"])
+    if(row["gender"] == "1"):
+        row["gender"] = "Male"
+    else:
+        row["gender"] = "Female"
+
+    personType = row["permissions"]
+    query = "SELECT permission_name FROM permissions WHERE permission_id =%s" %(personType)
+    cursor.execute(query)
+    permRow = cursor.fetchone()
+    if(permRow["permission_name"] == "adm" or permRow["permission_name"] == "org"):
+        result = row
+        status = 200
+        return simplejson.dumps(result), status
+
+    query = "SELECT exhibitor_name, logo_url FROM exhibitors WHERE exhibitor_id = %s" %(row["user_id"])
+    cursor.execute(query)
+    exhibRow = cursor.fetchone()
+    row.update(exhibRow)
+    status=200
+    db.close()
+
+    return simplejson.dumps(row), status
+
 
 def updateUserData(userId, content):
     #update stuff in database where stuff bound to "userId" user
@@ -121,11 +133,11 @@ def login():
 #return token
 
 
-@loginRoutes.route("/user/<string:userId>", methods=["GET", "PATCH"])
-def userInfo(userId):
+@loginRoutes.route("/user/<string:confId>/<string:userId>", methods=["GET", "PATCH"])
+def userInfo(userId, confId):
     if request.method == "GET":
         #GET USER DATA GIVEN "userId"
-        jsonObject, status = getUserData(userId)
+        jsonObject, status = getUserData(userId, confId)
         return Response(jsonObject, mimetype="application/json"), status
     
     if request.method == "PATCH":
