@@ -51,15 +51,23 @@ md-card {
     margin-left: 15px;
 
     .nav-content {
-        background-color: white;
+        background-color: #E5E5E5;
 
-        button {
+        .nav-item { 
             width: 100%;
-            border-bottom: 1px solid grey;
-            font-size: 12px !important; 
-            padding-top: 10px;
-            padding-bottom: 10px;
-            line-height: 20px;
+            margin: 20px;
+            color: #1b1b1b;
+            cursor: pointer;
+        }
+        .nav-item:focus {
+            outline: 0;
+        }
+        .active-nav {
+            color: #208944;
+            font-weight: bold;
+        }
+        span {
+            margin-right: 5px;
         }
     }
 
