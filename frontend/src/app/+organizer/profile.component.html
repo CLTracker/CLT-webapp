@@ -9,37 +9,40 @@
     <div class="content-view">
         <div class="container-fluid">
             <div id="nav">
-                <md-card>
-                    <div class="nav-content">
-                        <button md-button [routerLink]="'basic'">
-                            Basic Settings
-                        </button>
-                        <button md-button [routerLink]="'map'">
-                            Floor Plan
-                        </button>
-                        <button md-button [routerLink]="'exhibitors'">
-                            Exhibitors
-                        </button>
-                        <button md-button [routerLink]="'schedule'">
-                            Schedule
-                        </button>
-                        <button md-button [routerLink]="'news'">
-                            News
-                        </button>
-                        <button md-button [routerLink]="'notify'">
-                            Push Notifications
-                        </button>
-                        <button md-button>
-                            Billing
-                        </button>
+                <div class="nav-content">
+                    <div class="nav-item" [routerLink]="'basic'" [routerLinkActive]="['active-nav']">
+                        <div class="text">
+                        <span class="glyphicon glyphicon-cog"></span>
+                        Basic Settings
+                        </div>
                     </div>
-                </md-card>
+                    <div class="nav-item" [routerLink]="'map'" [routerLinkActive]="['active-nav']">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                        Floor Plan
+                    </div>
+                    <div class="nav-item" [routerLink]="'exhibitors'" [routerLinkActive]="['active-nav']">
+                        <span class="glyphicon glyphicon-user"></span>
+                        Exhibitors
+                    </div>
+                    <div class="nav-item" [routerLink]="'schedule'" [routerLinkActive]="['active-nav']">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        Schedule
+                    </div>
+                    <div class="nav-item" [routerLink]="'news'" [routerLinkActive]="['active-nav']">
+                        <span class="glyphicon glyphicon-inbox"></span>
+                        News
+                    </div>
+                    <div class="nav-item" [routerLink]="'notify'">
+                        <span class="glyphicon glyphicon-comment"></span>
+                        Push Notifications
+                    </div>
+                </div>
             </div>
             
             <div id="primary">
-                <md-card>
+                <!--<md-card>-->
                     <router-outlet></router-outlet>
-                </md-card>
+                <!--</md-card>-->
             </div>
             
         </div>

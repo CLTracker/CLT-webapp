@@ -1,5 +1,5 @@
 import { Component }        from '@angular/core';
-import { Router }           from '@angular/router';
+import { Router, RouterLinkActive }           from '@angular/router';
 
 import { Auth }             from '../shared';
 

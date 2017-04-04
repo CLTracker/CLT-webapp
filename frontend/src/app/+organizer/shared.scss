@@ -5,15 +5,15 @@ p, input, span {
 .profile-banner-bg {
     position: absolute;
     top: 0;
-    left: 0;    
+    left: 0;        
     height: 50px;
-    background-color: #3D9E5E;
+    background-color: #033849;
     width: 100%;
 }
 .banner-text {
     h3 {
         line-height: 50px;
-        color: black;
+        color: #fff;
         text-align: center;
         font-size: 16px;
         margin-bottom: 5px;
@@ -22,7 +22,7 @@ p, input, span {
 .description-field {
     height: 30px;
     margin-bottom: 5px;
-    font-size: 16px;
+    font-size: 12px;
 }
 button {
     color: #1b1b1b !important;
