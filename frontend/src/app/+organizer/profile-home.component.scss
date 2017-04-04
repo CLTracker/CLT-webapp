@@ -55,17 +55,19 @@ md-grid-tile {
     height: 40px;
 }
 #logo-preview {
-    margin-top: calc(50% - 150px);
+    margin-top: calc(50% - 190px);
     margin-left: calc(50% - 75px);   
     display: block;
     width: 150px;
     height: 150px;
 }
 #save-button {
-    top: -50px;
+    top: -20px;
     padding: 10px 35px;
+    height: auto;
     line-height: 20px;
     color: #fff !important;
+    background-color: #00551D !important;
     border: none;
 }
 .field-title {
