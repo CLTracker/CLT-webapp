@@ -18,6 +18,8 @@ import { ProfileScheduleComponent }     from './profile-schedule.component';
 import { ProfileNewsComponent }         from './profile-news.component';
 import { ProfileNotifyComponent }       from './profile-notify.component';
 
+import { ApiService }                   from '../shared';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -41,7 +43,8 @@ import { ProfileNotifyComponent }       from './profile-notify.component';
         ProfileNotifyComponent
     ],
     providers: [
-        OrgRouteGuard
+        OrgRouteGuard,
+        ApiService
     ]
 })
 export class OrganizerProfileModule { }

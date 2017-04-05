@@ -5,6 +5,7 @@ import { FileUploader,
     ParsedResponseHeaders }     from 'ng2-file-upload';
 
 import { APP }                  from '../shared';
+import { ApiService }           from '../shared';
 
 @Component({
     selector: 'my-profile-home',
@@ -20,7 +21,16 @@ export class ProfileHomeComponent implements OnInit {
     // clt-logo: http://i.imgur.com/E7W9wqm.png
     private imgUrl: string = '';
 
-    constructor() {}
+    constructor(private api: ApiService) {
+        api.getData().subscribe(
+            result => {
+                console.log(result);
+            },
+            error => {
+                console.log(error);
+            }
+        )
+    }
 
     ngOnInit() {
         this.uploader.onSuccessItem =
