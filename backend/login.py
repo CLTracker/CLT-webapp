@@ -18,7 +18,7 @@ def getUserData(userId, confId):
     result = {}
     status = 403
     
-    query = "SELECT user_id, username, login_count, last_login, last_ip, email, gender, permissions FROM users WHERE user_id = %s"
+    query = "SELECT user_id, name, login_count, last_login, email, permissions FROM users WHERE user_id = %s"
     cursor.execute(query, (userId,))
     row = cursor.fetchone()
     if(len(row) == 0):
@@ -40,7 +40,7 @@ def getUserData(userId, confId):
         status = 200
         return simplejson.dumps(result), status
 
-    query = "SELECT exhibitor_name, logo_url FROM exhibitors WHERE exhibitor_id = %s" %(row["user_id"])
+    query = "SELECT company_name, logo_url FROM exhibitors WHERE exhibitor_id = %s" %(row["user_id"])
     cursor.execute(query)
     exhibRow = cursor.fetchone()
     row.update(exhibRow)
@@ -112,9 +112,14 @@ def organizers_login(content):
 """
     return simplejson.dumps(content),200
 
+
+def userLoginOrCreate(content):
+    return content, 200
+
 @loginRoutes.route("/login", methods=["POST"])
 def login():
     if request.method == "POST":
+        '''
         #print(request.json)
         if request.json["loginType"] == "organizer":
             jsonObject, status = organizers_login(request.json)
@@ -122,6 +127,11 @@ def login():
         if request.json["loginType"] == "exhibitor":
             print("exhibitor\n")
         status = 200
+        
+        '''
+        jsonObject, status = userLoginOrCreate(request.json)
+        
+        print(jsonObject)
         return Response(jsonObject, mimetype="application/json"), status
         
 # body: auth0 token
