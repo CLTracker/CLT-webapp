@@ -19,39 +19,47 @@
     <div class="col-md-12 banner-text">
         <h3> Exhibitor List - [Conference] </h3>
     </div>
-    <div class="col-md-12 description-field">
-        <p> In order for exhibitors to log in and customize their module within the mobile app, you'll need to give them access. You'll also be able to view an exhibitors information here and make your own changes.</p>
+    <div class="col-md-12 no-pad">
+        <md-card>
+            <div class="description-field">
+                <p> In order for exhibitors to log in and customize their module within the mobile app, you'll need to give them access. You'll also be able to view an exhibitors information here and make your own changes.</p>
+            </div>
+        </md-card>
     </div>
     <button md-button color="primary" (click)="addExhibitor(content)">
         Add Exhibitor
     </button>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Company</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <ng-template ngFor let-xb [ngForOf]="tempData" let-idx="index">
-                <tr (click)="toggleHidden(idx)"
-                    class="accordion-toggle">
-                    <td>{{ xb.name }}</td>
-                    <td>{{ xb.email }}</td>
-                    <td>{{ xb.company }}</td>
-                    <td>{{ xb.status }}</td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="hiddenRow">
-                        <div class="accordian-body collapse" 
-                            [ngbCollapse]="isCollapsed(idx)">
-                            Edit
-                        </div>
-                    </td>
-                </tr>
-            </ng-template>
-        </tbody>
-    </table>
+    <div class="col-md-12 no-pad table-view">
+        <md-card>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Company</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-template ngFor let-xb [ngForOf]="tempData" let-idx="index">
+                        <tr (click)="toggleHidden(idx)"
+                            class="accordion-toggle">
+                            <td>{{ xb.name }}</td>
+                            <td>{{ xb.email }}</td>
+                            <td>{{ xb.company }}</td>
+                            <td>{{ xb.status }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="hiddenRow">
+                                <div class="accordian-body collapse" 
+                                    [ngbCollapse]="isCollapsed(idx)">
+                                    Edit
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </tbody>
+            </table>
+        </md-card>
+    </div>
 </div>
