@@ -38,36 +38,54 @@ def getUserData(userId):
     query = "SELECT permission_name FROM permissions WHERE permission_id =%s" %(personType)
     cursor.execute(query)
     permRow = cursor.fetchone()
-    if(permRow["permission_name"] == "adm" or permRow["permission_name"] == "org"):
+    if(permRow["permission_name"] == "adm"):
+        row.update({"accountStatus":"notNewlyAdded"})
         result = row
+        result.update({"userType":"adm"})
         status = 200
         return simplejson.dumps(result), status
+    
+    elif(permRow["permission_name"] == "org"):
+        query="SELECT organizer_email, conference FROM organizers WHERE organizer_email = %s"
+        cursor.execute(query, (row["email"],))
+        orgRow = cursor.fetchone()
+        if(orgRow):
+            row.update({"userType":"org"})
+            row.update({"accountStatus":"notNewlyAdded"})
+            status=200
+            db.close()
+            return simplejson.dumps(row), status
+        else:
+            row.update({"accountStatus":"newlyAdded"})
+            status = 200
+            db.close()
+            return simplejson.dumps(row), status
+    else:
+        query = "SELECT company_name, logo_url FROM exhibitors WHERE exhibitor_email = %s" 
+        cursor.execute(query, (row["email"],))
+        exhibRow = cursor.fetchone()
+        if(exhibRow):
+            row.update(exhibRow)
+            row.update({"userType":"xhb"})
+            row.update({"accountStatus":"notNewlyAdded"})
+            status=200
+            db.close()
+            return simplejson.dumps(row), status
+        else:
+            row.update({"accountStatus":"newlyAdded"})
+            status = 200
+            db.close()
+            return simplejson.dumps(row), status
 
-    query = "SELECT company_name, logo_url FROM exhibitors WHERE exhibitor_id = %s" %(row["user_id"])
-    cursor.execute(query)
-    exhibRow = cursor.fetchone()
-    row.update(exhibRow)
-    status=200
-    db.close()
 
-    return simplejson.dumps(row), status
-
-
-def updateUserData(userId, content):
-    #update stuff in database where stuff bound to "userId" user
-
-    #content contains auth0 token and metadata
-    need_update_metadata = content['metadata']
-    print(need_update_metadata)
-    stat = 200
-    return stat
 
 def userLoginOrCreate(content):
     userId = content["user_id"]
     userInfo, status = getUserData(userId)
-    cursor = dbPool.connect().connection.cursor(dictionary=True)
-
-    if len(userInfo) == 0:
+    userInfo = simplejson.loads(userInfo)
+    db = dbPool.connect().connection
+    cursor = db.cursor(dictionary=True)
+    if status != 403:
         #need to check if the user is permitted
         email = content["email"]
         checkExhibQ = "SELECT exhibitor_email FROM permitted_exhibitors WHERE exhibitor_email = %s"
@@ -77,28 +95,48 @@ def userLoginOrCreate(content):
             cursor.execute(checkExhibQ, (email,))
             authCheck = cursor.fetchone()
             if(not authCheck):
-                  return {}, 403
+                db.close()
+                return {}, 403
+            elif(userInfo["accountStatus"] == "notNewlyAdded"):
+                db.close()
+                return userInfo, 200
             else:
                 #insert a mostly blank entry into exhibitors table
                 insertQ = "INSERT INTO exhibitors(exhibitor_email) VALUES(%s)"
-                cursor.execute(insertQ, (email))
+                cursor.execute(insertQ, (email,))
+                db.commit()
+                db.close()
                 return userInfo, 200
         elif(content["loginType"] == "org"):
             cursor.execute(checkOrgQ, (email,))
             authCheck = cursor.fetchone()
-            print(authCheck)
             if(not authCheck):
+                db.close()
                 return {}, 403
+            elif(userInfo["accountStatus"] == "notNewlyAdded"):
+                db.close()
+                return userInfo, 200
             else:
                 #insert a mostly blank entry into organizers table
                 insertQ = "INSERT INTO organizers(organizer_email) VALUES(%s)"
-                cursor.execute(insertQ, (email))
+                cursor.execute(insertQ, (email,))
+                db.commit()
+                db.close()
                 return userInfo, 200
 
     else:
         #user is already permitted
-        print(userInfo)
+        db.close()
         return userInfo, 200
+
+def updateUserData(userId, content):
+    #update stuff in database where stuff bound to "userId" user
+
+    #content contains auth0 token and metadata
+    need_update_metadata = content['metadata']
+    print(need_update_metadata)
+    stat = 200
+    return stat
 
 @loginRoutes.route("/login", methods=["POST"])
 def login():
