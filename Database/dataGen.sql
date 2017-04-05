@@ -15,8 +15,8 @@ INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES(4, "Exhib1", 0, "2017-03-28 00:00:00", "0.0.0.0", "exhib1@unlv.nevada.edu", 0, 1);
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES(5, "Org1", 0, "2017-03-28 00:00:00", "0.0.0.0", "org@unlv.nevada.edu", 0, 3);
 
-INSERT INTO permitted_organizers(organizer_id) VALUES(5);
-INSERT INTO permitted_exhibitors(exhibitor_id) VALUES(4);
+INSERT INTO permitted_organizers(organizer_email) VALUES("org1@email.com");
+INSERT INTO permitted_exhibitors(exhibitor_email) VALUES("exhb1@email.com");
 
-INSERT INTO organizers(organizer_id, conference) VALUES(5, 1);
-INSERT INTO exhibitors(exhibitor_id, conference, company_name, logo_url) VALUES(4, 1, "Exxon Mobile", "https://hasdhfkasdjf.com");
+INSERT INTO organizers(organizer_email, conference) VALUES("org1@email.com", 1);
+INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("exhb1@email.com", 1, "Exxon Mobile", "https://hasdhfkasdjf.com");
