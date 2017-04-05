@@ -11,9 +11,6 @@ from login import loginRoutes
 
 app = Flask(__name__)
 
-"""
-# CORS(app, resources={r"/*": {'origins': '*', 'support_credentials': True}})
-
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8080')
@@ -21,7 +18,6 @@ def after_request(response):
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
   response.headers.add('Access-Control-Allow-Credentials', 'true')
   return response
-"""
 
 #Registering of routes relating to user management
 app.register_blueprint(loginRoutes)

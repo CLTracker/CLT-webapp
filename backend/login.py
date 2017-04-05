@@ -65,28 +65,44 @@ def updateUserData(userId, content):
 def userLoginOrCreate(content):
     userId = content["user_id"]
     userInfo, status = getUserData(userId)
+    cursor = dbPool.connect().connection.cursor(dictionary=True)
 
     if len(userInfo) == 0:
-        x = 0
         #need to check if the user is permitted
+        email = content["email"]
+        checkExhibQ = "SELECT exhibitor_email FROM permitted_exhibitors WHERE exhibitor_email = %s"
+        checkOrgQ = "SELECT organizer_email FROM permitted_organizers WHERE organizer_email = %s"
         
+        if(content["loginType"] == "xhb"):
+            cursor.execute(checkExhibQ, (email,))
+            authCheck = cursor.fetchone()
+            if(not authCheck):
+                  return {}, 403
+            else:
+                #insert a mostly blank entry into exhibitors table
+                insertQ = "INSERT INTO exhibitors(exhibitor_email) VALUES(%s)"
+                cursor.execute(insertQ, (email))
+                return userInfo, 200
+        elif(content["loginType"] == "org"):
+            cursor.execute(checkOrgQ, (email,))
+            authCheck = cursor.fetchone()
+            print(authCheck)
+            if(not authCheck):
+                return {}, 403
+            else:
+                #insert a mostly blank entry into organizers table
+                insertQ = "INSERT INTO organizers(organizer_email) VALUES(%s)"
+                cursor.execute(insertQ, (email))
+                return userInfo, 200
+
     else:
+        #user is already permitted
         print(userInfo)
-        return userInfo, status
+        return userInfo, 200
 
 @loginRoutes.route("/login", methods=["POST"])
 def login():
     if request.method == "POST":
-        '''
-        #print(request.json)
-        if request.json["loginType"] == "organizer":
-            jsonObject, status = organizers_login(request.json)
-            print("organizer\n")
-        if request.json["loginType"] == "exhibitor":
-            print("exhibitor\n")
-        status = 200
-        
-        '''
         jsonObject, status = userLoginOrCreate(request.json)
         jsonObject = simplejson.dumps(jsonObject)
         return Response(jsonObject, mimetype="application/json"), status
