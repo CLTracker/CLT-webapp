@@ -67,6 +67,7 @@ def userLoginOrCreate(content):
     userInfo, status = getUserData(userId)
 
     if len(userInfo) == 0:
+        x = 0
         #need to check if the user is permitted
         
     else:
