@@ -7,6 +7,7 @@ from flask_cors import CORS, cross_origin
 
 #custom imports
 from login import loginRoutes
+from general import genRoutes
 
 
 app = Flask(__name__)
@@ -21,6 +22,7 @@ def after_request(response):
 
 #Registering of routes relating to user management
 app.register_blueprint(loginRoutes)
+app.register_blueprint(genRoutes)
 
 '''
 @app.route('/img', methods=['POST'])
@@ -32,4 +34,4 @@ def image_upload():
 
 if __name__ == "__main__":
     app.run(host= "0.0.0.0", debug=True, port = 5000, threaded=True)
-    print("Running dev server on port 8080")
+    print("Running dev server on port 5000")

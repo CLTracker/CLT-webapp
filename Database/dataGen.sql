@@ -28,3 +28,7 @@ INSERT INTO permitted_exhibitors(exhibitor_email) VALUES("exhb1@email.com");
 
 INSERT INTO organizers(organizer_email, conference) VALUES("org1@email.com", 1);
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("exhb1@email.com", 1, "Exxon Mobile", "https://hasdhfkasdjf.com");
+
+INSERT INTO schedule(conference, event_name, start_time, end_time) VALUES(1, "EVENT 1", "2017-03-28 00:00:00", "2017-03-28 00:00:00");
+INSERT INTO schedule(conference, event_name, start_time, end_time) VALUES(1, "EVENT 2", "2017-03-28 00:00:00", "2017-03-28 00:00:00");
+INSERT INTO schedule(conference, event_name, start_time, end_time) VALUES(1, "EVENT 3", "2017-03-28 00:00:00", "2017-03-28 00:00:00");

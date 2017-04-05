@@ -2,11 +2,6 @@
 from flask import Flask, request, Response, make_response, Blueprint
 import simplejson
 
-from sqlalchemy import inspect
-from sqlalchemy import select
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import MetaData, Column, Table, ForeignKey, DateTime, Binary,Integer,String
-
 #custom imports
 from database import dbPool
  
@@ -82,6 +77,10 @@ def getUserData(userId):
 def userLoginOrCreate(content):
     userId = content["user_id"]
     userInfo, status = getUserData(userId)
+    
+    if(userInfo == {}):
+                return {}, 403
+    
     userInfo = simplejson.loads(userInfo)
     db = dbPool.connect().connection
     cursor = db.cursor(dictionary=True)
@@ -145,15 +144,6 @@ def login():
         jsonObject = simplejson.dumps(jsonObject)
         return Response(jsonObject, mimetype="application/json"), status
         
-# body: auth0 token
-# does : if(token.user_id is in database)
-#         token.user_metadata = db.get(user)
-#       else:
-#           create user 
-#           send token
-#return token
-
-
 @loginRoutes.route("/user/<string:userId>", methods=["GET", "PATCH"])
 def userInfo(userId):
     if request.method == "GET":
