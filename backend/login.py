@@ -18,18 +18,21 @@ def getUserData(userId, confId):
     result = {}
     status = 403
     
-    query = "SELECT user_id, name, login_count, last_login, email, permissions FROM users WHERE user_id = %s"
+    query = "SELECT user_id, name, email, permissions FROM users WHERE user_id = %s"
     cursor.execute(query, (userId,))
     row = cursor.fetchone()
     if(len(row) == 0):
         return result, status
-    
+   
+    '''
+    print("\n\n"+str(row)+"\n\n")
     row["gender"] = row["gender"].decode()
     row["last_login"] = str(row["last_login"])
     if(row["gender"] == "1"):
         row["gender"] = "Male"
     else:
         row["gender"] = "Female"
+    '''
 
     personType = row["permissions"]
     query = "SELECT permission_name FROM permissions WHERE permission_id =%s" %(personType)
@@ -130,8 +133,7 @@ def login():
         
         '''
         jsonObject, status = userLoginOrCreate(request.json)
-        
-        print(jsonObject)
+        jsonObject = simplejson.dumps(jsonObject)
         return Response(jsonObject, mimetype="application/json"), status
         
 # body: auth0 token
