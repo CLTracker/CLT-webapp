@@ -6,10 +6,19 @@ declare var Auth0Lock: any;
 
 @Injectable()
 export class Auth {
+
     Lock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
         'clt-global.auth0.com', 
-        {}
+        {  
+            theme: {
+                logo: 'http://i.imgur.com/XDKwjRv.png',
+                primaryColor: '#0F4c60'
+            },
+            languageDictionary: {
+                title: "CLTracker"
+            },
+        }
     );
 
     userProfile: any;

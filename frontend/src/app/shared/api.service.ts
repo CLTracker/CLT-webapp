@@ -4,13 +4,13 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ApiService {
-  private url: string = 'http://localhost:3030/api/getdata';
+  private getUserUrl: string = 'http://0.0.0.0:5000/1/1';
 
   constructor(private http: Http) { }
 
   getData(): Observable<Object> {
     return this.http
-      .get(this.url)
+      .get(this.getUserUrl)
       .map((r: Response) => r.json());
   }
 }
