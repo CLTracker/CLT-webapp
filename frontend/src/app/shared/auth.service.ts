@@ -1,11 +1,15 @@
 import { Injectable }       from '@angular/core';
 import { tokenNotExpired }  from 'angular2-jwt';
 import { Router }           from '@angular/router';
+import { Http, Response }   from '@angular/http';
+import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
 
 @Injectable()
 export class Auth {
+
+    private getUserUrl: string = 'http://localhost:5000/user';
 
     Lock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
@@ -23,7 +27,7 @@ export class Auth {
 
     userProfile: any;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private http: Http) {
         
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
@@ -63,6 +67,12 @@ export class Auth {
 
     public refresh() {
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    }
+
+    public get(): Observable<Object> {
+        return this.http
+            .get(`${this.getUserUrl}/1`)
+            .map((r: Response) => r.json());
     }
 
     public authenticated() {

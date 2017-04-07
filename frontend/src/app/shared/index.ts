@@ -1,4 +1,3 @@
-export * from './api.service';
 export * from './auth.service';
 export * from './route-guard-all.service';
 export * from './route-guard-adm.service';

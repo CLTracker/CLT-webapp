@@ -5,7 +5,6 @@ import {  Router,
           NavigationEnd,
           NavigationCancel,
           NavigationError }             from '@angular/router';
-import { ApiService }                   from './shared';
 import { Auth }                         from './shared';
 import { tokenNotExpired }              from 'angular2-jwt';
 
@@ -36,9 +35,7 @@ export class AppComponent {
     return '';
   }
 
-  constructor(private api: ApiService, 
-    private auth: Auth,
-    private router: Router) {
+  constructor(private auth: Auth, private router: Router) {
 
     this.router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
