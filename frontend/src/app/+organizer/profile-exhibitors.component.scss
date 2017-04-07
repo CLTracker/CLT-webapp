@@ -3,6 +3,11 @@
     height: 80vh;
     padding: 0;
 }
+.crow {
+    margin-bottom: 0.5em;
+    display: block;
+    height: 40px;
+}
 .table-view {
     min-height: 400px;
 
@@ -28,9 +33,28 @@ table {
 .hiddenRow {
     padding: 0 !important;
 }
-/deep/ .modal-dialog {
-    margin-top: 200px !important;
 
+/deep/ .modal-dialog {
+    width: 500px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -250px;
+    sup {
+        font-size: 16px;
+        color: red;
+    }
+    h2,h3,input,.mat-input-wrapper,label{
+        color: #1b1b1b;
+        margin: 0;
+    }
+    input, md-input-container {
+        width: 100%;
+    }
+    h3 {
+        font-weight: 600;
+    }
     h2 {
         color: #1b1b1b;
         width: 90%;
@@ -49,5 +73,4 @@ table {
         line-height: auto;
         width: auto;
     }
-
 }

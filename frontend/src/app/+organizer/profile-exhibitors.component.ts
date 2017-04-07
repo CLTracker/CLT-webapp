@@ -19,6 +19,9 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
     private currentSelected: number;
     private closeResult: String;
 
+    private newExhibEmail: string;
+    private newExhibCompany: string;
+
     public tempData: any = [
         {
             'name': 'Grant Mercer',
@@ -36,15 +39,14 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
     constructor(private modalService: NgbModal, private cdRef: ChangeDetectorRef) {}
 
     public addExhibitor(): void {
-        this.modalService.open(this.modalContent, {size: 'lg'});
-        
-        // .result.then(
-        //     (result) => {
-        //         this.closeResult = `Closed with: ${result}`;
-        //     }, (reason) => {
-        //         console.log('exited');
-        //     }
-        // );
+        this.modalService.open(this.modalContent)
+            .result.then(
+                (result) => {
+                    this.closeResult = `Closed with: ${result}`;
+                }, (reason) => {
+                    console.log('exited');
+                }
+            );
         
     }
 
