@@ -8,6 +8,8 @@ from flask_cors import CORS, cross_origin
 #custom imports
 from login import loginRoutes
 from general import genRoutes
+#from exhib import exhibRoutes
+from news import newsRoutes
 
 
 app = Flask(__name__)
@@ -23,6 +25,8 @@ def after_request(response):
 #Registering of routes relating to user management
 app.register_blueprint(loginRoutes)
 app.register_blueprint(genRoutes)
+#app.register_blueprint(exhibRoutes)
+app.register_blueprint(newsRoutes)
 
 '''
 @app.route('/img', methods=['POST'])

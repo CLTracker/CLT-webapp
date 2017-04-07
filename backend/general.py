@@ -45,7 +45,6 @@ def getNews(db, confId):
     results = cursor.fetchall()
     for row in results:
         result.append(row)
-        print(row)
     return result, 200    
     
 
@@ -84,4 +83,4 @@ def news(confId):
         result = simplejson.dumps(result)
         db.close()
         return Response(result, mimetype= "application/json"), status
-
+        
