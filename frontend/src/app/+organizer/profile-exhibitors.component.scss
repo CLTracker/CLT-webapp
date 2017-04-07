@@ -19,8 +19,11 @@ table {
         color: #1b1b1b;
     }
 }
-button {
+.add-exhib {
     margin: 10px 0;
+    padding: 15px 25px;
+    border-radius: 2px;
+    border: 1px solid black;
 }
 .hiddenRow {
     padding: 0 !important;

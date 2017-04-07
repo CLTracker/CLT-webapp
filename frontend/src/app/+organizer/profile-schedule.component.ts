@@ -1,6 +1,6 @@
 import { 
     Component, ChangeDetectionStrategy,
-    ViewChild, TemplateRef 
+    ViewChild, TemplateRef
 } from '@angular/core';
 import { 
     startOfDay, endOfDay, subDays, addDays,

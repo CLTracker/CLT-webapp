@@ -1,19 +1,14 @@
-<ng-template #content>
+<ng-template #modalContent let-close="close">
     <div class="modal-header">
-        <h2 class="modal-title">New Exhibitor</h2>
-        <!--<button type="button" class="close pull-right" aria-label="close" (click)="d('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>-->
+        <h5 class="modal-title">Event action occurred</h5>
     </div>
     <div class="modal-body">
-        <p>To add an exhibitor to your conference, enter their information below:</p>
     </div>
     <div class="modal-footer">
-        <!--<button type="button" md-button color="primary" class="add" (click)="c('Close click')">
-            Add
-        </button>-->
+        <button type="button" class="btn btn-secondary" (click)="close()">OK</button>
     </div>
 </ng-template>
+
 <div class="container-fluid fill-height">
     <div class="profile-banner-bg"></div>
     <div class="col-md-12 banner-text">
@@ -26,9 +21,9 @@
             </div>
         </md-card>
     </div>
-    <button md-button color="primary" (click)="addExhibitor(content)">
-        Add Exhibitor
-    </button>
+    <div class="btn btn-default add-exhib" (click)="addExhibitor()">
+        ADD EXHIBITOR
+    </div>
     <div class="col-md-12 no-pad table-view">
         <md-card>
             <table class="table table-hover">
