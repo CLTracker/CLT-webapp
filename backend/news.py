@@ -57,4 +57,4 @@ def newsedit(confid):
         jsonObj = simplejson.dumps(jsonObject)
         db.close()
         return Response(jsonObj, mimetype="application/json"), status
-        
+
