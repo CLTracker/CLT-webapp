@@ -34,22 +34,12 @@ def changeConfInfo(content,confId):
             stat_json["status"] = 404
             db.close() 
             return stat_json, stat_json["status"]
-       # print(content["fields"].keys())
-       # for key in content["fields"].keys():
-            #replace each item individually 
-       #     query = "UPDATE conference SET %s=%s WHERE conference_id = %s"
-       #     cursor.execute(query, (key,content["fields"][key],confId,))
-       #     db.commit()
-
+        for key in content["fields"].keys():
+            result[key] = content["fields"][key] 
+        query = "UPDATE conference SET conference_name = %s, start_date=%s, end_date=%s, location=%s, logo_url=%s WHERE conference_id =%s"   
+        cursor.execute(query,(result["conference_name"], result["start_date"], result["end_date"], result["location"], result["logo_url"],confId,))
+        db.commit()       
         stat_json["status"] = 200
-      
-        #Check
-        #query = "SELECT conference_name, start_date,end_date,location,logo_url FROM conference where conference_id = %s"
-        #cursor.execute(query, (confId,))
-        #result = cursor.fetchone()
-        #stat_json.update(result)
-        #print(result)
-
 
         db.close()
         return stat_json, stat_json["status"]
