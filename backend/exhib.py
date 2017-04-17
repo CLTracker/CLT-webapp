@@ -9,7 +9,6 @@ exhibRoutes = Blueprint("exhibRoutes", __name__)
 
 def edit_exhib(db, content, confId):
     
-    #json_status = {"status": 401, "data":{}, "data1": {}}
     json_status = {"status": 401}
     cursor = db.cursor(dictionary=True)
     
@@ -40,12 +39,6 @@ def edit_exhib(db, content, confId):
                 query = "INSERT INTO users(email,user_id, permissions) VALUES(%s, %s, %s)"
                 cursor.execute(query, (content["email"],content["email"], 1,))
                 db.commit()
-                
-                #check
-                query = "SELECT user_id, name, login_count, last_login, last_ip, email, gender, permissions,phone FROM users WHERE email = %s"
-                cursor.execute(query, (content["email"],))
-                result = cursor.fetchone()
-                #json_status["data"]=result;
 
             query = "SELECT exhibitor_email FROM permitted_exhibitors WHERE exhibitor_email = %s"
             cursor.execute(query, (content["email"],))
@@ -56,13 +49,7 @@ def edit_exhib(db, content, confId):
                 query = "INSERT INTO permitted_exhibitors(exhibitor_email) VALUES (%s)"
                 cursor.execute(query,(content["email"],))
                 db.commit()
-                 
-            #check
-            #query = "SELECT exhibitor_email FROM permitted_exhibitors WHERE exhibitor_email = %s"
-            #cursor.execute(query, (content["email"],))
-            #result = cursor.fetchone()
-            #json_status["data1"]= result   
-            
+
             json_status["status"] = 200
             return json_status, json_status["status"]
 
