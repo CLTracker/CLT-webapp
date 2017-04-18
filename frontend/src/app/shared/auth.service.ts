@@ -55,6 +55,11 @@ export class Auth {
         });
     }
 
+    public setProfile(profile: Object) {
+        localStorage.setItem('profile', JSON.stringify(profile));
+        this.userProfile = profile;
+    }
+
     public loginOrganizer() {
         sessionStorage.setItem('redir', JSON.stringify(['org', 'profile']));
         this.Lock.show();

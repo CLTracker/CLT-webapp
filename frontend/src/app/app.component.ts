@@ -26,8 +26,8 @@ export class AppComponent {
 
   get perms(): string {
     if(this.auth.userProfile) {
-      if (this.auth.userProfile.user_metadata && this.auth.userProfile.user_metadata.permissions) {
-        return this.auth.userProfile.user_metadata.permissions;
+      if (this.auth.userProfile) {
+        return this.auth.userProfile.userType;
       } else {
         throw Error('no permissions set for user');
       }

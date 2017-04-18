@@ -11,13 +11,11 @@ export class OrgRouteGuard implements CanActivateChild {
         private router: Router) { } 
 
     private hasOrg(): boolean { 
-        return this.auth.userProfile && this.auth.userProfile.user_metadata &&
-            this.auth.userProfile.user_metadata.organization
+        return this.auth.userProfile
     }
 
     private hasPermissions(): boolean {
-        return this.auth.userProfile && this.auth.userProfile.user_metadata && 
-            this.auth.userProfile.user_metadata.permissions
+        return this.auth.userProfile && this.auth.userProfile.userType === 'org';
     }
 
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -40,7 +38,7 @@ export class OrgRouteGuard implements CanActivateChild {
         }
 
         // if the user has permissions but they aren't as an exhibitor, do not allow
-        if(this.hasPermissions() && this.auth.userProfile.user_metadata.permissions !== 'org') {
+        if(!this.hasPermissions()) {
             this.router.navigate(['']);
             return false;
         }
