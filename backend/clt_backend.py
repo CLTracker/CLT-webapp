@@ -8,8 +8,9 @@ from flask_cors import CORS, cross_origin
 #custom imports
 from login import loginRoutes
 from general import genRoutes
-#from exhib import exhibRoutes
+from exhib import exhibRoutes
 from news import newsRoutes
+from conf import confRoutes
 
 
 app = Flask(__name__)
@@ -25,8 +26,9 @@ def after_request(response):
 #Registering of routes relating to user management
 app.register_blueprint(loginRoutes)
 app.register_blueprint(genRoutes)
-#app.register_blueprint(exhibRoutes)
+app.register_blueprint(exhibRoutes)
 app.register_blueprint(newsRoutes)
+app.register_blueprint(confRoutes)
 
 '''
 @app.route('/img', methods=['POST'])
@@ -34,7 +36,10 @@ def image_upload():
     print(request.headers)
     return jsonify('working')
 '''
-
+'''
+for rule in app.url_map.iter_rules():
+    print(rule.rule)
+'''
 
 if __name__ == "__main__":
     app.run(host= "0.0.0.0", debug=True, port = 5000, threaded=True)

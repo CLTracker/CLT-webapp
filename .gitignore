@@ -1,3 +1,6 @@
+#install scripts
+installBack.sh
+
 #database config file
 db_config
 

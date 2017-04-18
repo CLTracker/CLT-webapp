@@ -13,7 +13,7 @@ def getUserData(userId):
     result = {}
     status = 403
     
-    query = "SELECT user_id, name, email, permissions FROM users WHERE user_id = %s"
+    query = "SELECT user_id, name, email, permissions FROM users WHERE email = %s"
     cursor.execute(query, (userId,))
     row = cursor.fetchone()
     if(not row):
@@ -75,58 +75,60 @@ def getUserData(userId):
 
 
 def userLoginOrCreate(content):
-    userId = content["user_id"]
-    userInfo, status = getUserData(userId)
-    
-    if(userInfo == {}):
-                return {}, 403
-    
-    userInfo = simplejson.loads(userInfo)
+    email = content["email"]
+    userInfo, status = getUserData(email)
+
+    userInfo = simplejson.loads(str(userInfo))
     db = dbPool.connect().connection
     cursor = db.cursor(dictionary=True)
-    if status != 403:
-        #need to check if the user is permitted
-        email = content["email"]
-        checkExhibQ = "SELECT exhibitor_email FROM permitted_exhibitors WHERE exhibitor_email = %s"
-        checkOrgQ = "SELECT organizer_email FROM permitted_organizers WHERE organizer_email = %s"
-        
-        if(content["loginType"] == "xhb"):
-            cursor.execute(checkExhibQ, (email,))
-            authCheck = cursor.fetchone()
-            if(not authCheck):
-                db.close()
-                return {}, 403
-            elif(userInfo["accountStatus"] == "notNewlyAdded"):
-                db.close()
-                return userInfo, 200
-            else:
-                #insert a mostly blank entry into exhibitors table
-                insertQ = "INSERT INTO exhibitors(exhibitor_email) VALUES(%s)"
-                cursor.execute(insertQ, (email,))
-                db.commit()
-                db.close()
-                return userInfo, 200
-        elif(content["loginType"] == "org"):
-            cursor.execute(checkOrgQ, (email,))
-            authCheck = cursor.fetchone()
-            if(not authCheck):
-                db.close()
-                return {}, 403
-            elif(userInfo["accountStatus"] == "notNewlyAdded"):
-                db.close()
-                return userInfo, 200
-            else:
-                #insert a mostly blank entry into organizers table
-                insertQ = "INSERT INTO organizers(organizer_email) VALUES(%s)"
-                cursor.execute(insertQ, (email,))
-                db.commit()
-                db.close()
-                return userInfo, 200
+    
+    #if getUserData returned 403, either someone not in database attempted to login,
+    #or this is the users first time logging in
+    if(status == 403):
+        userInfo.update({"accountStatus":"newlyAdded"})
+    
+    #need to check if the user is permitted
+    email = content["email"]
+    checkExhibQ = "SELECT exhibitor_email FROM permitted_exhibitors WHERE exhibitor_email = %s"
+    checkOrgQ = "SELECT organizer_email FROM permitted_organizers WHERE organizer_email = %s"
+    
+    if(content["loginType"] == "xhb"):
+        cursor.execute(checkExhibQ, (email,))
+        authCheck = cursor.fetchone()
+        if(not authCheck):
+            db.close()
+            return {}, 403
+        elif(userInfo["accountStatus"] == "notNewlyAdded"):
+            db.close()
+            return userInfo, 200
+        else:
+            #insert a mostly blank entry into exhibitors table
+            userQ = "INSERT INTO users(email, user_id, name, permissions) VALUES(%s, %s, %s, 1)"
+            insertQ = "INSERT INTO exhibitors(exhibitor_email, conference) VALUES(%s, 1)"
+            cursor.execute(userQ, (email, content["user_id"], content["name"]))
+            cursor.execute(insertQ, (email,))
+            db.commit()
+            db.close()
+            return userInfo, 200
+    elif(content["loginType"] == "org"):
+        cursor.execute(checkOrgQ, (email,))
+        authCheck = cursor.fetchone()
+        if(not authCheck):
+            db.close()
+            return {}, 403
+        elif(userInfo["accountStatus"] == "notNewlyAdded"):
+            db.close()
+            return userInfo, 200
+        else:
+            #insert a mostly blank entry into organizers table
+            userQ = "INSERT INTO users(email, user_id, name, permissions) VALUES(%s, %s, %s, 3)"
+            insertQ = "INSERT INTO organizers(organizer_email, conference) VALUES(%s, 1)"
+            cursor.execute(userQ, (email, content["user_id"], content["name"]))
+            cursor.execute(insertQ, (email,))
+            db.commit()
+            db.close()
+            return userInfo, 200
 
-    else:
-        #user is already permitted
-        db.close()
-        return userInfo, 200
 
 def updateUserData(userId, content):
     #update stuff in database where stuff bound to "userId" user
@@ -147,7 +149,7 @@ def login():
 @loginRoutes.route("/user/<string:userId>", methods=["GET", "PATCH"])
 def userInfo(userId):
     if request.method == "GET":
-        #GET USER DATA GIVEN "userId"
+        #GET USER DATA GIVEN "email"
         jsonObject, status = getUserData(userId)
         return Response(jsonObject, mimetype="application/json"), status
     
