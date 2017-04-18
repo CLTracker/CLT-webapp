@@ -10,14 +10,12 @@ export class XhbRouteGuard implements CanActivateChild {
     constructor(private auth: Auth,
         private router: Router) { } 
 
-    private hasOrg(): boolean {
-        return this.auth.userProfile && this.auth.userProfile.user_metadata &&
-            this.auth.userProfile.user_metadata.organization
+    private hasOrg(): boolean { 
+        return this.auth.userProfile
     }
 
     private hasPermissions(): boolean {
-        return this.auth.userProfile && this.auth.userProfile.user_metadata && 
-            this.auth.userProfile.user_metadata.permissions
+        return this.auth.userProfile && this.auth.userProfile.userType === 'xhb';
     }
 
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -40,7 +38,7 @@ export class XhbRouteGuard implements CanActivateChild {
         }
 
         // if the user has permissions but they aren't as an exhibitor, do not allow
-        if(this.hasPermissions() && this.auth.userProfile.user_metadata.permissions !== 'xhb') {
+        if(!this.hasPermissions()) {
             this.router.navigate(['']);
             return false;
         }

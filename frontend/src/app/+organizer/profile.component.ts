@@ -11,13 +11,6 @@ import { Auth }             from '../shared';
 
 export class ProfileComponent {
     constructor(private auth: Auth) {
-        this.auth.get().subscribe(
-            result => {
-                console.log(result);
-            },
-            error => {
-                console.log('error! ' + error);
-            }
-        )
+        
     }
 }

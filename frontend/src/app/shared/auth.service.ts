@@ -45,10 +45,6 @@ export class Auth {
 
                 this.authToken = profile;
                 sessionStorage.setItem('authToken', JSON.stringify(profile));
-                // profile.user_metadata = profile.user_metadata || {};
-                // localStorage.setItem('profile', JSON.stringify(profile));
-                // this.userProfile = profile;
-
                 let redirectUrl = JSON.parse(sessionStorage.getItem('redir'));
                 this.router.navigate(redirectUrl);
             });
