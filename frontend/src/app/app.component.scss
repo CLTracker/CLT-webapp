@@ -2,6 +2,9 @@
     ul li a {
         cursor: pointer;
     }
+    ul li a:hover {
+        text-decoration: underline;
+    }
 }
 #spinner {
     position: fixed;

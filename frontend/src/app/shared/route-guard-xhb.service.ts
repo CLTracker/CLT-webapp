@@ -11,12 +11,12 @@ export class XhbRouteGuard implements CanActivateChild {
         private router: Router) { } 
 
     private hasOrg(): boolean {
-        return this.auth.userProfile.user_metadata &&
+        return this.auth.userProfile && this.auth.userProfile.user_metadata &&
             this.auth.userProfile.user_metadata.organization
     }
 
     private hasPermissions(): boolean {
-        return this.auth.userProfile.user_metadata && 
+        return this.auth.userProfile && this.auth.userProfile.user_metadata && 
             this.auth.userProfile.user_metadata.permissions
     }
 

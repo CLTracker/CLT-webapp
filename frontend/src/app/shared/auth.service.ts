@@ -10,6 +10,7 @@ declare var Auth0Lock: any;
 export class Auth {
 
     private getUserUrl: string = 'http://localhost:5000/user';
+    private loginUrl: string  = 'http://localhost:5000/login';
 
     Lock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
@@ -26,9 +27,11 @@ export class Auth {
     );
 
     userProfile: any;
+    authToken: any;
 
     constructor(private router: Router, private http: Http) {
         
+        this.authToken = JSON.parse(sessionStorage.getItem('authToken'));
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
         // callback event for authenticated users
@@ -40,9 +43,11 @@ export class Auth {
                     return;
                 }
 
-                profile.user_metadata = profile.user_metadata || {};
-                localStorage.setItem('profile', JSON.stringify(profile));
-                this.userProfile = profile;
+                this.authToken = profile;
+                sessionStorage.setItem('authToken', JSON.stringify(profile));
+                // profile.user_metadata = profile.user_metadata || {};
+                // localStorage.setItem('profile', JSON.stringify(profile));
+                // this.userProfile = profile;
 
                 let redirectUrl = JSON.parse(sessionStorage.getItem('redir'));
                 this.router.navigate(redirectUrl);
@@ -71,7 +76,13 @@ export class Auth {
 
     public get(): Observable<Object> {
         return this.http
-            .get(`${this.getUserUrl}/1`)
+            .get(`${this.getUserUrl}/7`)
+            .map((r: Response) => r.json());
+    }
+
+    public postLogin(data: any) {
+        return this.http
+            .post(`${this.loginUrl}`, data)
             .map((r: Response) => r.json());
     }
 

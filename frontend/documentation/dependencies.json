@@ -1,0 +1,3363 @@
+[
+  {
+    "name": "AdminProfileModule",
+    "file": "app/+administrator/profile.module.ts",
+    "providers": [
+      {
+        "name": "AdmRouteGuard"
+      }
+    ],
+    "declarations": [
+      {
+        "name": "ProfileComponent",
+        "file": "app/+administrator/profile.component.ts",
+        "selector": "my-profile",
+        "providers": [],
+        "templateUrl": [
+          "profile.component.html"
+        ],
+        "styleUrls": [
+          "profile.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 123,
+            "end": 150,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 123,
+              "end": 136,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 137,
+              "end": 150,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile"
+            }
+          },
+          {
+            "pos": 151,
+            "end": 195,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 151,
+              "end": 167,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 168,
+              "end": 195,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile.component.html"
+            }
+          },
+          {
+            "pos": 196,
+            "end": 240,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 196,
+              "end": 210,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 211,
+              "end": 240,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 213,
+                  "end": 239,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileHomeComponent",
+        "file": "app/+administrator/profile-home.component.ts",
+        "selector": "my-profile-home",
+        "providers": [],
+        "templateUrl": [
+          "profile-home.component.html"
+        ],
+        "styleUrls": [
+          "profile-home.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 115,
+            "end": 147,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 115,
+              "end": 128,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 129,
+              "end": 147,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-home"
+            }
+          },
+          {
+            "pos": 148,
+            "end": 197,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 148,
+              "end": 164,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 165,
+              "end": 197,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-home.component.html"
+            }
+          },
+          {
+            "pos": 198,
+            "end": 247,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 198,
+              "end": 212,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 213,
+              "end": 247,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 215,
+                  "end": 246,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-home.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "HttpModule"
+      },
+      {
+        "name": "ProfileRoutingModule"
+      },
+      {
+        "name": "MaterialModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 533,
+        "end": 649,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 533,
+          "end": 545,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 546,
+          "end": 649,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 548,
+              "end": 569,
+              "flags": 0,
+              "text": "CommonModule"
+            },
+            {
+              "pos": 570,
+              "end": 589,
+              "flags": 0,
+              "text": "HttpModule"
+            },
+            {
+              "pos": 590,
+              "end": 619,
+              "flags": 0,
+              "text": "ProfileRoutingModule"
+            },
+            {
+              "pos": 620,
+              "end": 643,
+              "flags": 0,
+              "text": "MaterialModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 650,
+        "end": 666,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 650,
+          "end": 662,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 663,
+          "end": 666,
+          "flags": 0,
+          "kind": 176,
+          "elements": []
+        }
+      },
+      {
+        "pos": 667,
+        "end": 748,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 667,
+          "end": 684,
+          "flags": 0,
+          "text": "declarations"
+        },
+        "initializer": {
+          "pos": 685,
+          "end": 748,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 687,
+              "end": 712,
+              "flags": 0,
+              "text": "ProfileComponent"
+            },
+            {
+              "pos": 713,
+              "end": 742,
+              "flags": 0,
+              "text": "ProfileHomeComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 749,
+        "end": 794,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 749,
+          "end": 763,
+          "flags": 0,
+          "text": "providers"
+        },
+        "initializer": {
+          "pos": 764,
+          "end": 794,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 766,
+              "end": 788,
+              "flags": 0,
+              "text": "AdmRouteGuard"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ProfileRoutingModule",
+    "file": "app/+administrator/profile.routing.ts",
+    "providers": [],
+    "declarations": [],
+    "imports": [
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      }
+    ],
+    "exports": [
+      {
+        "name": "RouterModule"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 669,
+        "end": 721,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 669,
+          "end": 681,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 682,
+          "end": 721,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 684,
+              "end": 720,
+              "flags": 0,
+              "kind": 180,
+              "expression": {
+                "pos": 684,
+                "end": 705,
+                "flags": 0,
+                "kind": 178,
+                "expression": {
+                  "pos": 684,
+                  "end": 696,
+                  "flags": 0,
+                  "text": "RouterModule"
+                },
+                "name": {
+                  "pos": 697,
+                  "end": 705,
+                  "flags": 0,
+                  "text": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 706,
+                  "end": 719,
+                  "flags": 0,
+                  "text": "profileRoutes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 722,
+        "end": 750,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 722,
+          "end": 734,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 735,
+          "end": 750,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 737,
+              "end": 749,
+              "flags": 0,
+              "text": "RouterModule"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ExhibitorProfileModule",
+    "file": "app/+exhibitor/profile.module.ts",
+    "providers": [
+      {
+        "name": "XhbRouteGuard"
+      }
+    ],
+    "declarations": [
+      {
+        "name": "ProfileComponent",
+        "file": "app/+exhibitor/profile.component.ts",
+        "selector": "my-profile",
+        "providers": [],
+        "templateUrl": [
+          "profile.component.html"
+        ],
+        "styleUrls": [
+          "profile.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 115,
+            "end": 142,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 115,
+              "end": 128,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 129,
+              "end": 142,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile"
+            }
+          },
+          {
+            "pos": 143,
+            "end": 187,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 143,
+              "end": 159,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 160,
+              "end": 187,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile.component.html"
+            }
+          },
+          {
+            "pos": 188,
+            "end": 232,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 188,
+              "end": 202,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 203,
+              "end": 232,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 205,
+                  "end": 231,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileHomeComponent",
+        "file": "app/+exhibitor/profile-home.component.ts",
+        "selector": "my-profile-home",
+        "providers": [],
+        "templateUrl": [
+          "profile-home.component.html"
+        ],
+        "styleUrls": [
+          "profile-home.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 115,
+            "end": 147,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 115,
+              "end": 128,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 129,
+              "end": 147,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-home"
+            }
+          },
+          {
+            "pos": 148,
+            "end": 197,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 148,
+              "end": 164,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 165,
+              "end": 197,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-home.component.html"
+            }
+          },
+          {
+            "pos": 198,
+            "end": 247,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 198,
+              "end": 212,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 213,
+              "end": 247,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 215,
+                  "end": 246,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-home.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileLogoComponent",
+        "file": "app/+exhibitor/profile-logo.component.ts",
+        "selector": "my-profile-logos",
+        "providers": [],
+        "templateUrl": [
+          "profile-logo.component.html"
+        ],
+        "styleUrls": [
+          "profile-logo.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 63,
+            "end": 96,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 63,
+              "end": 76,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 77,
+              "end": 96,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-logos"
+            }
+          },
+          {
+            "pos": 97,
+            "end": 146,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 97,
+              "end": 113,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 114,
+              "end": 146,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-logo.component.html"
+            }
+          },
+          {
+            "pos": 147,
+            "end": 196,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 147,
+              "end": 161,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 162,
+              "end": 196,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 164,
+                  "end": 195,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-logo.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileStaffComponent",
+        "file": "app/+exhibitor/profile-staff.component.ts",
+        "selector": "my-profile-staff",
+        "providers": [],
+        "templateUrl": [
+          "profile-staff.component.html"
+        ],
+        "styleUrls": [
+          "profile-staff.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 63,
+            "end": 96,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 63,
+              "end": 76,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 77,
+              "end": 96,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-staff"
+            }
+          },
+          {
+            "pos": 97,
+            "end": 147,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 97,
+              "end": 113,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 114,
+              "end": 147,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-staff.component.html"
+            }
+          },
+          {
+            "pos": 148,
+            "end": 198,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 148,
+              "end": 162,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 163,
+              "end": 198,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 165,
+                  "end": 197,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-staff.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileEventsComponent",
+        "file": "app/+exhibitor/profile-events.component.ts",
+        "selector": "my-profile-events",
+        "providers": [],
+        "templateUrl": [
+          "profile-events.component.html"
+        ],
+        "styleUrls": [
+          "profile-events.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 63,
+            "end": 97,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 63,
+              "end": 76,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 77,
+              "end": 97,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-events"
+            }
+          },
+          {
+            "pos": 98,
+            "end": 149,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 98,
+              "end": 114,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 115,
+              "end": 149,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-events.component.html"
+            }
+          },
+          {
+            "pos": 150,
+            "end": 201,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 150,
+              "end": 164,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 165,
+              "end": 201,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 167,
+                  "end": 200,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-events.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "HttpModule"
+      },
+      {
+        "name": "ProfileRoutingModule"
+      },
+      {
+        "name": "MaterialModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 779,
+        "end": 895,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 779,
+          "end": 791,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 792,
+          "end": 895,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 794,
+              "end": 815,
+              "flags": 0,
+              "text": "CommonModule"
+            },
+            {
+              "pos": 816,
+              "end": 835,
+              "flags": 0,
+              "text": "HttpModule"
+            },
+            {
+              "pos": 836,
+              "end": 865,
+              "flags": 0,
+              "text": "ProfileRoutingModule"
+            },
+            {
+              "pos": 866,
+              "end": 889,
+              "flags": 0,
+              "text": "MaterialModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 896,
+        "end": 912,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 896,
+          "end": 908,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 909,
+          "end": 912,
+          "flags": 0,
+          "kind": 176,
+          "elements": []
+        }
+      },
+      {
+        "pos": 913,
+        "end": 1087,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 913,
+          "end": 930,
+          "flags": 0,
+          "text": "declarations"
+        },
+        "initializer": {
+          "pos": 931,
+          "end": 1087,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 933,
+              "end": 958,
+              "flags": 0,
+              "text": "ProfileComponent"
+            },
+            {
+              "pos": 959,
+              "end": 988,
+              "flags": 0,
+              "text": "ProfileHomeComponent"
+            },
+            {
+              "pos": 989,
+              "end": 1018,
+              "flags": 0,
+              "text": "ProfileLogoComponent"
+            },
+            {
+              "pos": 1019,
+              "end": 1049,
+              "flags": 0,
+              "text": "ProfileStaffComponent"
+            },
+            {
+              "pos": 1050,
+              "end": 1081,
+              "flags": 0,
+              "text": "ProfileEventsComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 1088,
+        "end": 1133,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1088,
+          "end": 1102,
+          "flags": 0,
+          "text": "providers"
+        },
+        "initializer": {
+          "pos": 1103,
+          "end": 1133,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 1105,
+              "end": 1127,
+              "flags": 0,
+              "text": "XhbRouteGuard"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ProfileRoutingModule",
+    "file": "app/+exhibitor/profile.routing.ts",
+    "providers": [],
+    "declarations": [],
+    "imports": [
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      }
+    ],
+    "exports": [
+      {
+        "name": "RouterModule"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 1105,
+        "end": 1157,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1105,
+          "end": 1117,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 1118,
+          "end": 1157,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 1120,
+              "end": 1156,
+              "flags": 0,
+              "kind": 180,
+              "expression": {
+                "pos": 1120,
+                "end": 1141,
+                "flags": 0,
+                "kind": 178,
+                "expression": {
+                  "pos": 1120,
+                  "end": 1132,
+                  "flags": 0,
+                  "text": "RouterModule"
+                },
+                "name": {
+                  "pos": 1133,
+                  "end": 1141,
+                  "flags": 0,
+                  "text": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 1142,
+                  "end": 1155,
+                  "flags": 0,
+                  "text": "profileRoutes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 1158,
+        "end": 1186,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1158,
+          "end": 1170,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 1171,
+          "end": 1186,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 1173,
+              "end": 1185,
+              "flags": 0,
+              "text": "RouterModule"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "JoinModule",
+    "file": "app/+join/join.module.ts",
+    "providers": [
+      {
+        "name": "AUTH_PROVIDERS"
+      }
+    ],
+    "declarations": [
+      {
+        "name": "JoinComponent",
+        "file": "app/+join/join.component.ts",
+        "selector": "my-join-page",
+        "providers": [],
+        "templateUrl": [
+          "join.component.html"
+        ],
+        "styleUrls": [
+          "join.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 275,
+            "end": 304,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 275,
+              "end": 288,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 289,
+              "end": 304,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-join-page"
+            }
+          },
+          {
+            "pos": 305,
+            "end": 346,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 305,
+              "end": 321,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 322,
+              "end": 346,
+              "flags": 0,
+              "kind": 9,
+              "text": "./join.component.html"
+            }
+          },
+          {
+            "pos": 347,
+            "end": 388,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 347,
+              "end": 361,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 362,
+              "end": 388,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 364,
+                  "end": 387,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./join.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "HttpModule"
+      },
+      {
+        "name": "JoinRoutingModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "MaterialModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 477,
+        "end": 611,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 477,
+          "end": 489,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 490,
+          "end": 611,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 492,
+              "end": 513,
+              "flags": 0,
+              "text": "CommonModule"
+            },
+            {
+              "pos": 514,
+              "end": 533,
+              "flags": 0,
+              "text": "HttpModule"
+            },
+            {
+              "pos": 534,
+              "end": 560,
+              "flags": 0,
+              "text": "JoinRoutingModule"
+            },
+            {
+              "pos": 561,
+              "end": 581,
+              "flags": 0,
+              "text": "FormsModule"
+            },
+            {
+              "pos": 582,
+              "end": 605,
+              "flags": 0,
+              "text": "MaterialModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 612,
+        "end": 628,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 612,
+          "end": 624,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 625,
+          "end": 628,
+          "flags": 0,
+          "kind": 176,
+          "elements": []
+        }
+      },
+      {
+        "pos": 629,
+        "end": 677,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 629,
+          "end": 646,
+          "flags": 0,
+          "text": "declarations"
+        },
+        "initializer": {
+          "pos": 647,
+          "end": 677,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 649,
+              "end": 671,
+              "flags": 0,
+              "text": "JoinComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 678,
+        "end": 724,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 678,
+          "end": 692,
+          "flags": 0,
+          "text": "providers"
+        },
+        "initializer": {
+          "pos": 693,
+          "end": 724,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 695,
+              "end": 718,
+              "flags": 0,
+              "text": "AUTH_PROVIDERS"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "JoinRoutingModule",
+    "file": "app/+join/join.routing.ts",
+    "providers": [],
+    "declarations": [],
+    "imports": [
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      }
+    ],
+    "exports": [
+      {
+        "name": "RouterModule"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 309,
+        "end": 358,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 309,
+          "end": 321,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 322,
+          "end": 358,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 324,
+              "end": 357,
+              "flags": 0,
+              "kind": 180,
+              "expression": {
+                "pos": 324,
+                "end": 345,
+                "flags": 0,
+                "kind": 178,
+                "expression": {
+                  "pos": 324,
+                  "end": 336,
+                  "flags": 0,
+                  "text": "RouterModule"
+                },
+                "name": {
+                  "pos": 337,
+                  "end": 345,
+                  "flags": 0,
+                  "text": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 346,
+                  "end": 356,
+                  "flags": 0,
+                  "text": "joinRoutes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 359,
+        "end": 387,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 359,
+          "end": 371,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 372,
+          "end": 387,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 374,
+              "end": 386,
+              "flags": 0,
+              "text": "RouterModule"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "LoginModule",
+    "file": "app/+notloggedin/login.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "LoginComponent",
+        "file": "app/+notloggedin/login.component.ts",
+        "selector": "my-not-logged-in-page",
+        "providers": [],
+        "templateUrl": [
+          "login.component.html"
+        ],
+        "styleUrls": [
+          "login.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 123,
+            "end": 161,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 123,
+              "end": 136,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 137,
+              "end": 161,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-not-logged-in-page"
+            }
+          },
+          {
+            "pos": 162,
+            "end": 204,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 162,
+              "end": 178,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 179,
+              "end": 204,
+              "flags": 0,
+              "kind": 9,
+              "text": "./login.component.html"
+            }
+          },
+          {
+            "pos": 205,
+            "end": 247,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 205,
+              "end": 219,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 220,
+              "end": 247,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 222,
+                  "end": 246,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./login.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "HttpModule"
+      },
+      {
+        "name": "notLoggedInRoutingModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 312,
+        "end": 408,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 312,
+          "end": 324,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 325,
+          "end": 408,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 327,
+              "end": 348,
+              "flags": 0,
+              "text": "CommonModule"
+            },
+            {
+              "pos": 349,
+              "end": 368,
+              "flags": 0,
+              "text": "HttpModule"
+            },
+            {
+              "pos": 369,
+              "end": 402,
+              "flags": 0,
+              "text": "notLoggedInRoutingModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 409,
+        "end": 425,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 409,
+          "end": 421,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 422,
+          "end": 425,
+          "flags": 0,
+          "kind": 176,
+          "elements": []
+        }
+      },
+      {
+        "pos": 426,
+        "end": 475,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 426,
+          "end": 443,
+          "flags": 0,
+          "text": "declarations"
+        },
+        "initializer": {
+          "pos": 444,
+          "end": 475,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 446,
+              "end": 469,
+              "flags": 0,
+              "text": "LoginComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 476,
+        "end": 495,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 476,
+          "end": 490,
+          "flags": 0,
+          "text": "providers"
+        },
+        "initializer": {
+          "pos": 491,
+          "end": 495,
+          "flags": 0,
+          "kind": 176,
+          "elements": []
+        }
+      }
+    ]
+  },
+  {
+    "name": "notLoggedInRoutingModule",
+    "file": "app/+notloggedin/login.routing.ts",
+    "providers": [],
+    "declarations": [],
+    "imports": [
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      }
+    ],
+    "exports": [
+      {
+        "name": "RouterModule"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 319,
+        "end": 375,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 319,
+          "end": 331,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 332,
+          "end": 375,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 334,
+              "end": 374,
+              "flags": 0,
+              "kind": 180,
+              "expression": {
+                "pos": 334,
+                "end": 355,
+                "flags": 0,
+                "kind": 178,
+                "expression": {
+                  "pos": 334,
+                  "end": 346,
+                  "flags": 0,
+                  "text": "RouterModule"
+                },
+                "name": {
+                  "pos": 347,
+                  "end": 355,
+                  "flags": 0,
+                  "text": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 356,
+                  "end": 373,
+                  "flags": 0,
+                  "text": "notLoggedInRoutes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 376,
+        "end": 404,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 376,
+          "end": 388,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 389,
+          "end": 404,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 391,
+              "end": 403,
+              "flags": 0,
+              "text": "RouterModule"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "OrganizerProfileModule",
+    "file": "app/+organizer/profile.module.ts",
+    "providers": [
+      {
+        "name": "OrgRouteGuard"
+      }
+    ],
+    "declarations": [
+      {
+        "name": "ProfileComponent",
+        "file": "app/+organizer/profile.component.ts",
+        "selector": "my-profile",
+        "providers": [],
+        "templateUrl": [
+          "profile.component.html"
+        ],
+        "styleUrls": [
+          "profile.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 180,
+            "end": 207,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 180,
+              "end": 193,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 194,
+              "end": 207,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile"
+            }
+          },
+          {
+            "pos": 208,
+            "end": 252,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 208,
+              "end": 224,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 225,
+              "end": 252,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile.component.html"
+            }
+          },
+          {
+            "pos": 253,
+            "end": 297,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 253,
+              "end": 267,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 268,
+              "end": 297,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 270,
+                  "end": 296,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileHomeComponent",
+        "file": "app/+organizer/profile-home.component.ts",
+        "selector": "my-profile-home",
+        "providers": [],
+        "templateUrl": [
+          "profile-home.component.html"
+        ],
+        "styleUrls": [
+          "profile-home.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 267,
+            "end": 299,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 267,
+              "end": 280,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 281,
+              "end": 299,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-home"
+            }
+          },
+          {
+            "pos": 300,
+            "end": 349,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 300,
+              "end": 316,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 317,
+              "end": 349,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-home.component.html"
+            }
+          },
+          {
+            "pos": 350,
+            "end": 399,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 350,
+              "end": 364,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 365,
+              "end": 399,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 367,
+                  "end": 398,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-home.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileMapComponent",
+        "file": "app/+organizer/profile-map.component.ts",
+        "selector": "my-profile-map",
+        "providers": [],
+        "templateUrl": [
+          "profile-map.component.html"
+        ],
+        "styleUrls": [
+          "profile-map.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 211,
+            "end": 242,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 211,
+              "end": 224,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 225,
+              "end": 242,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-map"
+            }
+          },
+          {
+            "pos": 243,
+            "end": 291,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 243,
+              "end": 259,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 260,
+              "end": 291,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-map.component.html"
+            }
+          },
+          {
+            "pos": 292,
+            "end": 340,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 292,
+              "end": 306,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 307,
+              "end": 340,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 309,
+                  "end": 339,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-map.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileExhibitorsComponent",
+        "file": "app/+organizer/profile-exhibitors.component.ts",
+        "selector": "my-profile-exhibitors",
+        "providers": [],
+        "templateUrl": [
+          "profile-exhibitors.component.html"
+        ],
+        "styleUrls": [
+          "profile-exhibitors.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 237,
+            "end": 275,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 237,
+              "end": 250,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 251,
+              "end": 275,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-exhibitors"
+            }
+          },
+          {
+            "pos": 276,
+            "end": 331,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 276,
+              "end": 292,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 293,
+              "end": 331,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-exhibitors.component.html"
+            }
+          },
+          {
+            "pos": 332,
+            "end": 384,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 332,
+              "end": 352,
+              "flags": 0,
+              "text": "changeDetection"
+            },
+            "initializer": {
+              "pos": 353,
+              "end": 384,
+              "flags": 0,
+              "kind": 178,
+              "expression": {
+                "pos": 353,
+                "end": 377,
+                "flags": 0,
+                "text": "ChangeDetectionStrategy"
+              },
+              "name": {
+                "pos": 378,
+                "end": 384,
+                "flags": 0,
+                "text": "OnPush"
+              }
+            }
+          },
+          {
+            "pos": 385,
+            "end": 440,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 385,
+              "end": 399,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 400,
+              "end": 440,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 402,
+                  "end": 439,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-exhibitors.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileScheduleComponent",
+        "file": "app/+organizer/profile-schedule.component.ts",
+        "selector": "my-profile-schedule",
+        "providers": [],
+        "templateUrl": [
+          "profile-schedule.component.html"
+        ],
+        "styleUrls": [
+          "profile-schedule.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 706,
+            "end": 746,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 706,
+              "end": 723,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 724,
+              "end": 746,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-schedule"
+            }
+          },
+          {
+            "pos": 747,
+            "end": 804,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 747,
+              "end": 767,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 768,
+              "end": 804,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-schedule.component.html"
+            }
+          },
+          {
+            "pos": 805,
+            "end": 861,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 805,
+              "end": 829,
+              "flags": 0,
+              "text": "changeDetection"
+            },
+            "initializer": {
+              "pos": 830,
+              "end": 861,
+              "flags": 0,
+              "kind": 178,
+              "expression": {
+                "pos": 830,
+                "end": 854,
+                "flags": 0,
+                "text": "ChangeDetectionStrategy"
+              },
+              "name": {
+                "pos": 855,
+                "end": 861,
+                "flags": 0,
+                "text": "OnPush"
+              }
+            }
+          },
+          {
+            "pos": 862,
+            "end": 919,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 862,
+              "end": 880,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 881,
+              "end": 919,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 883,
+                  "end": 918,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-schedule.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileNewsComponent",
+        "file": "app/+organizer/profile-news.component.ts",
+        "selector": "my-profile-news",
+        "providers": [],
+        "templateUrl": [
+          "profile-news.component.html"
+        ],
+        "styleUrls": [
+          "profile-news.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 63,
+            "end": 95,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 63,
+              "end": 76,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 77,
+              "end": 95,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-news"
+            }
+          },
+          {
+            "pos": 96,
+            "end": 145,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 96,
+              "end": 112,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 113,
+              "end": 145,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-news.component.html"
+            }
+          },
+          {
+            "pos": 146,
+            "end": 195,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 146,
+              "end": 160,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 161,
+              "end": 195,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 163,
+                  "end": 194,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-news.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProfileNotifyComponent",
+        "file": "app/+organizer/profile-notify.component.ts",
+        "selector": "my-profile-notify",
+        "providers": [],
+        "templateUrl": [
+          "profile-notify.component.html"
+        ],
+        "styleUrls": [
+          "profile-notify.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 63,
+            "end": 97,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 63,
+              "end": 76,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 77,
+              "end": 97,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-profile-notify"
+            }
+          },
+          {
+            "pos": 98,
+            "end": 149,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 98,
+              "end": 114,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 115,
+              "end": 149,
+              "flags": 0,
+              "kind": 9,
+              "text": "./profile-notify.component.html"
+            }
+          },
+          {
+            "pos": 150,
+            "end": 201,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 150,
+              "end": 164,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 165,
+              "end": 201,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 167,
+                  "end": 200,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./profile-notify.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "HttpModule"
+      },
+      {
+        "name": "ProfileRoutingModule"
+      },
+      {
+        "name": "MaterialModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "CalendarUtilsModule"
+      },
+      {
+        "name": "FileUploadModule"
+      },
+      {
+        "ns": "NgbModule",
+        "name": "NgbModule.forRoot()"
+      },
+      {
+        "ns": "CalendarModule",
+        "name": "CalendarModule.forRoot()"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 1317,
+        "end": 1572,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1317,
+          "end": 1329,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 1330,
+          "end": 1572,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 1332,
+              "end": 1353,
+              "flags": 0,
+              "text": "CommonModule"
+            },
+            {
+              "pos": 1354,
+              "end": 1373,
+              "flags": 0,
+              "text": "HttpModule"
+            },
+            {
+              "pos": 1374,
+              "end": 1403,
+              "flags": 0,
+              "text": "ProfileRoutingModule"
+            },
+            {
+              "pos": 1404,
+              "end": 1427,
+              "flags": 0,
+              "text": "MaterialModule"
+            },
+            {
+              "pos": 1428,
+              "end": 1448,
+              "flags": 0,
+              "text": "FormsModule"
+            },
+            {
+              "pos": 1449,
+              "end": 1477,
+              "flags": 0,
+              "text": "CalendarUtilsModule"
+            },
+            {
+              "pos": 1478,
+              "end": 1503,
+              "flags": 0,
+              "text": "FileUploadModule"
+            },
+            {
+              "pos": 1504,
+              "end": 1532,
+              "flags": 0,
+              "kind": 180,
+              "expression": {
+                "pos": 1504,
+                "end": 1530,
+                "flags": 0,
+                "kind": 178,
+                "expression": {
+                  "pos": 1504,
+                  "end": 1522,
+                  "flags": 0,
+                  "text": "NgbModule"
+                },
+                "name": {
+                  "pos": 1523,
+                  "end": 1530,
+                  "flags": 0,
+                  "text": "forRoot"
+                }
+              },
+              "arguments": []
+            },
+            {
+              "pos": 1533,
+              "end": 1566,
+              "flags": 0,
+              "kind": 180,
+              "expression": {
+                "pos": 1533,
+                "end": 1564,
+                "flags": 0,
+                "kind": 178,
+                "expression": {
+                  "pos": 1533,
+                  "end": 1556,
+                  "flags": 0,
+                  "text": "CalendarModule"
+                },
+                "name": {
+                  "pos": 1557,
+                  "end": 1564,
+                  "flags": 0,
+                  "text": "forRoot"
+                }
+              },
+              "arguments": []
+            }
+          ]
+        }
+      },
+      {
+        "pos": 1573,
+        "end": 1589,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1573,
+          "end": 1585,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 1586,
+          "end": 1589,
+          "flags": 0,
+          "kind": 176,
+          "elements": []
+        }
+      },
+      {
+        "pos": 1590,
+        "end": 1832,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1590,
+          "end": 1607,
+          "flags": 0,
+          "text": "declarations"
+        },
+        "initializer": {
+          "pos": 1608,
+          "end": 1832,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 1610,
+              "end": 1635,
+              "flags": 0,
+              "text": "ProfileComponent"
+            },
+            {
+              "pos": 1636,
+              "end": 1665,
+              "flags": 0,
+              "text": "ProfileHomeComponent"
+            },
+            {
+              "pos": 1666,
+              "end": 1694,
+              "flags": 0,
+              "text": "ProfileMapComponent"
+            },
+            {
+              "pos": 1695,
+              "end": 1730,
+              "flags": 0,
+              "text": "ProfileExhibitorsComponent"
+            },
+            {
+              "pos": 1731,
+              "end": 1764,
+              "flags": 0,
+              "text": "ProfileScheduleComponent"
+            },
+            {
+              "pos": 1765,
+              "end": 1794,
+              "flags": 0,
+              "text": "ProfileNewsComponent"
+            },
+            {
+              "pos": 1795,
+              "end": 1826,
+              "flags": 0,
+              "text": "ProfileNotifyComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 1833,
+        "end": 1878,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1833,
+          "end": 1847,
+          "flags": 0,
+          "text": "providers"
+        },
+        "initializer": {
+          "pos": 1848,
+          "end": 1878,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 1850,
+              "end": 1872,
+              "flags": 0,
+              "text": "OrgRouteGuard"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ProfileRoutingModule",
+    "file": "app/+organizer/profile.routing.ts",
+    "providers": [],
+    "declarations": [],
+    "imports": [
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      }
+    ],
+    "exports": [
+      {
+        "name": "RouterModule"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 1419,
+        "end": 1471,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1419,
+          "end": 1431,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 1432,
+          "end": 1471,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 1434,
+              "end": 1470,
+              "flags": 0,
+              "kind": 180,
+              "expression": {
+                "pos": 1434,
+                "end": 1455,
+                "flags": 0,
+                "kind": 178,
+                "expression": {
+                  "pos": 1434,
+                  "end": 1446,
+                  "flags": 0,
+                  "text": "RouterModule"
+                },
+                "name": {
+                  "pos": 1447,
+                  "end": 1455,
+                  "flags": 0,
+                  "text": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 1456,
+                  "end": 1469,
+                  "flags": 0,
+                  "text": "profileRoutes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 1472,
+        "end": 1500,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1472,
+          "end": 1484,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 1485,
+          "end": 1500,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 1487,
+              "end": 1499,
+              "flags": 0,
+              "text": "RouterModule"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "CalendarUtilsModule",
+    "file": "+organizer/utils/module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "CalendarHeaderComponent",
+        "file": "+organizer/utils/calendar-header.component.ts",
+        "selector": "mwl-utils-calendar-header",
+        "providers": [],
+        "templateUrl": [],
+        "styleUrls": [],
+        "__raw": [
+          {
+            "pos": 85,
+            "end": 127,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 85,
+              "end": 98,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 99,
+              "end": 127,
+              "flags": 0,
+              "kind": 9,
+              "text": "mwl-utils-calendar-header"
+            }
+          },
+          {
+            "pos": 128,
+            "end": 2291,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 128,
+              "end": 141,
+              "flags": 0,
+              "text": "template"
+            },
+            "initializer": {
+              "pos": 142,
+              "end": 2291,
+              "flags": 0,
+              "kind": 12,
+              "text": "\n        <div class=\"row text-center\">\n            <div class=\"col-md-4\">\n                <div class=\"btn-group\">\n                    <div\n                        class=\"btn btn-primary\"\n                        mwlCalendarPreviousView\n                        [view]=\"view\"\n                        [(viewDate)]=\"viewDate\"\n                        (viewDateChange)=\"viewDateChange.next(viewDate)\">\n                        Previous\n                    </div>\n                    <div\n                        class=\"btn btn-secondary\"\n                        mwlCalendarToday\n                        [(viewDate)]=\"viewDate\"\n                        (viewDateChange)=\"viewDateChange.next(viewDate)\">\n                        Today\n                    </div>\n                    <div\n                        class=\"btn btn-primary\"\n                        mwlCalendarNextView\n                        [view]=\"view\"\n                        [(viewDate)]=\"viewDate\"\n                        (viewDateChange)=\"viewDateChange.next(viewDate)\">\n                        Next\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-4\">\n                <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>\n            </div>\n            <div class=\"col-md-4\">\n                <div class=\"btn-group\">\n                    <div\n                        class=\"btn btn-primary\"\n                        (click)=\"viewChange.emit('month')\"\n                        [class.active]=\"view === 'month'\">\n                        Month\n                    </div>\n                    <div\n                        class=\"btn btn-primary\"\n                        (click)=\"viewChange.emit('week')\"\n                        [class.active]=\"view === 'week'\">\n                        Week\n                    </div>\n                    <div\n                        class=\"btn btn-primary\"\n                        (click)=\"viewChange.emit('day')\"\n                        [class.active]=\"view === 'day'\">\n                        Day\n                    </div>\n                </div>\n            </div>\n        </div>\n        <br>\n    "
+            }
+          }
+        ]
+      },
+      {
+        "name": "DateTimePickerComponent",
+        "file": "+organizer/utils/date-time-picker.component.ts",
+        "selector": "mwl-utils-date-time-picker",
+        "providers": [],
+        "templateUrl": [],
+        "styleUrls": [],
+        "__raw": [
+          {
+            "pos": 365,
+            "end": 408,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 365,
+              "end": 378,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 379,
+              "end": 408,
+              "flags": 0,
+              "kind": 9,
+              "text": "mwl-utils-date-time-picker"
+            }
+          },
+          {
+            "pos": 409,
+            "end": 1284,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 409,
+              "end": 422,
+              "flags": 0,
+              "text": "template"
+            },
+            "initializer": {
+              "pos": 423,
+              "end": 1284,
+              "flags": 0,
+              "kind": 12,
+              "text": "\n        <form class=\"form-inline\">\n            <div class=\"form-group\">\n                <div class=\"input-group\">\n                    <input\n                        readonly\n                        class=\"form-control\"\n                        [placeholder]=\"placeholder\"\n                        name=\"date\"\n                        [(ngModel)]=\"dateStruct\"\n                        (ngModelChange)=\"updateDate()\"\n                        ngbDatepicker\n                        #datePicker=\"ngbDatepicker\">\n                        <div class=\"input-group-addon\" (click)=\"datePicker.toggle()\" >\n                            <i class=\"fa fa-calendar\"></i>\n                        </div>\n                </div>\n            </div>\n        </form>\n        <ngb-timepicker [(ngModel)]=\"timeStruct\" (ngModelChange)=\"updateTime()\" [meridian]=\"true\"></ngb-timepicker>\n    "
+            }
+          },
+          {
+            "pos": 1285,
+            "end": 1514,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 1285,
+              "end": 1296,
+              "flags": 0,
+              "text": "styles"
+            },
+            "initializer": {
+              "pos": 1297,
+              "end": 1514,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 1299,
+                  "end": 1513,
+                  "flags": 0,
+                  "kind": 12,
+                  "text": "\n        .form-inline {\n            margin-bottom: 10px;\n        }\n        .form-inline .form-group {\n            width: 100%;\n        }\n        .form-inline .input-group {\n            width: 100%;\n        }\n    "
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "ns": "NgbDatepickerModule",
+        "name": "NgbDatepickerModule.forRoot()"
+      },
+      {
+        "ns": "NgbTimepickerModule",
+        "name": "NgbTimepickerModule.forRoot()"
+      },
+      {
+        "name": "CalendarModule"
+      }
+    ],
+    "exports": [
+      {
+        "name": "CalendarHeaderComponent"
+      },
+      {
+        "name": "DateTimePickerComponent"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 429,
+        "end": 594,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 429,
+          "end": 441,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 442,
+          "end": 594,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 444,
+              "end": 465,
+              "flags": 0,
+              "text": "CommonModule"
+            },
+            {
+              "pos": 466,
+              "end": 486,
+              "flags": 0,
+              "text": "FormsModule"
+            },
+            {
+              "pos": 487,
+              "end": 525,
+              "flags": 0,
+              "kind": 180,
+              "expression": {
+                "pos": 487,
+                "end": 523,
+                "flags": 0,
+                "kind": 178,
+                "expression": {
+                  "pos": 487,
+                  "end": 515,
+                  "flags": 0,
+                  "text": "NgbDatepickerModule"
+                },
+                "name": {
+                  "pos": 516,
+                  "end": 523,
+                  "flags": 0,
+                  "text": "forRoot"
+                }
+              },
+              "arguments": []
+            },
+            {
+              "pos": 526,
+              "end": 564,
+              "flags": 0,
+              "kind": 180,
+              "expression": {
+                "pos": 526,
+                "end": 562,
+                "flags": 0,
+                "kind": 178,
+                "expression": {
+                  "pos": 526,
+                  "end": 554,
+                  "flags": 0,
+                  "text": "NgbTimepickerModule"
+                },
+                "name": {
+                  "pos": 555,
+                  "end": 562,
+                  "flags": 0,
+                  "text": "forRoot"
+                }
+              },
+              "arguments": []
+            },
+            {
+              "pos": 565,
+              "end": 588,
+              "flags": 0,
+              "text": "CalendarModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 595,
+        "end": 686,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 595,
+          "end": 612,
+          "flags": 0,
+          "text": "declarations"
+        },
+        "initializer": {
+          "pos": 613,
+          "end": 686,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 615,
+              "end": 647,
+              "flags": 0,
+              "text": "CalendarHeaderComponent"
+            },
+            {
+              "pos": 648,
+              "end": 680,
+              "flags": 0,
+              "text": "DateTimePickerComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 687,
+        "end": 773,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 687,
+          "end": 699,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "pos": 700,
+          "end": 773,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 702,
+              "end": 734,
+              "flags": 0,
+              "text": "CalendarHeaderComponent"
+            },
+            {
+              "pos": 735,
+              "end": 767,
+              "flags": 0,
+              "text": "DateTimePickerComponent"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "AppModule",
+    "file": "src/app/app.module.ts",
+    "providers": [
+      {
+        "name": "RouteGuard"
+      },
+      {
+        "name": "Auth"
+      }
+    ],
+    "declarations": [
+      {
+        "name": "AppComponent",
+        "file": "src/app/app.component.ts",
+        "selector": "my-app",
+        "providers": [],
+        "templateUrl": [
+          "app.component.html"
+        ],
+        "styleUrls": [
+          "app.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 460,
+            "end": 481,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 460,
+              "end": 471,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 472,
+              "end": 481,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-app"
+            }
+          },
+          {
+            "pos": 482,
+            "end": 541,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 482,
+              "end": 517,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 518,
+              "end": 541,
+              "flags": 0,
+              "kind": 9,
+              "text": "./app.component.html"
+            }
+          },
+          {
+            "pos": 542,
+            "end": 580,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 542,
+              "end": 554,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 555,
+              "end": 580,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 557,
+                  "end": 579,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./app.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "HomeComponent"
+      },
+      {
+        "name": "AboutComponent",
+        "file": "app/about/about.component.ts",
+        "selector": "my-about",
+        "providers": [],
+        "templateUrl": [
+          "about.component.html"
+        ],
+        "styleUrls": [
+          "about.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 87,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 87,
+              "flags": 0,
+              "kind": 9,
+              "text": "my-about"
+            }
+          },
+          {
+            "pos": 88,
+            "end": 128,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 88,
+              "end": 102,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "pos": 103,
+              "end": 128,
+              "flags": 0,
+              "kind": 9,
+              "text": "./about.component.html"
+            }
+          },
+          {
+            "pos": 129,
+            "end": 169,
+            "flags": 0,
+            "kind": 259,
+            "name": {
+              "pos": 129,
+              "end": 141,
+              "flags": 0,
+              "text": "styleUrls"
+            },
+            "initializer": {
+              "pos": 142,
+              "end": 169,
+              "flags": 0,
+              "kind": 176,
+              "elements": [
+                {
+                  "pos": 144,
+                  "end": 168,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./about.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "BrowserModule"
+      },
+      {
+        "name": "BrowserAnimationsModule"
+      },
+      {
+        "name": "HttpModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "MaterialModule"
+      },
+      {
+        "name": "routing"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [
+      {
+        "name": "AppComponent"
+      }
+    ],
+    "__raw": [
+      {
+        "pos": 798,
+        "end": 928,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 798,
+          "end": 808,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "pos": 809,
+          "end": 928,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 811,
+              "end": 829,
+              "flags": 0,
+              "text": "BrowserModule"
+            },
+            {
+              "pos": 830,
+              "end": 858,
+              "flags": 0,
+              "text": "BrowserAnimationsModule"
+            },
+            {
+              "pos": 859,
+              "end": 874,
+              "flags": 0,
+              "text": "HttpModule"
+            },
+            {
+              "pos": 875,
+              "end": 891,
+              "flags": 0,
+              "text": "FormsModule"
+            },
+            {
+              "pos": 892,
+              "end": 911,
+              "flags": 0,
+              "text": "MaterialModule"
+            },
+            {
+              "pos": 912,
+              "end": 924,
+              "flags": 0,
+              "text": "routing"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 929,
+        "end": 1007,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 929,
+          "end": 944,
+          "flags": 0,
+          "text": "declarations"
+        },
+        "initializer": {
+          "pos": 945,
+          "end": 1007,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 947,
+              "end": 964,
+              "flags": 0,
+              "text": "AppComponent"
+            },
+            {
+              "pos": 965,
+              "end": 983,
+              "flags": 0,
+              "text": "HomeComponent"
+            },
+            {
+              "pos": 984,
+              "end": 1003,
+              "flags": 0,
+              "text": "AboutComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 1008,
+        "end": 1052,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1008,
+          "end": 1020,
+          "flags": 0,
+          "text": "providers"
+        },
+        "initializer": {
+          "pos": 1021,
+          "end": 1052,
+          "flags": 0,
+          "kind": 176,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 1023,
+              "end": 1038,
+              "flags": 0,
+              "text": "RouteGuard"
+            },
+            {
+              "pos": 1039,
+              "end": 1048,
+              "flags": 0,
+              "text": "Auth"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 1053,
+        "end": 1081,
+        "flags": 0,
+        "kind": 259,
+        "name": {
+          "pos": 1053,
+          "end": 1065,
+          "flags": 0,
+          "text": "bootstrap"
+        },
+        "initializer": {
+          "pos": 1066,
+          "end": 1081,
+          "flags": 0,
+          "kind": 176,
+          "elements": [
+            {
+              "pos": 1068,
+              "end": 1080,
+              "flags": 0,
+              "text": "AppComponent"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

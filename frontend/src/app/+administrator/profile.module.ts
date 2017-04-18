@@ -6,11 +6,6 @@ import { AdmRouteGuard }                from './../shared';
 import { ProfileRoutingModule }         from './profile.routing';
 import { ProfileComponent }             from './profile.component';
 import { ProfileHomeComponent }         from './profile-home.component';
-import { ProfileMapComponent }          from './profile-map.component';
-import { ProfileExhibitorsComponent }   from './profile-exhibitors.component';
-import { ProfileScheduleComponent }     from './profile-schedule.component';
-import { ProfileNewsComponent }         from './profile-news.component';
-import { ProfileNotifyComponent }       from './profile-notify.component';
 
 @NgModule({
     imports: [
@@ -22,12 +17,7 @@ import { ProfileNotifyComponent }       from './profile-notify.component';
     exports: [],
     declarations: [
         ProfileComponent,
-        ProfileHomeComponent,
-        ProfileMapComponent,
-        ProfileExhibitorsComponent,
-        ProfileScheduleComponent,
-        ProfileNewsComponent,
-        ProfileNotifyComponent
+        ProfileHomeComponent
     ],
     providers: [
         AdmRouteGuard
