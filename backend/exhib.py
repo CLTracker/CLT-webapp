@@ -13,11 +13,12 @@ def edit_exhib(db, content, confId):
     cursor = db.cursor(dictionary=True)
     
     #Checking source
-    query = "SELECT permissions FROM users WHERE user_id = %s"
+    query = "SELECT permissions FROM users WHERE email = %s"
     cursor.execute(query, (content["source"],))
     result = cursor.fetchone()
     if result is None:
         return json_status, json_status["status"]
+         
     else:
         query = "SELECT permission_name FROM permissions WHERE permission_id = %s"
         cursor.execute(query, (result["permissions"],))
@@ -29,28 +30,40 @@ def edit_exhib(db, content, confId):
         if result["permission_name"] == "adm" or result["permission_name"] == "xhb":
             return json_status, json_status["status"]
         else:
+            
+            #get conference_id
+            query = "SELECT conference FROM organizers WHERE organizer_email = %s"
+            cursor.execute(query, (content["source"],))
+            result=cursor.fetchone()
+            orgConf = str(result["conference"])
+                
+            
+            #check if confId and conference_id of organizer match
+            if orgConf != confId: 
+                return json_status, json_status["status"]
            
-            #check if they are in users
+            #check if they are in users table
             query = "SELECT email FROM users WHERE email = %s"
             cursor.execute(query, (content["email"],))
             result = cursor.fetchone()
             if result is None:
-                #crate new user
+                #create new user
                 query = "INSERT INTO users(email,user_id, permissions) VALUES(%s, %s, %s)"
                 cursor.execute(query, (content["email"],content["email"], 1,))
                 db.commit()
 
-            query = "SELECT exhibitor_email FROM permitted_exhibitors WHERE exhibitor_email = %s"
+            #check if they are already on permitted_exhibitors    
+            query = "SELECT exhibitor_email,conference_id FROM permitted_exhibitors WHERE exhibitor_email = %s"
             cursor.execute(query, (content["email"],))
             result = cursor.fetchone()    
 
             if result is None:
                 #add email to list
-                query = "INSERT INTO permitted_exhibitors(exhibitor_email) VALUES (%s)"
-                cursor.execute(query,(content["email"],))
+                query = "INSERT INTO permitted_exhibitors(exhibitor_email,conference_id) VALUES (%s,%s)"
+                cursor.execute(query,(content["email"],orgConf,))
                 db.commit()
-
-            json_status["status"] = 200
+      
+            json_status["status"] = 200    
             return json_status, json_status["status"]
 
         
