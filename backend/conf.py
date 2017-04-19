@@ -13,7 +13,7 @@ def changeConfInfo(content,confId):
     stat_json = {"status": 401}
     
     #Checking source
-    query = "SELECT permissions FROM users WHERE user_id = %s"
+    query = "SELECT permissions FROM users WHERE email = %s"
     cursor.execute(query, (content["source"],))
     result = cursor.fetchone()
     #checking the permission

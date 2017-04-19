@@ -14,14 +14,16 @@ from conf import confRoutes
 
 
 app = Flask(__name__)
-
+CORS(app)
+'''
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8080')
   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,PATCH')
   response.headers.add('Access-Control-Allow-Credentials', 'true')
   return response
+'''
 
 #Registering of routes relating to user management
 app.register_blueprint(loginRoutes)
