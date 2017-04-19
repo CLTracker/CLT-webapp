@@ -34,6 +34,6 @@ INSERT INTO schedule(conference, event_name, start_time, end_time) VALUES(1, "EV
 INSERT INTO schedule(conference, event_name, start_time, end_time) VALUES(1, "EVENT 2", "2017-03-28 00:00:00", "2017-03-28 00:00:00");
 INSERT INTO schedule(conference, event_name, start_time, end_time) VALUES(1, "EVENT 3", "2017-03-28 00:00:00", "2017-03-28 00:00:00");
 
-INSERT INTO news(conference, title, logo_url, text) VALUES (1, "EVENT 1", "https://event1.com", "Free donuts for life");
-INSERT INTO news(conference, title, logo_url, text) VALUES (1, "EVENT 2", "https://event2.com", "Free donuts for life");
-INSERT INTO news(conference, title, logo_url, text) VALUES (1, "EVENT 3", "https://event3.com", "Free donuts for life");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "EVENT 1", "https://event1.com", "Free donuts for life", "Pepe");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "EVENT 2", "https://event2.com", "Free donuts for life", "Pepe");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "EVENT 3", "https://event3.com", "Free donuts for life", "Pepe");
