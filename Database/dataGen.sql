@@ -18,7 +18,7 @@ INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("7", "Exhib4", 0, "2017-03-28 00:00:00", "0.0.0.0", "exhb4@email.com", 0, 1);
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("google-oauth2|105950922553210130192", "Grant Organizer", 0, "2017-03-28 00:00:00", "0.0.0.0", "gmercer015@gmail.com", 0, 3);
 
-INSERT INTO permitted_organizers(organizer_email) VALUES("gmercer015@gmail.com");
+INSERT INTO permitted_organizers(organizer_email, conference_name) VALUES("gmercer015@gmail.com","Senior Design Competition" );
 INSERT INTO permitted_exhibitors(exhibitor_email) VALUES("exhb1@email.com");
 INSERT INTO permitted_exhibitors(exhibitor_email) VALUES("exhb2@email.com");
 INSERT INTO permitted_exhibitors(exhibitor_email) VALUES("exhb3@email.com");
