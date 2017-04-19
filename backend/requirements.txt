@@ -1,6 +1,6 @@
 flask
 flask_cors
-mysql_connector
+mysql_connector==2.1.4
 configparser
 simplejson
 sqlalchemy
