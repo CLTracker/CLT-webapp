@@ -15,7 +15,7 @@
             Add New Item
         </button>
     </div>
-    <div class="col-md-12 news-item no-pad">
+    <div class="col-md-12 news-item no-pad" *ngFor="let item of news">
         <md-card>
             <div class="edit-bar pull-right">
                 <span id="edit">Edit</span>
@@ -26,29 +26,11 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <h3>Sample News 1</h3>
+                <h3>{{ item.title }}</h3>
                 <div class="line-break"></div>
-                <p>Here is some text for the story which we place inside the news</p>
+                <p>{{ item.text }}</p>
             </div>
-            <p class="author">Author</p>
-        </md-card>
-    </div>
-    <div class="col-md-12 news-item no-pad">
-        <md-card>
-            <div class="edit-bar pull-right">
-                <span id="edit">Edit</span>
-                <span class="glyphicon glyphicon-trash"></span>
-            </div>
-            <div class="col-md-3">
-                <div class="logo">
-                </div>
-            </div>
-            <div class="col-md-9">
-                <h3>Sample News 2</h3>
-                <div class="line-break"></div>
-                <p>lorem opsum lorem opsum lorem opsum lorem opsum lorem opsum lorem opsum lorem opsum</p>
-            </div>
-            <p class="author">Author</p>
+            <p class="author">{{ item.author }}</p>
         </md-card>
     </div>
 </div>

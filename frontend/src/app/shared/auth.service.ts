@@ -6,11 +6,16 @@ import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
 
+const prod = true;
+
 @Injectable()
 export class Auth {
 
-    private getUserUrl: string = 'http://localhost:5000/user';
-    private loginUrl: string  = 'http://localhost:5000/login';
+    private getUserUrl: string;
+    private loginUrl: string;
+    private cnfEditUrl: string;
+    private xhbGetUrl: string;
+    private newsGetUrl: string;
 
     Lock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
@@ -31,6 +36,20 @@ export class Auth {
 
     constructor(private router: Router, private http: Http) {
         
+        if (prod) {
+            this.getUserUrl = 'http://localhost:5000/user';
+            this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
+            this.cnfEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference/1';
+            this.xhbGetUrl = 'http://cltglobal.ddns.net:5000/exhibitors/1';
+            this.newsGetUrl = 'http://cltglobal.ddns.net:5000/news/1';
+        } else {
+            this.getUserUrl = 'http://localhost:8080/user';
+            this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
+            this.cnfEditUrl = 'http://cltglobal.ddns.net:8080/edit/conference/1';
+            this.xhbGetUrl = 'http://cltglobal.ddns.net:8080/exhibitors/1';
+            this.newsGetUrl = 'http://cltglobal.ddns.net:8080/news/1';
+        }
+
         this.authToken = JSON.parse(sessionStorage.getItem('authToken'));
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
@@ -75,9 +94,21 @@ export class Auth {
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
     }
 
-    public get(): Observable<Object> {
+    public getExhibitors() {
         return this.http
-            .get(`${this.getUserUrl}/7`)
+            .get(`${this.xhbGetUrl}`)
+            .map((r: Response) => r.json());
+    }
+
+    public getNews() {
+        return this.http
+            .get(`${this.newsGetUrl}`)
+            .map((r: Response) => r.json());
+    }
+
+    public patchConference(data: Object) {
+        return this.http
+            .patch(`${this.cnfEditUrl}`, data)
             .map((r: Response) => r.json());
     }
 

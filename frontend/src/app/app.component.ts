@@ -26,13 +26,10 @@ export class AppComponent {
 
   get perms(): string {
     if(this.auth.userProfile) {
-      if (this.auth.userProfile) {
-        return this.auth.userProfile.userType;
-      } else {
-        throw Error('no permissions set for user');
-      }
+      return this.auth.userProfile.userType;
+    } else {
+      return '';
     }
-    return '';
   }
 
   constructor(private auth: Auth, private router: Router) {

@@ -6,6 +6,8 @@ import { Component, ChangeDetectorRef,
 import { NgbModal, 
     ModalDismissReasons }   from '@ng-bootstrap/ng-bootstrap'
 
+import { Auth } from '../shared';
+
 @Component({
     selector: 'my-profile-exhibitors',
     templateUrl: './profile-exhibitors.component.html',
@@ -30,13 +32,15 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
             'status': 'Complete'
         },
         {
-            'name': 'Steven Brookes',
+            'name': 'Not set',
             'email': 'sbrooks@something.com',
-            'company': 'CLTracker',
+            'company': 'Not set',
             'status': 'Incomplete'
         }
     ];
-    constructor(private modalService: NgbModal, private cdRef: ChangeDetectorRef) {}
+    constructor(private modalService: NgbModal, private cdRef: ChangeDetectorRef,
+        private auth: Auth) {
+    }
 
     public addExhibitor(): void {
         this.modalService.open(this.modalContent)

@@ -25,9 +25,11 @@ export class JoinComponent implements OnInit {
     }
 
     joinOrg(): void {
+        console.log('joining');
         // get auth token which was set from user logging in
         let postData = this.auth.authToken;
         postData.loginType = this.perm;
+        postData.conference = this.org;
 
         // send POST to server with login credentials, if successful
         // set profile to response and continue navigation forward
