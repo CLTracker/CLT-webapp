@@ -24,7 +24,7 @@ INSERT INTO permitted_exhibitors(exhibitor_email) VALUES("exhb2@email.com");
 INSERT INTO permitted_exhibitors(exhibitor_email) VALUES("exhb3@email.com");
 INSERT INTO permitted_exhibitors(exhibitor_email) VALUES("exhb4@email.com");
 
-INSERT INTO organizers(organizer_email, conference) VALUES("org2@email.com", 1);
+INSERT INTO organizers(organizer_email, conference) VALUES("gmercer015@gmail.com", 1);
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("exhb1@email.com", 1, "Exxon Mobile", "https://hasdhfkasdjf.com");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("exhb2@email.com", 1, "Google", "https://hasdhfkasdjf.com");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("exhb3@email.com", 1, "Steven Mobile", "https://hasdhfkasdjf.com");
