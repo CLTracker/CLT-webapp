@@ -37,10 +37,10 @@ def getExInfo(db, confId):
     return results, 200
 
 def getNews(db, confId):
-    #any # of news with title, logo, text    
+    #any # of news with title, logo, text, author    
     cursor = db.cursor(dictionary=True)
     result = [] 
-    query = "SELECT title, logo_url, text FROM news WHERE conference = %s"
+    query = "SELECT title, logo_url, text, author FROM news WHERE conference = %s"
     cursor.execute(query, (confId,))
     results = cursor.fetchall()
     for row in results:
