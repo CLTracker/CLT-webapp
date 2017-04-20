@@ -21,9 +21,6 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
     private currentSelected: number;
     private closeResult: String;
 
-    private newExhibEmail: string;
-    private newExhibCompany: string;
-
     public tempData: any = [
         {
             'name': 'Grant Mercer',
@@ -40,13 +37,33 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
     ];
     constructor(private modalService: NgbModal, private cdRef: ChangeDetectorRef,
         private auth: Auth) {
+            console.log(this.auth.userProfile);
     }
 
     public addExhibitor(): void {
         this.modalService.open(this.modalContent)
             .result.then(
                 (result) => {
-                    this.closeResult = `Closed with: ${result}`;
+                    // if result is not empty, check for email and submit new exhibitor
+                    if (result) {
+                        let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+                        
+                        if(!EMAIL_REGEXP.test(result)) {
+                            console.log('fails');
+                        } else {
+                            let data = {
+                                source: this.auth.userProfile.email,
+                                email: result
+                            }
+                            this.auth.addExhibitor(result).subscribe(
+                                result => {
+                                    console.log(result);
+                                }, error => {
+                                    console.log(error);
+                                }
+                            )
+                        }
+                    }
                 }, (reason) => {
                     console.log('exited');
                 }

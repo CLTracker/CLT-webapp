@@ -6,7 +6,7 @@ import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
 
-const prod = false;
+const prod = true;
 
 @Injectable()
 export class Auth {
@@ -15,6 +15,7 @@ export class Auth {
     private loginUrl: string;
     private cnfEditUrl: string;
     private xhbUrl: string;
+    private addXhbUrl: string;
     private newsUrl: string;
 
     Lock = new Auth0Lock(
@@ -36,17 +37,19 @@ export class Auth {
 
     constructor(private router: Router, private http: Http) {
         
-        if (prod) {
+        if (!prod) {
             this.userUrl = 'http://localhost:5000/user';
             this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
-            this.cnfEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference/1';
-            this.xhbUrl = 'http://cltglobal.ddns.net:5000/exhibitors/1';
-            this.newsUrl = 'http://cltglobal.ddns.net:5000/news/1';
+            this.cnfEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference';
+            this.xhbUrl = 'http://cltglobal.ddns.net:5000/exhibitors';
+            this.addXhbUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitors';
+            this.newsUrl = 'http://cltglobal.ddns.net:5000/news';
         } else {
             this.userUrl = 'http://localhost:8080/user';
             this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
             this.cnfEditUrl = 'http://cltglobal.ddns.net:8080/edit/conference/1';
             this.xhbUrl = 'http://cltglobal.ddns.net:8080/exhibitors/1';
+            this.addXhbUrl = 'http://cltglobal.ddns.net:8080/edit/exhibitors/1';
             this.newsUrl = 'http://cltglobal.ddns.net:8080/news/1';
         }
 
@@ -92,6 +95,12 @@ export class Auth {
 
     public refresh() {
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    }
+
+    public addExhibitor(data: Object) {
+        return this.http
+            .post(`${this.addXhbUrl}`, data)
+            .map((r: Response) => r.json());
     }
 
     public getExhibitors() {
