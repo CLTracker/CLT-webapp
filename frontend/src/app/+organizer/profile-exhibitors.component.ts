@@ -21,23 +21,17 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
     private currentSelected: number;
     private closeResult: String;
 
-    public tempData: any = [
-        {
-            'name': 'Grant Mercer',
-            'email': 'gmercer015@gmail.com',
-            'company': 'CLTracker',
-            'status': 'Complete'
-        },
-        {
-            'name': 'Not set',
-            'email': 'sbrooks@something.com',
-            'company': 'Not set',
-            'status': 'Incomplete'
-        }
-    ];
+    public exhibitors: any;
+
     constructor(private modalService: NgbModal, private cdRef: ChangeDetectorRef,
         private auth: Auth) {
-            console.log(this.auth.userProfile);
+            this.auth.getExhibitors().subscribe(
+                result => {
+                    this.exhibitors = result;
+                }, error => {
+                    console.log(error);
+                }
+            )
     }
 
     public addExhibitor(): void {
@@ -55,9 +49,15 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
                                 source: this.auth.userProfile.email,
                                 email: result
                             }
-                            this.auth.addExhibitor(result).subscribe(
+                            this.auth.addExhibitor(data).subscribe(
                                 result => {
-                                    console.log(result);
+                                    this.auth.getExhibitors().subscribe(
+                                        result => {
+                                            this.exhibitors = result;
+                                        }, error => {
+                                            console.log(error);
+                                        }
+                                    )
                                 }, error => {
                                     console.log(error);
                                 }
@@ -73,6 +73,10 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
 
     ngAfterViewChecked() {
         this.cdRef.detectChanges();
+    }
+
+    private completeUser(user: any) {
+        return user.company !== '' && user.name !== '';
     }
 
     /**

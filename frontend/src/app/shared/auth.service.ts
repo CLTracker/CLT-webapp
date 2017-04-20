@@ -6,7 +6,7 @@ import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
 
-const prod = true;
+const prod: string = 'local';
 
 @Injectable()
 export class Auth {
@@ -15,6 +15,7 @@ export class Auth {
     private loginUrl: string;
     private cnfEditUrl: string;
     private xhbUrl: string;
+    private xhbUsersUrl: string;
     private addXhbUrl: string;
     private newsUrl: string;
 
@@ -37,20 +38,30 @@ export class Auth {
 
     constructor(private router: Router, private http: Http) {
         
-        if (!prod) {
+        if (prod === 'production-test') {
             this.userUrl = 'http://localhost:5000/user';
-            this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
-            this.cnfEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference';
-            this.xhbUrl = 'http://cltglobal.ddns.net:5000/exhibitors';
-            this.addXhbUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitors';
-            this.newsUrl = 'http://cltglobal.ddns.net:5000/news';
-        } else {
+            this.loginUrl = 'http://cltglobal.ddns.net:5000/login';
+            this.cnfEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference/1';
+            this.xhbUrl = 'http://cltglobal.ddns.net:5000/exhibitors/1';
+            this.xhbUsersUrl = 'http://cltglobal.ddns.net:5000/user/exhibitors/1';
+            this.addXhbUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitors/1';
+            this.newsUrl = 'http://cltglobal.ddns.net:5000/news/1';
+        } else if (prod === 'production') {
             this.userUrl = 'http://localhost:8080/user';
             this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
             this.cnfEditUrl = 'http://cltglobal.ddns.net:8080/edit/conference/1';
             this.xhbUrl = 'http://cltglobal.ddns.net:8080/exhibitors/1';
+            this.xhbUsersUrl = 'http://cltglobal.ddns.net:8080/user/exhibitors/1';
             this.addXhbUrl = 'http://cltglobal.ddns.net:8080/edit/exhibitors/1';
             this.newsUrl = 'http://cltglobal.ddns.net:8080/news/1';
+        } else {
+            this.userUrl = 'http://localhost:5000/user';
+            this.loginUrl = 'http://localhost:5000/login';
+            this.cnfEditUrl = 'http://localhost:5000/edit/conference/1';
+            this.xhbUrl = 'http://localhost:5000/exhibitors/1';
+            this.xhbUsersUrl = 'http://localhost:5000/user/exhibitors/1';
+            this.addXhbUrl = 'http://localhost:5000/edit/exhibitors/1';
+            this.newsUrl = 'http://localhost:5000/news/1';
         }
 
         this.authToken = JSON.parse(sessionStorage.getItem('authToken'));
@@ -105,7 +116,7 @@ export class Auth {
 
     public getExhibitors() {
         return this.http
-            .get(`${this.xhbUrl}`)
+            .get(`${this.xhbUsersUrl}`)
             .map((r: Response) => r.json());
     }
 
