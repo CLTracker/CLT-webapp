@@ -6,16 +6,16 @@ import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
 
-const prod = true;
+const prod = false;
 
 @Injectable()
 export class Auth {
 
-    private getUserUrl: string;
+    private userUrl: string;
     private loginUrl: string;
     private cnfEditUrl: string;
-    private xhbGetUrl: string;
-    private newsGetUrl: string;
+    private xhbUrl: string;
+    private newsUrl: string;
 
     Lock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
@@ -37,17 +37,17 @@ export class Auth {
     constructor(private router: Router, private http: Http) {
         
         if (prod) {
-            this.getUserUrl = 'http://localhost:5000/user';
+            this.userUrl = 'http://localhost:5000/user';
             this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
             this.cnfEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference/1';
-            this.xhbGetUrl = 'http://cltglobal.ddns.net:5000/exhibitors/1';
-            this.newsGetUrl = 'http://cltglobal.ddns.net:5000/news/1';
+            this.xhbUrl = 'http://cltglobal.ddns.net:5000/exhibitors/1';
+            this.newsUrl = 'http://cltglobal.ddns.net:5000/news/1';
         } else {
-            this.getUserUrl = 'http://localhost:8080/user';
+            this.userUrl = 'http://localhost:8080/user';
             this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
             this.cnfEditUrl = 'http://cltglobal.ddns.net:8080/edit/conference/1';
-            this.xhbGetUrl = 'http://cltglobal.ddns.net:8080/exhibitors/1';
-            this.newsGetUrl = 'http://cltglobal.ddns.net:8080/news/1';
+            this.xhbUrl = 'http://cltglobal.ddns.net:8080/exhibitors/1';
+            this.newsUrl = 'http://cltglobal.ddns.net:8080/news/1';
         }
 
         this.authToken = JSON.parse(sessionStorage.getItem('authToken'));
@@ -96,13 +96,13 @@ export class Auth {
 
     public getExhibitors() {
         return this.http
-            .get(`${this.xhbGetUrl}`)
+            .get(`${this.xhbUrl}`)
             .map((r: Response) => r.json());
     }
 
     public getNews() {
         return this.http
-            .get(`${this.newsGetUrl}`)
+            .get(`${this.newsUrl}`)
             .map((r: Response) => r.json());
     }
 

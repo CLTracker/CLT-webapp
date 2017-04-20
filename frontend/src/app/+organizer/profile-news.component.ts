@@ -11,9 +11,9 @@ export class ProfileNewsComponent {
     private news: Object;
 
     constructor(private auth: Auth) {
+        // get current list of news from server
         this.auth.getNews().subscribe(
             result => {
-                console.log(result);
                 this.news = result;
             },
             error => {
@@ -21,4 +21,6 @@ export class ProfileNewsComponent {
             }
         )
     }
+
+    
 }

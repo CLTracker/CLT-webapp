@@ -26,14 +26,15 @@
         position: absolute;
         top: 2px;
         left: 92%;
-        width: 50px;
-        span {
-            font-size: 10px;
+        width: 65px;
+        i {
+            font-size: 15px;
             display: inline-block;
             margin-right: 5px;
             cursor: pointer;
         }
         #edit {
+            font-size: 14px;
             text-decoration: underline;
         }
     }
