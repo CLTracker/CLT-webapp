@@ -3,6 +3,15 @@
     overflow-x: hidden;
     padding: 0;
 }
+.add-new-button {
+    padding: 5px 10px;
+    line-height: auto;
+    height: auto;
+}
+#edit-event-label {
+    display: inline-block;
+    cursor: pointer;
+}
 .table-view {
     margin-top: 10px;
     width: 100%;

@@ -13,6 +13,7 @@ export class Auth {
 
     private userUrl: string;
     private loginUrl: string;
+    private cnfInfoUrl: string;
     private cnfEditUrl: string;
     private xhbUrl: string;
     private xhbUsersUrl: string;
@@ -42,6 +43,7 @@ export class Auth {
             this.userUrl = 'http://localhost:5000/user';
             this.loginUrl = 'http://cltglobal.ddns.net:5000/login';
             this.cnfEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference/1';
+            this.cnfInfoUrl = 'http://cltglobal.ddns.net:5000/info/1';
             this.xhbUrl = 'http://cltglobal.ddns.net:5000/exhibitors/1';
             this.xhbUsersUrl = 'http://cltglobal.ddns.net:5000/user/exhibitors/1';
             this.addXhbUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitors/1';
@@ -50,6 +52,7 @@ export class Auth {
             this.userUrl = 'http://localhost:8080/user';
             this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
             this.cnfEditUrl = 'http://cltglobal.ddns.net:8080/edit/conference/1';
+            this.cnfInfoUrl = 'http://cltglobal.ddns.net:8080/info/1';
             this.xhbUrl = 'http://cltglobal.ddns.net:8080/exhibitors/1';
             this.xhbUsersUrl = 'http://cltglobal.ddns.net:8080/user/exhibitors/1';
             this.addXhbUrl = 'http://cltglobal.ddns.net:8080/edit/exhibitors/1';
@@ -58,6 +61,7 @@ export class Auth {
             this.userUrl = 'http://localhost:5000/user';
             this.loginUrl = 'http://localhost:5000/login';
             this.cnfEditUrl = 'http://localhost:5000/edit/conference/1';
+            this.cnfInfoUrl = 'http://localhost:5000/info/1';
             this.xhbUrl = 'http://localhost:5000/exhibitors/1';
             this.xhbUsersUrl = 'http://localhost:5000/user/exhibitors/1';
             this.addXhbUrl = 'http://localhost:5000/edit/exhibitors/1';
@@ -106,6 +110,12 @@ export class Auth {
 
     public refresh() {
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    }
+
+    public getConferenceInfo() {
+        return this.http
+            .get(`${this.cnfInfoUrl}`)
+            .map((r: Response) => r.json());
     }
 
     public addExhibitor(data: Object) {

@@ -1,6 +1,6 @@
 import {
     Component, Input, Output, EventEmitter,
-    SimpleChanges, OnChanges
+    SimpleChanges, OnChanges, AfterViewChecked
 } from '@angular/core';
 import {
     getSeconds, getMinutes, getHours,
@@ -47,7 +47,7 @@ import {
         }
     `]
 })
-export class DateTimePickerComponent implements OnChanges {
+export class DateTimePickerComponent implements OnChanges, AfterViewChecked {
 
     @Input() placeholder: string;
 
@@ -59,8 +59,24 @@ export class DateTimePickerComponent implements OnChanges {
 
     timeStruct: NgbTimeStruct;
 
+    ngAfterViewChecked() {
+        console.log('hello');
+            this.dateStruct = {
+                day: getDate(this.date),
+                month: getMonth(this.date) + 1,
+                year: getYear(this.date)
+            };
+            this.timeStruct = {
+                second: getSeconds(this.date),
+                minute: getMinutes(this.date),
+                hour: getHours(this.date)
+            };
+    }
+
     ngOnChanges(changes: SimpleChanges): void {
+                console.log('ahello');
         if (changes['date']) {
+                    console.log('hello');
             this.dateStruct = {
                 day: getDate(this.date),
                 month: getMonth(this.date) + 1,

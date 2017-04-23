@@ -95,18 +95,17 @@
 
             <div class="col-md-12 line-break"></div>
 
-            <h3>
-                Edit events
-                <button
-                    md-button color="primary"
-                    class="pull-right"
-                    (click)="addEvent()">
-                    Add new
-                </button>
-                <div class="clearfix"></div>
+            <h3 id="edit-event-label" (click)="showEdit=!showEdit">
+                Edit events <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </h3>
+            <button
+                md-button color="primary"
+                class="pull-right add-new-button"
+                (click)="addEvent()">
+                Add new
+            </button>
 
-            <table class="event-editor-table">
+            <table class="event-editor-table" *ngIf="showEdit" [@enterAnimation]="showEdit">
 
                 <thead>
                     <tr>
