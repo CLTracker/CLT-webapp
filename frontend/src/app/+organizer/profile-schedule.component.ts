@@ -1,6 +1,6 @@
 import { 
     Component, ChangeDetectionStrategy, style, animate,
-    ViewChild, TemplateRef, trigger, transition
+    ViewChild, TemplateRef, trigger, transition, ChangeDetectorRef
 } from '@angular/core';
 import { 
     startOfDay, endOfDay, subDays, addDays,
@@ -17,15 +17,15 @@ import {
 
 const colors: any = {
     red: {
-        primary: '#ad2121',
+        primary: '#ffffff',
         secondary: '#FAE3E3'
     },
     blue: {
-        primary: '#1e90ff',
+        primary: '#ffffff',
         secondary: '#D1E8FF'
     },
     yellow: {
-        primary: '#e3bc08',
+        primary: '#ffffff',
         secondary: '#FDF1BA'
     }
 };
@@ -55,8 +55,19 @@ export class ProfileScheduleComponent {
     @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
     view: string = 'week';
-    showEdit: boolean = false;
+    _showEdit: boolean = false;
     viewDate: Date = new Date();
+
+    set showEdit(val: boolean) {
+        this._showEdit = val;
+        setTimeout(() => {
+            this.ref.detectChanges();
+        }, 1000);
+    }
+
+    get showEdit(): boolean {
+        return this._showEdit;
+    }
 
     modalData: {
         action: string,
@@ -109,7 +120,9 @@ export class ProfileScheduleComponent {
 
     activeDayIsOpen: boolean = true;
 
-    constructor(private modal: NgbModal) {}
+    constructor(private modal: NgbModal, private ref: ChangeDetectorRef) {
+        //console.log(this.events);
+    }
 
     dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
 

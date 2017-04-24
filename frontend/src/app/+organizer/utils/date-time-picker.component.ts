@@ -1,7 +1,6 @@
 import {
     Component, Input, Output, EventEmitter,
-    SimpleChanges, OnChanges, AfterViewChecked,
-    ChangeDetectorRef
+    SimpleChanges, OnChanges
 } from '@angular/core';
 import {
     getSeconds, getMinutes, getHours,
@@ -48,7 +47,7 @@ import {
         }
     `]
 })
-export class DateTimePickerComponent implements OnChanges, AfterViewChecked {
+export class DateTimePickerComponent implements OnChanges {
 
     @Input() placeholder: string;
 
@@ -60,20 +59,8 @@ export class DateTimePickerComponent implements OnChanges, AfterViewChecked {
 
     timeStruct: NgbTimeStruct;
 
-    // grab reference to zone change detector reference
-    constructor(private ref: ChangeDetectorRef) {}
-
-    ngAfterViewChecked() {
-        // after the view is checked, trigger a manually re-check of
-        // the component tree to properly fill the edit datetime structs.
-        // removing this will break the edit feature of the items
-        this.ref.detectChanges();
-    }
-
     ngOnChanges(changes: SimpleChanges): void {
-                console.log('ahello');
         if (changes['date']) {
-                    console.log('hello');
             this.dateStruct = {
                 day: getDate(this.date),
                 month: getMonth(this.date) + 1,

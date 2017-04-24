@@ -110,11 +110,10 @@
                 <thead>
                     <tr>
                     <th>Title</th>
-                    <th>Primary</th>
-                    <th>Secondary</th>
+                    <th>Color</th>
                     <th>Starts at</th>
                     <th>Ends at</th>
-                    <th>Remove</th>
+                    <th></th>
                     </tr>
                 </thead>
 
@@ -126,12 +125,6 @@
                         class="form-control"
                         [(ngModel)]="event.title"
                         (keyup)="refresh.next()">
-                    </td>
-                    <td class="pcolor-col">
-                        <input
-                        type="color"
-                        [(ngModel)]="event.color.primary"
-                        (change)="refresh.next()">
                     </td>
                     <td class="scolor-col">
                         <input
@@ -154,8 +147,8 @@
                         </mwl-utils-date-time-picker>
                     </td>
                     <td class="del-col">
-                        <span class="glyphicon glyphicon-trash" (click)="events.splice(index, 1); refresh.next()">
-                        </span>
+                        <i class="fa fa-trash" (click)="events.splice(index, 1); refresh.next()" aria-hidden="true">
+                        </i>
                     </td>
                     </tr>
                 </tbody>
