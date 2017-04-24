@@ -120,11 +120,12 @@
                 <tbody>
                     <tr *ngFor="let event of events; let index = index">
                     <td class="title-col">
-                        <input
-                        type="text"
-                        class="form-control"
-                        [(ngModel)]="event.title"
-                        (keyup)="refresh.next()">
+                        <md-input-container>
+                            <input
+                            mdInput
+                            [(ngModel)]="event.title"
+                            (keyup)="refresh.next()">
+                        </md-input-container>
                     </td>
                     <td class="scolor-col">
                         <input
@@ -133,11 +134,13 @@
                         (change)="refresh.next()">
                     </td>
                     <td class="btime-col">
+                        <div class="lets-see">
                         <mwl-utils-date-time-picker
                         [(date)]="event.start"
                         (dateChange)="refresh.next()"
                         placeholder="Not set">
                         </mwl-utils-date-time-picker>
+                        </div>
                     </td>
                     <td class="etime-col">
                         <mwl-utils-date-time-picker
