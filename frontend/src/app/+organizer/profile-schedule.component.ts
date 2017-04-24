@@ -60,7 +60,7 @@ export class ProfileScheduleComponent {
 
     set showEdit(val: boolean) {
         this._showEdit = val;
-        
+
         // may the lord have mercy on my soul. Manually triggering
         // change detection 1000ms afer the view is rendered is
         // a hacky way to overcome this library bug.
@@ -125,7 +125,6 @@ export class ProfileScheduleComponent {
     activeDayIsOpen: boolean = true;
 
     constructor(private modal: NgbModal, private ref: ChangeDetectorRef) {
-        //console.log(this.events);
     }
 
     dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {

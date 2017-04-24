@@ -5,8 +5,11 @@ import { MaterialModule }           from '@angular/material';
 import { FormsModule }              from '@angular/forms';
 import { JoinRoutingModule }     from './join.routing';
 import { JoinComponent }         from './join.component';
-import { AUTH_PROVIDERS }        from 'angular2-jwt';
 
+/**
+ * Module for handling lazy loaded /join route, which deals with
+ * first time logged in users.
+ */
 @NgModule({
     imports: [
         CommonModule,
@@ -20,7 +23,6 @@ import { AUTH_PROVIDERS }        from 'angular2-jwt';
         JoinComponent
     ],
     providers: [
-        AUTH_PROVIDERS
     ]
 })
 export class JoinModule { }
