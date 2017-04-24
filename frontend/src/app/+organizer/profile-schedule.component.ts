@@ -60,6 +60,10 @@ export class ProfileScheduleComponent {
 
     set showEdit(val: boolean) {
         this._showEdit = val;
+        
+        // may the lord have mercy on my soul. Manually triggering
+        // change detection 1000ms afer the view is rendered is
+        // a hacky way to overcome this library bug.
         setTimeout(() => {
             this.ref.detectChanges();
         }, 1000);
