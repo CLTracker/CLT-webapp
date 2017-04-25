@@ -1,5 +1,8 @@
-import { Component }        from '@angular/core';
+import { Component, ViewChild, TemplateRef }        from '@angular/core';
 import { Auth  }            from '../shared';
+
+import { NgbModal,
+    ModalDismissReasons }   from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
     selector: 'my-profile-news',
@@ -10,7 +13,9 @@ export class ProfileNewsComponent {
 
     private news: Object;
 
-    constructor(private auth: Auth) {
+    @ViewChild('modalContent') modalContent: TemplateRef<any>;
+
+    constructor(private auth: Auth, private modalService: NgbModal) {
         // get current list of news from server
         this.auth.getNews().subscribe(
             result => {
@@ -20,6 +25,15 @@ export class ProfileNewsComponent {
                 console.log(error);
             }
         )
+    }
+
+    public openNewsPrompt(): void {
+        this.modalService.open(this.modalContent)
+            .result.then(
+                (result) => {
+                    console.log(result);
+                }
+            )
     }
 
     
