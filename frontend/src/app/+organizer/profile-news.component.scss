@@ -65,11 +65,20 @@
 /deep/ .modal-dialog {
     width: 950px !important;
     max-width: 950px !important;
-    height: 500px;
+    height: 485px;
     top: 50%;
     left: 50%;
     margin-top: -150px;
     margin-left: -350px;
+    .modal-body {
+        padding-bottom: 0;
+    }
+    .modal-content {
+        background-color: #E5E5E5;
+    }
+    .modal-header {
+        background-color: #ffffff;
+    }
     p {
         margin: 0;
     }
@@ -88,6 +97,7 @@
         padding: 0 10px;
     }
     textarea {
+        padding: 10px;
         border: 1px solid red;
         border-radius: 0;
     }

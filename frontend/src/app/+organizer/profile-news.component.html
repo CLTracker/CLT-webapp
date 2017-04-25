@@ -8,8 +8,8 @@
     <div class="modal-body">
         <div class="text-description">
             <p>
-                To create a news item, fill out all boxes in red and upload an image, then
-                click 'submit' at the bottom.
+                To create a news item, fill out all boxes in <span style="color: red; font-weight: bold;">red</span> and upload an image, then
+                click <em>submit</em> at the bottom.
             </p>
             <hr/>
         </div>
@@ -20,27 +20,32 @@
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </div>
                 <div class="col-md-3">
-                    <button md-button color="primary" class="logo">
+                    <button class="btn btn-primary logo upload-overlay">
                         Upload
+                        <input id="uploader-input"
+                        type="file"
+                        ng2FileSelect
+                        [uploader]="uploader"
+                        (change)="uploader.uploadAll()"/>
                     </button>
                 </div>
                 <div class="col-md-9">
                     <h3 style="padding-right: 65px;">
-                        <input value="TITLE"/>
+                        <input [(ngModel)]="newsItemTitle" />
                     </h3>
                     <div class="line-break"></div>
                     <p>
-                        <textarea>Place news text here</textarea>
+                        <textarea [(ngModel)]="newsItemText"></textarea>
                     </p>
                 </div>
                 <p class="author">  
-                    <input value="AUTHOR"/>
+                    <input [(ngModel)]="newsItemAuthor" />
                 </p>
             </md-card>
         </div>
     </div>
     <div class="modal-footer">
-        <button id="submit" type="button" class="btn btn-secondary" (click)="close(email.value)">Submit</button>
+        <button id="submit" type="button" class="btn btn-secondary" (click)="submitNewsItem(close)">Submit</button>
     </div>
 </ng-template>
 

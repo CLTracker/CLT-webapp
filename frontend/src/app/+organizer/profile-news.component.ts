@@ -1,6 +1,8 @@
-import { Component, ViewChild, TemplateRef }        from '@angular/core';
-import { Auth  }            from '../shared';
-
+import { Component, ViewChild, 
+    TemplateRef, OnInit }           from '@angular/core';
+import { FileUploader, FileItem,
+    ParsedResponseHeaders }         from 'ng2-file-upload';
+import { Auth, APP }                    from '../shared';
 import { NgbModal,
     ModalDismissReasons }   from '@ng-bootstrap/ng-bootstrap'
 
@@ -9,9 +11,15 @@ import { NgbModal,
     templateUrl: './profile-news.component.html',
     styleUrls: ['./profile-news.component.scss']
 })
-export class ProfileNewsComponent {
+export class ProfileNewsComponent implements OnInit {
 
+    public uploader: FileUploader = new FileUploader({url: APP.routes.PostImage});
     private news: Object;
+
+    private newsItemTitle: string = 'TITLE';
+    private newsItemText: string = 'place news text here';
+    private newsItemAuthor: string = 'AUTHOR';
+    private newsItemImg: string;
 
     @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
@@ -27,6 +35,14 @@ export class ProfileNewsComponent {
         )
     }
 
+    ngOnInit() {
+        this.uploader.onSuccessItem =
+        (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
+            console.log(response);
+            // newsItemImg = response;
+        }
+    }
+
     public openNewsPrompt(): void {
         this.modalService.open(this.modalContent)
             .result.then(
@@ -34,6 +50,11 @@ export class ProfileNewsComponent {
                     console.log(result);
                 }
             )
+    }
+
+    public submitNewsItem(close: any): void {
+
+        close();
     }
 
     
