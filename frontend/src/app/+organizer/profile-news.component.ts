@@ -2,7 +2,7 @@ import { Component, ViewChild,
     TemplateRef, OnInit }           from '@angular/core';
 import { FileUploader, FileItem,
     ParsedResponseHeaders }         from 'ng2-file-upload';
-import { Auth, APP }                    from '../shared';
+import { Auth }                    from '../shared';
 import { NgbModal,
     ModalDismissReasons }   from '@ng-bootstrap/ng-bootstrap'
 
@@ -13,7 +13,7 @@ import { NgbModal,
 })
 export class ProfileNewsComponent implements OnInit {
 
-    public uploader: FileUploader = new FileUploader({url: APP.routes.PostImage});
+    public uploader: FileUploader = new FileUploader({url: this.auth.imgUrl});
     private news: Object;
 
     private newsItemTitle: string = 'TITLE';

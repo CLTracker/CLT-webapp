@@ -3,7 +3,7 @@ import { FileUploader,
     FileItem,
     ParsedResponseHeaders }     from 'ng2-file-upload';
 
-import { APP }                  from '../shared';
+import { Auth }                  from '../shared';
 
 @Component({
     selector: 'my-profile-map',
@@ -12,12 +12,12 @@ import { APP }                  from '../shared';
 })
 
 export class ProfileMapComponent implements OnInit{
-    public uploader: FileUploader = new FileUploader({url: APP.routes.PostImage});
+    public uploader: FileUploader = new FileUploader({url: this.auth.imgUrl});
 
     // example: https://conferencecenter.ce.byu.edu/sites/conferencecenter.ce.byu.edu/files/map.png
     private imgUrl: string = 'https://conferencecenter.ce.byu.edu/sites/conferencecenter.ce.byu.edu/files/map.png';
 
-    constructor() {}
+    constructor(private auth: Auth) {}
 
     ngOnInit() {
         this.uploader.onSuccessItem =

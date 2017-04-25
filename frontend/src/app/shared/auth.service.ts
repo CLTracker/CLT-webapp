@@ -11,6 +11,7 @@ const prod: string = 'production';
 @Injectable()
 export class Auth {
 
+    public imgUrl: string;
     private userUrl: string;
     private loginUrl: string;
     private cnfInfoUrl: string;
@@ -40,7 +41,8 @@ export class Auth {
     constructor(private router: Router, private http: Http) {
         
         if (prod === 'production-test') {
-            this.userUrl = 'http://localhost:5000/user';
+            this.imgUrl = 'http://cltglobal.ddns.net:5000/img';
+            this.userUrl = 'http://cltglobal.ddns.net:5000/user';
             this.loginUrl = 'http://cltglobal.ddns.net:5000/login';
             this.cnfEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference/1';
             this.cnfInfoUrl = 'http://cltglobal.ddns.net:5000/info/1';
@@ -49,7 +51,8 @@ export class Auth {
             this.addXhbUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitors/1';
             this.newsUrl = 'http://cltglobal.ddns.net:5000/news/1';
         } else if (prod === 'production') {
-            this.userUrl = 'http://localhost:8080/user';
+            this.imgUrl = 'http://cltglobal.ddns.net:8080/img';
+            this.userUrl = 'http://cltglobal.ddns.net:8080/user';
             this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
             this.cnfEditUrl = 'http://cltglobal.ddns.net:8080/edit/conference/1';
             this.cnfInfoUrl = 'http://cltglobal.ddns.net:8080/info/1';
@@ -58,6 +61,7 @@ export class Auth {
             this.addXhbUrl = 'http://cltglobal.ddns.net:8080/edit/exhibitors/1';
             this.newsUrl = 'http://cltglobal.ddns.net:8080/news/1';
         } else {
+            this.imgUrl = 'http://localhost:5000/img';
             this.userUrl = 'http://localhost:5000/user';
             this.loginUrl = 'http://localhost:5000/login';
             this.cnfEditUrl = 'http://localhost:5000/edit/conference/1';
