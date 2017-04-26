@@ -11,6 +11,7 @@ from general import genRoutes
 from exhib import exhibRoutes
 from news import newsRoutes
 from conf import confRoutes
+from image import imgRoutes
 
 
 app = Flask(__name__)
@@ -31,6 +32,7 @@ app.register_blueprint(genRoutes)
 app.register_blueprint(exhibRoutes)
 app.register_blueprint(newsRoutes)
 app.register_blueprint(confRoutes)
+app.register_blueprint(imgRoutes)
 
 '''
 @app.route('/img', methods=['POST'])
