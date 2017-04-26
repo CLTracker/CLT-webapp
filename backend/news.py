@@ -19,7 +19,6 @@ def getNews(db, confId):
     return result, 200    
 
 def edit_news(db, content, confId):
-
     cursor = db.cursor(dictionary=True)
    
     #Checking source
@@ -45,8 +44,33 @@ def edit_news(db, content, confId):
         statJson,ta = getNews(db, confId)
         return statJson, 200
 
-def deleteNewsItem(db, content, confId):
+def updateNewsItem(db, content, confId):
+    cursor = db.cursor(dictionary=True)
+   
+    #Checking source
+    query = "SELECT permissions FROM users WHERE email = %s"
+    cursor.execute(query, (content["source"],))
+    result = cursor.fetchone()
+    
+    query = "SELECT permission_name FROM permissions WHERE permission_id = %s"
+    cursor.execute(query, (result["permissions"],))
+    result = cursor.fetchone()
 
+    # 1 == xhib
+    # 2 == admin
+    # 3 == org
+    if result["permission_name"] == "adm" or result["permission_name"] == "xhb":
+        statJson,ta = getNews(db, confId)
+        return statJson, 401
+    else:
+        #add news
+        query = "UPDATE news SET conference = %s, title = %s, logo_url = %s, text = %s, author = %s"
+        cursor.execute(query,(confId,content["news_item"]["title"],content["news_item"]["logo"],content["news_item"]["text"],content["news_item"]["author"],))
+        db.commit()
+        statJson,ta = getNews(db, confId)
+        return statJson, 200
+
+def deleteNewsItem(db, content, confId):
     cursor = db.cursor(dictionary=True)
     titleToDelete = content["news_item"]["title"] 
     #Checking source
@@ -73,7 +97,7 @@ def deleteNewsItem(db, content, confId):
         return statJson, 200
 
 #addes new to the database
-@newsRoutes.route("/edit/news/<string:confid>", methods=["PATCH", "POST"])
+@newsRoutes.route("/edit/news/<string:confid>", methods=["PATCH", "POST", "PUT"])
 def newsedit(confid):
     if request.method == "POST":
         db = dbPool.connect().connection
@@ -84,6 +108,12 @@ def newsedit(confid):
     elif request.method == "PATCH":
         db = dbPool.connect().connection
         jsonObject, status = deleteNewsItem(db,request.json,confid)
+        jsonObj = simplejson.dumps(jsonObject)
+        db.close()
+        return Response(jsonObj, mimetype="application/json"), status
+    elif request.method == "PUT":
+        db = dbPool.connect().connection
+        jsonObject, status = updateNewsItem(db,request.json,confid)
         jsonObj = simplejson.dumps(jsonObject)
         db.close()
         return Response(jsonObj, mimetype="application/json"), status
