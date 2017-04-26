@@ -64,8 +64,8 @@ def updateNewsItem(db, content, confId):
         return statJson, 401
     else:
         #add news
-        query = "UPDATE news SET conference = %s, title = %s, logo_url = %s, text = %s, author = %s"
-        cursor.execute(query,(confId,content["news_item"]["title"],content["news_item"]["logo"],content["news_item"]["text"],content["news_item"]["author"],))
+        query = "UPDATE news SET conference = %s, title = %s, logo_url = %s, text = %s, author = %s WHERE title = %s"
+        cursor.execute(query,(confId,content["news_item"]["title"],content["news_item"]["logo"],content["news_item"]["text"],content["news_item"]["author"],content["news_item"]["title"]))
         db.commit()
         statJson,ta = getNews(db, confId)
         return statJson, 200
