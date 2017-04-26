@@ -20,7 +20,6 @@ def getNews(db, confId):
 
 def edit_news(db, content, confId):
 
-    statjson = { "status": 401}
     cursor = db.cursor(dictionary=True)
    
     #Checking source
@@ -36,15 +35,15 @@ def edit_news(db, content, confId):
     # 2 == admin
     # 3 == org
     if result["permission_name"] == "adm" or result["permission_name"] == "xhb":
-        statJson = getNews(db, confId)
-        return statjson, 401
+        statJson,ta = getNews(db, confId)
+        return statJson, 401
     else:
         #add news
         query = "INSERT INTO news(conference,title,logo_url,text, author) VALUES (%s,%s,%s,%s,%s)"
         cursor.execute(query,(confId,content["news_item"]["title"],content["news_item"]["logo"],content["news_item"]["text"],content["news_item"]["author"],))
         db.commit()
-        statJson = getNews(db, confId)
-        return statjson, 200
+        statJson,ta = getNews(db, confId)
+        return statJson, 200
 
 #addes new to the database
 @newsRoutes.route("/edit/news/<string:confid>", methods=["POST"])
