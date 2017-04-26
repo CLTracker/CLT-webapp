@@ -17,41 +17,22 @@ def getConfInfo(db, confId):
     result["end_date"] = str(result["end_date"])
     return result, 200
 
-def getSchedInfo(db, confId):
-    #want title, logo_url, text
-    cursor = db.cursor(dictionary=True)
-    query = "SELECT event_name, schedule.start_time, schedule.end_time FROM schedule, conference WHERE conference_id = %s"
-    cursor.execute(query, (confId,))
-    results = cursor.fetchall()
-    for row in results:
-            row["start_time"] = str(row["start_time"])
-            row["end_time"] = str(row["end_time"])
-    return results, 200
 
 def getExInfo(db, confId):
     #want title, logo_url, text
     cursor = db.cursor(dictionary=True)
-    query = "SELECT conference, company_name, exhibitors.logo_url FROM exhibitors, conference WHERE conference_id = %s"
-    cursor.execute(query, (confId,))
+    query = "SELECT conference, company_name, exhibitors.logo_url from exhibitors, conference where conference_id = %s"
+    cursor.execute(query, (confid,))
     results = cursor.fetchall()
     return results, 200
 
     
 
-@genRoutes.route("/info/<string:confId>", methods=["GET"])
-def info(confId):
+@genRoutes.route("/info/<string:confid>", methods=["get"])
+def info(confid):
     if request.method == "GET":
         db = dbPool.connect().connection
         result, status = getConfInfo(db, confId)
-        result = simplejson.dumps(result)
-        db.close()
-        return Response(result, mimetype="application/json"), status
-
-@genRoutes.route("/schedule/<string:confId>", methods=["GET"])
-def sched(confId):
-    if request.method == "GET":
-        db = dbPool.connect().connection
-        result, status = getSchedInfo(db, confId)
         result = simplejson.dumps(result)
         db.close()
         return Response(result, mimetype="application/json"), status
