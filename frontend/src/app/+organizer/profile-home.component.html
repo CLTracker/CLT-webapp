@@ -15,8 +15,7 @@
                         <div class="col-md-9">
                             <md-input-container>
                                 <input mdInput
-                                [(ngModel)]="conferenceName"
-                                placeholder="name">
+                                [(ngModel)]="conferenceName">
                             </md-input-container>
                         </div>
                     </div>
@@ -27,8 +26,7 @@
                         <div class="col-md-9">
                             <md-input-container>
                                 <input mdInput
-                                [(ngModel)]="location"
-                                placeholder="location">
+                                [(ngModel)]="location">
                             </md-input-container>
                         </div>
                     </div>
@@ -72,29 +70,15 @@
                         </div>
                         <div class="col-md-6">
                             <md-input-container class="date-picker">
-                                <input mdInput type="date">
+                                <input mdInput type="date" [(ngModel)]="beginDate">
                             </md-input-container>
                             <span class="middle">to</span>
                             <md-input-container class="date-picker">
-                                <input mdInput type="date">
+                                <input mdInput type="date" [(ngModel)]="endDate">
                             </md-input-container>
                         </div>
                     </div>
                     <hr />
-                    <div class="crow">
-                        <div class="col-md-6">
-                            <p class="field-title">Operating hours</p>
-                        </div>
-                        <div class="col-md-6">
-                            <md-input-container class="time-picker">
-                                <input mdInput type="time">
-                            </md-input-container>
-                            <span class="middle">to</span>
-                            <md-input-container class="time-picker">
-                                <input mdInput type="time">
-                            </md-input-container>
-                        </div>
-                    </div>
                 </md-card>
             </div>
         </md-grid-tile>
@@ -118,7 +102,7 @@
                         </div>
                         <div class="col-md-6">
                             <button md-button color="primary" class="view-exhibitors-button"
-                                [routerLink]="['org','profile','exhibitors']">
+                                [routerLink]="['/org','profile','exhibitors']">
                                 View
                             </button>
                         </div>

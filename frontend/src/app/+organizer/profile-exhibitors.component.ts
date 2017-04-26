@@ -6,6 +6,8 @@ import { Component, ChangeDetectorRef,
 import { NgbModal, 
     ModalDismissReasons }   from '@ng-bootstrap/ng-bootstrap'
 
+import { Auth } from '../shared';
+
 @Component({
     selector: 'my-profile-exhibitors',
     templateUrl: './profile-exhibitors.component.html',
@@ -19,30 +21,49 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
     private currentSelected: number;
     private closeResult: String;
 
-    private newExhibEmail: string;
-    private newExhibCompany: string;
+    public exhibitors: any;
 
-    public tempData: any = [
-        {
-            'name': 'Grant Mercer',
-            'email': 'gmercer015@gmail.com',
-            'company': 'CLTracker',
-            'status': 'Complete'
-        },
-        {
-            'name': 'Steven Brookes',
-            'email': 'sbrooks@something.com',
-            'company': 'CLTracker',
-            'status': 'Incomplete'
-        }
-    ];
-    constructor(private modalService: NgbModal, private cdRef: ChangeDetectorRef) {}
+    constructor(private modalService: NgbModal, private cdRef: ChangeDetectorRef,
+        private auth: Auth) {
+            this.auth.getExhibitors().subscribe(
+                result => {
+                    this.exhibitors = result;
+                }, error => {
+                    console.log(error);
+                }
+            )
+    }
 
     public addExhibitor(): void {
         this.modalService.open(this.modalContent)
             .result.then(
                 (result) => {
-                    this.closeResult = `Closed with: ${result}`;
+                    // if result is not empty, check for email and submit new exhibitor
+                    if (result) {
+                        let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+                        
+                        if(!EMAIL_REGEXP.test(result)) {
+                            console.log('fails');
+                        } else {
+                            let data = {
+                                source: this.auth.userProfile.email,
+                                email: result
+                            }
+                            this.auth.addExhibitor(data).subscribe(
+                                result => {
+                                    this.auth.getExhibitors().subscribe(
+                                        result => {
+                                            this.exhibitors = result;
+                                        }, error => {
+                                            console.log(error);
+                                        }
+                                    )
+                                }, error => {
+                                    console.log(error);
+                                }
+                            )
+                        }
+                    }
                 }, (reason) => {
                     console.log('exited');
                 }
@@ -52,6 +73,10 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
 
     ngAfterViewChecked() {
         this.cdRef.detectChanges();
+    }
+
+    private completeUser(user: any) {
+        return user.company !== '' && user.name !== '';
     }
 
     /**

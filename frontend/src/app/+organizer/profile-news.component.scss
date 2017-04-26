@@ -2,6 +2,11 @@
 .fill-height {
     padding: 0;
 }
+.crow {
+    margin-bottom: 0.5em;
+    display: block;
+    height: 40px;
+}
 .tool-bar {
     margin: 20px 0;
 }
@@ -21,19 +26,23 @@
         width: 150px;
         height: 150px;
         background-color: grey;
+        font-weight: bold;
     }
     .edit-bar {
         position: absolute;
         top: 2px;
         left: 92%;
-        width: 50px;
-        span {
-            font-size: 10px;
+        width: 65px;
+        i {
+            font-size: 15px;
             display: inline-block;
             margin-right: 5px;
             cursor: pointer;
         }
         #edit {
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 5px;
             text-decoration: underline;
         }
     }
@@ -51,5 +60,114 @@
     }
     p {
         margin-top: 7px;
+    }
+}
+/deep/ .modal-dialog {
+    width: 950px !important;
+    max-width: 950px !important;
+    height: 485px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -350px;
+    .modal-body {
+        padding-bottom: 0;
+    }
+    .modal-content {
+        background-color: #E5E5E5;
+    }
+    .modal-header {
+        background-color: #ffffff;
+    }
+    p {
+        margin: 0;
+        color: #272727;
+    }
+    .error-label {
+        color: red;
+    }
+    .modal-content {
+        width: 100%;
+        height: 100%;
+    }
+    sup {
+        font-size: 16px;
+        color: red;
+    }
+    input {
+        border: 1px solid #272727;
+        font-weight: bold;
+        padding: 0 10px;
+    }
+    .red {
+        border: 1px solid red;
+    }
+    textarea {
+        padding: 10px;
+        border: 1px solid #272727;
+        border-radius: 0;
+    }
+    input {
+        width: 100%;
+    }
+    h2,h3,input,.mat-input-wrapper,label{
+        color: #1b1b1b;
+        margin: 0;
+    }
+    h3 {
+        font-weight: 600;
+    }
+    h2 {
+        color: #1b1b1b;
+        width: 90%;
+    }
+    .add {
+        color: #1b1b1b;
+        padding: 7px 45px;
+    }
+    .close {
+        padding: 2px;
+        height: auto;
+        border: none;
+        color: black;
+    }
+    span {
+        line-height: auto;
+        width: auto;
+    }
+    #submit {
+        line-height: auto;
+        padding: 5px 55px;
+        color: black !important;
+        font-weight: bold;
+    }
+    .author {
+        position: absolute;
+        top: 75% !important;
+        left: 80% !important;
+        font-size: 10px;
+        width: 155px;
+    }
+    md-card {
+        height: 220px !important;
+    }
+    .edit-bar {
+        color: #676767 !important;
+        cursor: default !important;
+        span, i {
+            cursor: default !important;
+        }
+    }
+    .text-description {
+        p {
+            color: #1b1b1b;
+            margin: 0;
+        }
+        hr {
+            background-color: #1b1b1b;
+            margin: 10px;
+            border-width: 1px;
+        }
+        margin-bottom: 25px;
     }
 }

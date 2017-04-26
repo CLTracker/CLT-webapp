@@ -95,44 +95,37 @@
 
             <div class="col-md-12 line-break"></div>
 
-            <h3>
-                Edit events
-                <button
-                    md-button color="primary"
-                    class="pull-right"
-                    (click)="addEvent()">
-                    Add new
-                </button>
-                <div class="clearfix"></div>
+            <h3 id="edit-event-label" (click)="showEdit=!showEdit">
+                Edit events <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </h3>
+            <button
+                md-button color="primary"
+                class="pull-right add-new-button"
+                (click)="addEvent()">
+                Add new
+            </button>
 
-            <table class="event-editor-table">
+            <table class="event-editor-table" *ngIf="showEdit" [@enterAnimation]="showEdit">
 
                 <thead>
                     <tr>
                     <th>Title</th>
-                    <th>Primary</th>
-                    <th>Secondary</th>
+                    <th>Color</th>
                     <th>Starts at</th>
                     <th>Ends at</th>
-                    <th>Remove</th>
+                    <th></th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr *ngFor="let event of events; let index = index">
                     <td class="title-col">
-                        <input
-                        type="text"
-                        class="form-control"
-                        [(ngModel)]="event.title"
-                        (keyup)="refresh.next()">
-                    </td>
-                    <td class="pcolor-col">
-                        <input
-                        type="color"
-                        [(ngModel)]="event.color.primary"
-                        (change)="refresh.next()">
+                        <md-input-container>
+                            <input
+                            mdInput
+                            [(ngModel)]="event.title"
+                            (keyup)="refresh.next()">
+                        </md-input-container>
                     </td>
                     <td class="scolor-col">
                         <input
@@ -141,11 +134,13 @@
                         (change)="refresh.next()">
                     </td>
                     <td class="btime-col">
+                        <div class="lets-see">
                         <mwl-utils-date-time-picker
                         [(date)]="event.start"
                         (dateChange)="refresh.next()"
                         placeholder="Not set">
                         </mwl-utils-date-time-picker>
+                        </div>
                     </td>
                     <td class="etime-col">
                         <mwl-utils-date-time-picker
@@ -155,8 +150,8 @@
                         </mwl-utils-date-time-picker>
                     </td>
                     <td class="del-col">
-                        <span class="glyphicon glyphicon-trash" (click)="events.splice(index, 1); refresh.next()">
-                        </span>
+                        <i class="fa fa-trash" (click)="events.splice(index, 1); refresh.next()" aria-hidden="true">
+                        </i>
                     </td>
                     </tr>
                 </tbody>

@@ -1,3 +1,56 @@
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+        <h2 class="modal-title">Create news item</h2>
+        <button type="button" class="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="text-description">
+            <p>
+                To create a news item, fill out all boxes in <span style="color: red; font-weight: bold;">red</span> and upload an image, then
+                click <em>submit</em> at the bottom.
+            </p>
+            <hr/>
+        </div>
+        <div class="col-md-12 news-item no-pad">
+            <md-card>
+                <div class="edit-bar pull-right">
+                    <span id="edit">Edit</span>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary logo upload-overlay">
+                        Upload
+                        <input id="uploader-input"
+                        type="file"
+                        ng2FileSelect
+                        [uploader]="uploader"
+                        (change)="uploader.uploadAll()"/>
+                    </button>
+                </div>
+                <div class="col-md-9">
+                    <h3 style="padding-right: 65px;">
+                        <input [(ngModel)]="newsItemTitle"
+                            [ngClass]="{'red': highlightTitle}"/>
+                    </h3>
+                    <div class="line-break"></div>
+                    <p>
+                        <textarea [(ngModel)]="newsItemText" [ngClass]="{'red': highlightText}"></textarea>
+                    </p>
+                </div>
+                <p class="author">  
+                    <input [(ngModel)]="newsItemAuthor" [ngClass]="{'red': highlightAuthor}"/>
+                </p>
+            </md-card>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <p *ngIf="errorLabel !== ''" class="error-label">{{ errorLabel }}</p>
+        <button id="submit" type="button" class="btn btn-secondary" (click)="submitNewsItem(close)">Submit</button>
+    </div>
+</ng-template>
+
 <div class="container-fluid fill-height">
     <div class="profile-banner-bg"></div>
     <div class="col-md-12 banner-text">
@@ -11,44 +64,26 @@
         </md-card>
     </div>
     <div class="col-md-12 tool-bar no-pad">
-        <button md-button color="primary">
+        <button md-button color="primary" (click)="openNewsPrompt()">
             Add New Item
         </button>
     </div>
-    <div class="col-md-12 news-item no-pad">
+    <div class="col-md-12 news-item no-pad" *ngFor="let item of news">
         <md-card>
             <div class="edit-bar pull-right">
                 <span id="edit">Edit</span>
-                <span class="glyphicon glyphicon-trash"></span>
+                <i class="fa fa-trash" aria-hidden="true"></i>
             </div>
             <div class="col-md-3">
                 <div class="logo">
                 </div>
             </div>
             <div class="col-md-9">
-                <h3>Sample News 1</h3>
+                <h3>{{ item.title }}</h3>
                 <div class="line-break"></div>
-                <p>Here is some text for the story which we place inside the news</p>
+                <p>{{ item.text }}</p>
             </div>
-            <p class="author">Author</p>
-        </md-card>
-    </div>
-    <div class="col-md-12 news-item no-pad">
-        <md-card>
-            <div class="edit-bar pull-right">
-                <span id="edit">Edit</span>
-                <span class="glyphicon glyphicon-trash"></span>
-            </div>
-            <div class="col-md-3">
-                <div class="logo">
-                </div>
-            </div>
-            <div class="col-md-9">
-                <h3>Sample News 2</h3>
-                <div class="line-break"></div>
-                <p>lorem opsum lorem opsum lorem opsum lorem opsum lorem opsum lorem opsum lorem opsum</p>
-            </div>
-            <p class="author">Author</p>
+            <p class="author">{{ item.author }}</p>
         </md-card>
     </div>
 </div>

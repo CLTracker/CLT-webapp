@@ -13,7 +13,7 @@ def edit_news(db, content, confId):
     cursor = db.cursor(dictionary=True)
    
     #Checking source
-    query = "SELECT permissions FROM users WHERE user_id = %s"
+    query = "SELECT permissions FROM users WHERE email = %s"
     cursor.execute(query, (content["source"],))
     result = cursor.fetchone()
     
@@ -28,9 +28,9 @@ def edit_news(db, content, confId):
         return statjson, statjson["status"]
     else:
         #add news
-        query = "INSERT INTO news(conference,title,logo_url,text) VALUES (%s,%s,%s,%s)"
-        cursor.execute(query,(confId,content["news_item"]["title"],content["news_item"]["logo"],content["news_item"]["text"],))
-        
+        query = "INSERT INTO news(conference,title,logo_url,text, author) VALUES (%s,%s,%s,%s,%s)"
+        cursor.execute(query,(confId,content["news_item"]["title"],content["news_item"]["logo"],content["news_item"]["text"],content["news_item"]["author"],))
+        db.commit()
         statjson["status"] = 200
         return statjson, statjson["status"]
 

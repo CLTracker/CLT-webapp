@@ -13,7 +13,7 @@ def changeConfInfo(content,confId):
     stat_json = {"status": 401}
     
     #Checking source
-    query = "SELECT permissions FROM users WHERE user_id = %s"
+    query = "SELECT permissions FROM users WHERE email = %s"
     cursor.execute(query, (content["source"],))
     result = cursor.fetchone()
     #checking the permission
@@ -25,7 +25,7 @@ def changeConfInfo(content,confId):
         db.close()
         return stat_json, stat_json["status"]
     else:
-        query = "SELECT conference_name, start_date,end_date,location,logo_url FROM conference where conference_id = %s"
+        query = "SELECT conference_name, start_date,end_date,location,logo_url,floor_plan FROM conference where conference_id = %s"
         cursor.execute(query, (confId,))
         result = cursor.fetchone()
         
@@ -36,10 +36,21 @@ def changeConfInfo(content,confId):
             return stat_json, stat_json["status"]
         for key in content["fields"].keys():
             result[key] = content["fields"][key] 
-        query = "UPDATE conference SET conference_name = %s, start_date=%s, end_date=%s, location=%s, logo_url=%s WHERE conference_id =%s"   
-        cursor.execute(query,(result["conference_name"], result["start_date"], result["end_date"], result["location"], result["logo_url"],confId,))
+        query = "UPDATE conference SET conference_name = %s, start_date=%s, end_date=%s, location=%s, logo_url=%s, floor_plan =%s WHERE conference_id =%s"   
+        cursor.execute(query,(result["conference_name"], result["start_date"], result["end_date"], result["location"], result["logo_url"], result["floor_plan"], confId,))
         db.commit()       
         stat_json["status"] = 200
+
+
+        #check 
+        """
+        query = "SELECT conference_name, start_date,end_date,location,logo_url,floor_plan FROM conference where conference_id = %s"
+        cursor.execute(query, (confId,))
+        result = cursor.fetchone()
+        result["start_date"]= str(result["start_date"])
+        result["end_date"] = str(result["end_date"])
+        stat_json.update(result)
+        """
 
         db.close()
         return stat_json, stat_json["status"]

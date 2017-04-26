@@ -1,7 +1,19 @@
 @import 'shared.scss';
+i {
+    cursor: pointer;
+}
 .fill-height {
     overflow-x: hidden;
     padding: 0;
+}
+.add-new-button {
+    padding: 5px 10px;
+    line-height: auto;
+    height: auto;
+}
+#edit-event-label {
+    display: inline-block;
+    cursor: pointer;
 }
 .table-view {
     margin-top: 10px;
@@ -37,24 +49,40 @@ h3 {
 /* edit event table custom styles */
 .event-editor-table {
     margin-top: 10px;
-    border: 1px solid #eceeef;
     width: 100%;
     table-layout: auto;
-}
-.event-editor-table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #eceeef;
-    color: #1b1b1b;
-}
-.event-editor-table th,
-.event-editor-table td {
-    padding: .75rem;
-    vertical-align: top;
-}
-.event-editor-table td {
-    color: #1b1b1b !important;
-    border: 1px solid #eceeef;
-    text-align: center;
+
+    thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #272727;
+        color: #1b1b1b;
+        text-align: center;
+    }
+
+    th, td {
+        padding: .75rem;
+        vertical-align: top;
+    }
+
+    td {
+        color: #1b1b1b !important;
+        border-bottom: 1px solid #272727;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .title-col {
+        md-input-container {
+            width: 100%;
+            padding: auto 20px;
+        }
+    }
+    .del-col {
+        font-size: 24px;
+        vertical-align: middle;
+    }
+    .btime-col, .etime-col {
+        text-align: center;
+    }
 }
 
 /* timepicker from bootstrap4 has horrible styling, so
@@ -62,19 +90,22 @@ h3 {
    solution to this
 */
 /deep/ ngb-timepicker {
+    table {
+        width: 100%;
+    }
     text-align: center;
     td {
         display: inline-block;
-        width: 35px !important;
+        width: 45px !important;
     }
     td > .form-control {
         border: 1px solid #1b1b1b !important;
         color: #1b1b1b !important;
-        width: 35px !important;
+        width: 45px !important;
         padding: 0 !important;
     }
     td:nth-child(2) {
-        width: 15px !important;
+        width: 25px !important;
     }
     td:nth-child(4) {
         width: 0 !important;
@@ -86,11 +117,18 @@ h3 {
     .btn-outline-primary {
         color: #337ab7 !important;
         border: none;
-        text-decoration: underline;
         font-size: 12px;
         height: 38px;
         padding: 3px 3px;
+        font-weight: bold;
     }
+    .btn-outline-primary:hover {
+        background-color: transparent;
+        text-decoration: underline;
+    }
+}
+/deep/ a, /deep/ a:hover {
+    color: #1b1b1b !important;
 }
 
 

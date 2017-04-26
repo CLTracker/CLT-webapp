@@ -12,27 +12,13 @@
             </div>
             <div class="col-md-8">
                 <md-input-container>
-                    <input mdInput
-                        [(ngModel)]="newExhibEmail"
-                    />
-                </md-input-container>
-            </div>
-        </div>
-        <div class="crow">
-            <div class="col-md-4">
-                <h3>Company</h3>
-            </div>
-            <div class="col-md-8">
-                <md-input-container>
-                    <input mdInput
-                        [(ngModel)]="newExhibCompany"
-                    />
+                    <input mdInput #email/>
                 </md-input-container>
             </div>
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="close()">OK</button>
+        <button id="submit" type="button" class="btn btn-secondary" (click)="close(email.value)">OK</button>
     </div>
 </ng-template>
 
@@ -56,20 +42,23 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Name</th>
                         <th>Email</th>
+                        <th>Name</th>
                         <th>Company</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-template ngFor let-xb [ngForOf]="tempData" let-idx="index">
+                    <ng-template ngFor let-xb [ngForOf]="exhibitors" let-idx="index">
                         <tr (click)="toggleHidden(idx)"
                             class="accordion-toggle">
-                            <td>{{ xb.name }}</td>
                             <td>{{ xb.email }}</td>
-                            <td>{{ xb.company }}</td>
-                            <td>{{ xb.status }}</td>
+                            <td *ngIf="xb.name !== ''">{{ xb.name }}</td>
+                            <td *ngIf="xb.name === ''">-</td>
+                            <td *ngIf="xb.company !== ''">{{ xb.company }}</td>
+                            <td *ngIf="xb.company === ''">-</td>
+                            <td *ngIf="completeUser(xb)">Complete</td>
+                            <td *ngIf="!completeUser(xb)">Incomplete</td>
                         </tr>
                         <tr>
                             <td colspan="4" class="hiddenRow">

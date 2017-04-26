@@ -1,6 +1,6 @@
 import { 
-    Component, ChangeDetectionStrategy,
-    ViewChild, TemplateRef
+    Component, ChangeDetectionStrategy, style, animate,
+    ViewChild, TemplateRef, trigger, transition, ChangeDetectorRef
 } from '@angular/core';
 import { 
     startOfDay, endOfDay, subDays, addDays,
@@ -17,15 +17,15 @@ import {
 
 const colors: any = {
     red: {
-        primary: '#ad2121',
+        primary: '#ffffff',
         secondary: '#FAE3E3'
     },
     blue: {
-        primary: '#1e90ff',
+        primary: '#ffffff',
         secondary: '#D1E8FF'
     },
     yellow: {
-        primary: '#e3bc08',
+        primary: '#ffffff',
         secondary: '#FDF1BA'
     }
 };
@@ -34,15 +34,44 @@ const colors: any = {
         selector: 'my-profile-schedule',
         templateUrl: './profile-schedule.component.html',
         changeDetection: ChangeDetectionStrategy.OnPush,
-        styleUrls: ['./profile-schedule.component.scss']
+        styleUrls: ['./profile-schedule.component.scss'],
+        animations: [
+            trigger(
+                'enterAnimation', [
+                    transition(':enter', [
+                        style({transform: 'translateY(100%)', opacity: 0}),
+                        animate('500ms', style({transform: 'translateY(0)', opacity: 1}))
+                    ]),
+                    transition(':leave', [
+                        style({transform: 'translateY(0)', opacity: 1}),
+                        animate('500ms', style({transform: 'translateY(100%)', opacity: 0}))
+                    ])
+                ]
+            )
+        ]
 })
 export class ProfileScheduleComponent {
 
     @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
     view: string = 'week';
-
+    _showEdit: boolean = false;
     viewDate: Date = new Date();
+
+    set showEdit(val: boolean) {
+        this._showEdit = val;
+
+        // may the lord have mercy on my soul. Manually triggering
+        // change detection 1000ms afer the view is rendered is
+        // a hacky way to overcome this library bug.
+        setTimeout(() => {
+            this.ref.detectChanges();
+        }, 1000);
+    }
+
+    get showEdit(): boolean {
+        return this._showEdit;
+    }
 
     modalData: {
         action: string,
@@ -95,7 +124,8 @@ export class ProfileScheduleComponent {
 
     activeDayIsOpen: boolean = true;
 
-    constructor(private modal: NgbModal) {}
+    constructor(private modal: NgbModal, private ref: ChangeDetectorRef) {
+    }
 
     dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
 

@@ -11,6 +11,5 @@ import { Auth }             from '../shared';
 
 export class ProfileComponent {
     constructor(private auth: Auth) {
-        
     }
 }
