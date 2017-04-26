@@ -19,6 +19,7 @@ INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("google-oauth2|105950922553210130192", "Grant Organizer", 0, "2017-03-28 00:00:00", "0.0.0.0", "gmercer015@gmail.com", 0, 3);
 
 INSERT INTO permitted_organizers(organizer_email, conference_id) VALUES("gmercer015@gmail.com",1 );
+INSERT INTO permitted_organizers(organizer_email, conference_id) VALUES("leil1@unlv.nevada.edu",1 );
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("exhb1@email.com",1);
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("exhb2@email.com",1);
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("exhb3@email.com",1);
@@ -30,10 +31,10 @@ INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALU
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("exhb3@email.com", 1, "Steven Mobile", "https://hasdhfkasdjf.com");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("exhb4@email.com", 1, "Cantor inc", "https://hasdhfkasdjf.com");
 
-INSERT INTO schedule(conference, event_name, start_time, end_time) VALUES(1, "EVENT 1", "2017-03-28 00:00:00", "2017-03-28 00:00:00");
-INSERT INTO schedule(conference, event_name, start_time, end_time) VALUES(1, "EVENT 2", "2017-03-28 00:00:00", "2017-03-28 00:00:00");
-INSERT INTO schedule(conference, event_name, start_time, end_time) VALUES(1, "EVENT 3", "2017-03-28 00:00:00", "2017-03-28 00:00:00");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "EVENT 1", "2017-04-28 00:00:00", "2017-04-29 00:00:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "EVENT 2", "2017-04-28 00:00:00", "2017-05-12 00:00:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "EVENT 3", "2017-04-28 00:00:00", "2017-04-30 00:00:00", "#ffffff", "#FAE3E3");
 
-INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "EVENT 1", "https://event1.com", "Free donuts for life", "Pepe");
-INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "EVENT 2", "https://event2.com", "Free donuts for life", "Pepe");
-INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "EVENT 3", "https://event3.com", "Free donuts for life", "Pepe");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "FUN EVENT 1", "https://event1.com", "Free donuts for life", "Pepe");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "VAPE NATION MEETUP", "https://event2.com", "Free donuts for life", "Pepe");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "TUCK FRUMP", "https://event3.com", "Free donuts for life", "Pepe");
