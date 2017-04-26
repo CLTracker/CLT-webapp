@@ -14,7 +14,7 @@ import { NgbModal,
 export class ProfileNewsComponent implements OnInit {
 
     public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl});
-    private news: Object;
+    private news: any;
 
     private errorLabel: string;
     private highlightTitle: boolean = false;
@@ -58,6 +58,28 @@ export class ProfileNewsComponent implements OnInit {
             )
     }
 
+    public deleteItem(item: any): void {
+
+        let data: any = { 
+            source: this.auth.userProfile.email, 
+            news_item: { 
+                title: item.title, 
+                text: item.text, 
+                logo: item.logo, 
+                author: item.author
+            }
+        };
+
+        this.auth.deleteNewsItem(data).subscribe(
+            result => {
+                this.news = result;
+            },
+            error => {
+                console.log('error', error);
+            }
+        )
+    }
+
     public submitNewsItem(close: any): void {
         this.highlightAuthor = this.highlightImage = this.highlightText = this.highlightTitle = false;
         if(this.newsItemTitle === '' || this.newsItemTitle === 'TITLE') {
@@ -80,6 +102,8 @@ export class ProfileNewsComponent implements OnInit {
         //     this.highlightImage = true;
         // }
 
+        this.newsItemImg = '';
+
         let data: any = { 
             source: this.auth.userProfile.email, 
             news_item: { 
@@ -90,14 +114,14 @@ export class ProfileNewsComponent implements OnInit {
             }
         };
 
-        // this.auth.postNewsItem(data).subscribe(
-        //     result => {
-
-        //     },
-        //     error => {
-
-        //     }
-        // );
+        this.auth.postNewsItem(data).subscribe(
+            result => {
+                this.news = result;
+            },
+            error => {
+                console.log('error!', error);
+            }
+        );
         close();
     }
 

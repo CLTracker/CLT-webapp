@@ -6,7 +6,7 @@ import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
 
-const prod: string = 'production';
+const prod: string = 'production-test';
 
 @Injectable()
 export class Auth {
@@ -21,6 +21,9 @@ export class Auth {
     private ExhibitorsUsersInfoUrl: string;
     private ExhibitorEditUrl: string;
     private NewsInfoUrl: string;
+    private NewsEditUrl: string;
+    private ScheduleInfoUrl: string;
+    private ScheduleEditUrl: string;
 
     Lock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
@@ -51,6 +54,9 @@ export class Auth {
             this.ExhibitorsUsersInfoUrl = 'http://cltglobal.ddns.net:5000/user/exhibitors/1';
             this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitors/1';
             this.NewsInfoUrl = 'http://cltglobal.ddns.net:5000/news/1';
+            this.NewsEditUrl = 'http://cltglobal.ddns.net:5000/edit/news/1';
+            this.ScheduleInfoUrl ='http://cltglobal.ddns.net:5000/schedule/1';
+            this.ScheduleEditUrl = 'http://cltglobal.ddns.net:5000/edit/schedule/1';
         } else if (prod === 'production') {
             this.ImageUploadUrl = 'http://cltglobal.ddns.net:8080/img';
             this.UsersInfoUrl = 'http://cltglobal.ddns.net:8080/user';
@@ -61,6 +67,9 @@ export class Auth {
             this.ExhibitorsUsersInfoUrl = 'http://cltglobal.ddns.net:8080/user/exhibitors/1';
             this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:8080/edit/exhibitors/1';
             this.NewsInfoUrl = 'http://cltglobal.ddns.net:8080/news/1';
+            this.NewsEditUrl = 'http://cltglobal.ddns.net:8080/edit/news/1';
+            this.ScheduleInfoUrl = 'http://cltglobal.ddns.net:8080/schedule/1';
+            this.ScheduleEditUrl = 'http://cltglobal.ddns.net:8080/edit/schedule/1';
         } else {
             this.ImageUploadUrl = 'http://localhost:5000/img';
             this.UsersInfoUrl = 'http://localhost:5000/user';
@@ -71,6 +80,9 @@ export class Auth {
             this.ExhibitorsUsersInfoUrl = 'http://localhost:5000/user/exhibitors/1';
             this.ExhibitorEditUrl = 'http://localhost:5000/edit/exhibitors/1';
             this.NewsInfoUrl = 'http://localhost:5000/news/1';
+            this.NewsEditUrl = 'http://localhost:5000/edit/news/1';
+            this.ScheduleInfoUrl = 'http://localhost:5000/schedule/1';
+            this.ScheduleEditUrl = 'http://localhost:5000/edit/schedule/1';
         }
 
         this.authToken = JSON.parse(sessionStorage.getItem('authToken'));
@@ -150,6 +162,30 @@ export class Auth {
     public postLogin(data: any) {
         return this.http
             .post(`${this.LoginUrl}`, data)
+            .map((r: Response) => r.json());
+    }
+
+    public postNewsItem(data: any) {
+        return this.http
+            .post(`${this.NewsEditUrl}`, data)
+            .map((r: Response) => r.json());
+    }
+
+    public deleteNewsItem(data: any) {
+        return this.http
+            .delete(`${this.NewsEditUrl}`, data)
+            .map((r: Response) => r.json());
+    }
+
+    public getScheduleEvents() {
+        return this.http
+            .get(`${this.ScheduleInfoUrl}`)
+            .map((r: Response) => r.json());
+    }
+
+    public patchScheduleEvents(data: any) {
+        return this.http
+            .patch(`${this.ScheduleEditUrl}`, data)
             .map((r: Response) => r.json());
     }
 
