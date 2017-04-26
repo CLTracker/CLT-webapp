@@ -45,6 +45,33 @@ def edit_news(db, content, confId):
         statJson,ta = getNews(db, confId)
         return statJson, 200
 
+def deleteNewsItem(db, content, confId):
+
+    cursor = db.cursor(dictionary=True)
+    titleToDelete = content["news_item"]["title"] 
+    #Checking source
+    query = "SELECT permissions FROM users WHERE email = %s"
+    cursor.execute(query, (content["source"],))
+    result = cursor.fetchone()
+    
+    query = "SELECT permission_name FROM permissions WHERE permission_id = %s"
+    cursor.execute(query, (result["permissions"],))
+    result = cursor.fetchone()
+
+    # 1 == xhib
+    # 2 == admin
+    # 3 == org
+    if result["permission_name"] == "adm" or result["permission_name"] == "xhb":
+        statJson,ta = getNews(db, confId)
+        return statJson, 401
+    else:
+        #add news
+        query = "DELETE FROM news WHERE title=%s"
+        cursor.execute(query, (titleToDelete,))
+        db.commit()
+        statJson,ta = getNews(db, confId)
+        return statJson, 200
+
 #addes new to the database
 @newsRoutes.route("/edit/news/<string:confid>", methods=["POST"])
 def newsedit(confid):
@@ -54,6 +81,13 @@ def newsedit(confid):
         jsonObj = simplejson.dumps(jsonObject)
         db.close()
         return Response(jsonObj, mimetype="application/json"), status
+    elif request.methods == "DELETE":
+        db = dbPool.connect().connection
+        jsonObject, status = deleteNewsItem(db,request.json,confid)
+        jsonObj = simplejson.dumps(jsonObject)
+        db.close()
+        return Response(jsonObj, mimetype="application/json"), status
+        
 
 @newsRoutes.route("/news/<string:confId>", methods=["GET"])
 def news(confId):
