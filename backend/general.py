@@ -17,35 +17,15 @@ def getConfInfo(db, confId):
     result["end_date"] = str(result["end_date"])
     return result, 200
 
-def getSchedInfo(db, confId):
-    #want title, logo_url, text
-    cursor = db.cursor(dictionary=True)
-    query = "SELECT event_name, schedule.start_time, schedule.end_time FROM schedule, conference WHERE conference_id = %s"
-    cursor.execute(query, (confId,))
-    results = cursor.fetchall()
-    for row in results:
-            row["start_time"] = str(row["start_time"])
-            row["end_time"] = str(row["end_time"])
-    return results, 200
 
 def getExInfo(db, confId):
     #want title, logo_url, text
     cursor = db.cursor(dictionary=True)
-    query = "SELECT conference, company_name, exhibitors.logo_url FROM exhibitors, conference WHERE conference_id = %s"
-    cursor.execute(query, (confId,))
+    query = "SELECT conference, company_name, exhibitors.logo_url from exhibitors, conference where conference_id = %s"
+    cursor.execute(query, (confid,))
     results = cursor.fetchall()
     return results, 200
 
-def getNews(db, confId):
-    #any # of news with title, logo, text, author    
-    cursor = db.cursor(dictionary=True)
-    result = [] 
-    query = "SELECT title, logo_url, text, author FROM news WHERE conference = %s"
-    cursor.execute(query, (confId,))
-    results = cursor.fetchall()
-    for row in results:
-        result.append(row)
-    return result, 200    
     
 
 @genRoutes.route("/info/<string:confId>", methods=["GET"])
@@ -53,15 +33,6 @@ def info(confId):
     if request.method == "GET":
         db = dbPool.connect().connection
         result, status = getConfInfo(db, confId)
-        result = simplejson.dumps(result)
-        db.close()
-        return Response(result, mimetype="application/json"), status
-
-@genRoutes.route("/schedule/<string:confId>", methods=["GET"])
-def sched(confId):
-    if request.method == "GET":
-        db = dbPool.connect().connection
-        result, status = getSchedInfo(db, confId)
         result = simplejson.dumps(result)
         db.close()
         return Response(result, mimetype="application/json"), status
@@ -75,12 +46,4 @@ def exhbitors(confId):
         db.close()
         return Response(result, mimetype="application/json"), status
 
-@genRoutes.route("/news/<string:confId>", methods=["GET"])
-def news(confId):
-    if request.method == "GET":
-        db = dbPool.connect().connection
-        result, status = getNews(db, confId)
-        result = simplejson.dumps(result)
-        db.close()
-        return Response(result, mimetype= "application/json"), status
         
