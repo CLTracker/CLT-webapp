@@ -28,8 +28,8 @@ def getExInfo(db, confId):
 
     
 
-@genRoutes.route("/info/<string:confid>", methods=["get"])
-def info(confid):
+@genRoutes.route("/info/<string:confId>", methods=["GET"])
+def info(confId):
     if request.method == "GET":
         db = dbPool.connect().connection
         result, status = getConfInfo(db, confId)
