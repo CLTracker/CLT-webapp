@@ -13,7 +13,7 @@ import { Auth }                 from '../shared';
 })
 
 export class ProfileHomeComponent implements OnInit {
-    public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl});
+    public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl, disableMultipart: true});
 
     private conferenceName: string;
     private location: string;

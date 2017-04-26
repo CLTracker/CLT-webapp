@@ -7,9 +7,13 @@
     </div>
     <div class="modal-body">
         <div class="text-description">
-            <p>
+            <p *ngIf="!isEditItem">
                 To create a news item, fill out all boxes in <span style="color: red; font-weight: bold;">red</span> and upload an image, then
                 click <em>submit</em> at the bottom.
+            </p>
+            <p *ngIf="isEditItem">
+                To save changes, edit the body and author then hit <em>submit</em>. <strong style="color: #1b1b1b;">Note</strong> that the title cannot be changed, each event is
+                unique.
             </p>
             <hr/>
         </div>
@@ -32,7 +36,7 @@
                 <div class="col-md-9">
                     <h3 style="padding-right: 65px;">
                         <input [(ngModel)]="newsItemTitle"
-                            [ngClass]="{'red': highlightTitle}"/>
+                            [ngClass]="{'red': highlightTitle}" [disabled]="isEditItem"/>
                     </h3>
                     <div class="line-break"></div>
                     <p>
@@ -71,7 +75,7 @@
     <div class="col-md-12 news-item no-pad" *ngFor="let item of news">
         <md-card>
             <div class="edit-bar pull-right">
-                <span id="edit">Edit</span>
+                <span id="edit" (click)="editNewsPrompt(item)">Edit</span>
                 <i class="fa fa-trash" aria-hidden="true" (click)="deleteItem(item)"></i>
             </div>
             <div class="col-md-3">

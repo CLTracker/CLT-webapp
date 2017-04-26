@@ -173,7 +173,13 @@ export class Auth {
 
     public deleteNewsItem(data: any) {
         return this.http
-            .delete(`${this.NewsEditUrl}`, data)
+            .patch(`${this.NewsEditUrl}`, data)
+            .map((r: Response) => r.json());
+    }
+
+    public modifyNewsItem(data: any) {
+        return this.http
+            .put(`${this.NewsEditUrl}`, data)
             .map((r: Response) => r.json());
     }
 

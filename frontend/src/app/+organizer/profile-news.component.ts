@@ -16,6 +16,8 @@ export class ProfileNewsComponent implements OnInit {
     public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl});
     private news: any;
 
+    private isEditItem: boolean = false;
+
     private errorLabel: string;
     private highlightTitle: boolean = false;
     private highlightText: boolean = false;
@@ -50,6 +52,35 @@ export class ProfileNewsComponent implements OnInit {
     }
 
     public openNewsPrompt(): void {
+        // reset all input bindings to default text
+        this.errorLabel = undefined;
+        this.newsItemTitle = 'TITLE';
+        this.newsItemText = 'place news text here';
+        this.newsItemAuthor = 'AUTHOR';
+        this.newsItemImg = undefined;
+
+        this.isEditItem = false;
+
+        // open modal and prompt user to fill information out
+        this.modalService.open(this.modalContent)
+            .result.then(
+                (result) => {
+                    console.log(result);
+                }
+            )
+    }
+
+    public editNewsPrompt(item: any): void {
+        // set all bindings to current news item
+        this.errorLabel = undefined;
+        this.newsItemTitle = item.title;
+        this.newsItemText = item.text;
+        this.newsItemAuthor = item.author;
+        this.newsItemImg = item.logo;
+
+        this.isEditItem = true;
+
+        // open modal and prompt user to fill information out
         this.modalService.open(this.modalContent)
             .result.then(
                 (result) => {
@@ -104,7 +135,7 @@ export class ProfileNewsComponent implements OnInit {
 
         this.newsItemImg = '';
 
-        let data: any = { 
+        let data: any = {
             source: this.auth.userProfile.email, 
             news_item: { 
                 title: this.newsItemTitle, 
@@ -113,15 +144,28 @@ export class ProfileNewsComponent implements OnInit {
                 author: this.newsItemAuthor 
             }
         };
+        
+        if (this.isEditItem) {
+            this.auth.modifyNewsItem(data).subscribe(
+                result => {
+                    this.news = result;
+                },
+                error => {
+                    console.log('error!', error);
+                }
+            )
+        } else {
+            this.auth.postNewsItem(data).subscribe(
+                result => {
+                    console.log(result);
+                    this.news = result;
+                },
+                error => {
+                    console.log('error!', error);
+                }
+            );
+        }
 
-        this.auth.postNewsItem(data).subscribe(
-            result => {
-                this.news = result;
-            },
-            error => {
-                console.log('error!', error);
-            }
-        );
         close();
     }
 

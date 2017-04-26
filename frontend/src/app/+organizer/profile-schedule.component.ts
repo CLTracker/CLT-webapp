@@ -7,6 +7,7 @@ import {
     endOfMonth, isSameDay, isSameMonth,
     addHours
 } from 'date-fns';
+import { Auth }     from '../shared';
 import { Subject }  from 'rxjs/Subject';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { 
@@ -58,6 +59,12 @@ export class ProfileScheduleComponent {
     _showEdit: boolean = false;
     viewDate: Date = new Date();
 
+    /**
+     * Setter function used for pseudo variable 'showEdit'. When showEdit
+     * is used as a lefthand side of an expression, this function will set
+     * the internal value accordingly plus additionally manually trigger
+     * an Angular digest to render the time table numbers within the edit table.
+     */
     set showEdit(val: boolean) {
         this._showEdit = val;
 
@@ -69,6 +76,12 @@ export class ProfileScheduleComponent {
         }, 1000);
     }
 
+    /**
+     * Getter function for pseudo variable 'showEdit'. When showEdit
+     * is used as a righthand side of an expression, this function return
+     * the value of the internal show edit variable.
+     * @returns boolean value of whether to show table or not
+     */
     get showEdit(): boolean {
         return this._showEdit;
     }
@@ -82,42 +95,58 @@ export class ProfileScheduleComponent {
 
     refresh: Subject<any> = new Subject();
 
-    events: CalendarEvent[] = [{
-        start: subDays(startOfDay(new Date()), 1),
-        end: addDays(new Date(), 1),
-        title: 'A 3 day event',
-        color: colors.red,
-        actions: this.actions
-    }, {
-        start: startOfDay(new Date()),
-        title: 'An event with no end date',
-        color: colors.yellow,
-        actions: this.actions
-    }, {
-        start: subDays(endOfMonth(new Date()), 3),
-        end: addDays(endOfMonth(new Date()), 3),
-        title: 'A long event that spans 2 months',
-        color: colors.blue
-    }, {
-        start: addHours(startOfDay(new Date()), 2),
-        end: new Date(),
-        title: 'A draggable and resizable event',
-        color: colors.yellow,
-        actions: this.actions,
-        resizable: {
-            beforeStart: true,
-            afterEnd: true
-        },
-        draggable: true
-    }];
+    events: CalendarEvent[] = [];
+    // events: CalendarEvent[] = [{
+    //     start: subDays(startOfDay(new Date()), 1),
+    //     end: addDays(new Date(), 1),
+    //     title: 'A 3 day event',
+    //     color: colors.red,
+    //     actions: this.actions
+    // }, {
+    //     start: startOfDay(new Date()),
+    //     title: 'An event with no end date',
+    //     color: colors.yellow,
+    //     actions: this.actions
+    // }, {
+    //     start: subDays(endOfMonth(new Date()), 3),
+    //     end: addDays(endOfMonth(new Date()), 3),
+    //     title: 'A long event that spans 2 months',
+    //     color: colors.blue
+    // }, {
+    //     start: addHours(startOfDay(new Date()), 2),
+    //     end: new Date(),
+    //     title: 'A draggable and resizable event',
+    //     color: colors.yellow,
+    //     actions: this.actions,
+    //     resizable: {
+    //         beforeStart: true,
+    //         afterEnd: true
+    //     },
+    //     draggable: true
+    // }];
 
     activeDayIsOpen: boolean = true;
 
-    constructor(private modal: NgbModal, private ref: ChangeDetectorRef) {
+    constructor(private modal: NgbModal, private ref: ChangeDetectorRef,
+        private auth: Auth) {
+
+        this.auth.getScheduleEvents().subscribe(
+            result => {
+                console.log(result);
+                this.events = result;
+                this.refresh.next();
+            },
+            error => {
+                console.log('error!', error);
+            }
+        )
     }
 
+    /**
+     * Navigates to the proper day within the schedule view
+     * @param {date, events}: Object passed from schedule view when dayClicked
+     */
     dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
-
         if (isSameMonth(date, this.viewDate)) {
             if (
                 (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
@@ -131,6 +160,10 @@ export class ProfileScheduleComponent {
         }
     }
 
+    /**
+     * When an event is changed within the schedule, click parameters are sent to
+     * this function which forward along information
+     */
     eventTimesChanged({event, newStart, newEnd}: CalendarEventTimesChangedEvent): void {
         event.start = newStart;
         event.end = newEnd;
