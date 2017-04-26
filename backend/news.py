@@ -4,8 +4,19 @@ import simplejson
 
 #custom imports
 from database import dbPool
- 
+
 newsRoutes = Blueprint("newsRoutes", __name__)
+
+def getNews(db, confId):
+    #any # of news with title, logo, text, author    
+    cursor = db.cursor(dictionary=True)
+    result = [] 
+    query = "SELECT title, logo_url, text, author FROM news WHERE conference = %s"
+    cursor.execute(query, (confId,))
+    results = cursor.fetchall()
+    for row in results:
+        result.append(row)
+    return result, 200    
 
 def edit_news(db, content, confId):
 
@@ -25,14 +36,15 @@ def edit_news(db, content, confId):
     # 2 == admin
     # 3 == org
     if result["permission_name"] == "adm" or result["permission_name"] == "xhb":
-        return statjson, statjson["status"]
+        statJson = getNews(db, confId)
+        return statjson, 401
     else:
         #add news
         query = "INSERT INTO news(conference,title,logo_url,text, author) VALUES (%s,%s,%s,%s,%s)"
         cursor.execute(query,(confId,content["news_item"]["title"],content["news_item"]["logo"],content["news_item"]["text"],content["news_item"]["author"],))
         db.commit()
-        statjson["status"] = 200
-        return statjson, statjson["status"]
+        statJson = getNews(db, confId)
+        return statjson, 200
 
 #addes new to the database
 @newsRoutes.route("/edit/news/<string:confid>", methods=["POST"])
@@ -44,3 +56,11 @@ def newsedit(confid):
         db.close()
         return Response(jsonObj, mimetype="application/json"), status
 
+@newsRoutes.route("/news/<string:confId>", methods=["GET"])
+def news(confId):
+    if request.method == "GET":
+        db = dbPool.connect().connection
+        result, status = getNews(db, confId)
+        result = simplejson.dumps(result)
+        db.close()
+        return Response(result, mimetype= "application/json"), status

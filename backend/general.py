@@ -36,16 +36,6 @@ def getExInfo(db, confId):
     results = cursor.fetchall()
     return results, 200
 
-def getNews(db, confId):
-    #any # of news with title, logo, text, author    
-    cursor = db.cursor(dictionary=True)
-    result = [] 
-    query = "SELECT title, logo_url, text, author FROM news WHERE conference = %s"
-    cursor.execute(query, (confId,))
-    results = cursor.fetchall()
-    for row in results:
-        result.append(row)
-    return result, 200    
     
 
 @genRoutes.route("/info/<string:confId>", methods=["GET"])
@@ -75,12 +65,4 @@ def exhbitors(confId):
         db.close()
         return Response(result, mimetype="application/json"), status
 
-@genRoutes.route("/news/<string:confId>", methods=["GET"])
-def news(confId):
-    if request.method == "GET":
-        db = dbPool.connect().connection
-        result, status = getNews(db, confId)
-        result = simplejson.dumps(result)
-        db.close()
-        return Response(result, mimetype= "application/json"), status
         
