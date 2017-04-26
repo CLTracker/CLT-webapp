@@ -10,7 +10,7 @@ INSERT INTO permissions(permission_name) VALUES("org");
 
 
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("1", "Steven Brooks", 0, "2017-03-28 00:00:00", "0.0.0.0", "brooks@unlv.nevada.edu", 1, 2);
-INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("2", "Lily Lei", 0, "2017-03-28 00:00:00", "0.0.0.0", "leil1@unlv.nevada.edu", 0, 2);
+INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("2", "Lily Lei", 0, "2017-03-28 00:00:00", "0.0.0.0", "leil1@unlv.nevada.edu", 0, 3);
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("3", "Arjee M", 0, "2017-11-03 00:00:00", "0.0.0.0", "mendej2@unlv.nevada.edu", 1, 2);
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("4", "Exhib1", 0, "2017-03-28 00:00:00", "0.0.0.0", "exhb1@email.com", 0, 1);
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("5", "Exhib2", 0, "2017-03-28 00:00:00", "0.0.0.0", "exhb2@email.com", 0, 1);
@@ -20,6 +20,7 @@ INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender
 
 INSERT INTO permitted_organizers(organizer_email, conference_id) VALUES("gmercer015@gmail.com",1 );
 INSERT INTO permitted_organizers(organizer_email, conference_id) VALUES("leil1@unlv.nevada.edu",1 );
+INSERT INTO permitted_organizers(organizer_email, conference_id) VALUES("conventionlogisticstracker@gmail.com",1 );
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("exhb1@email.com",1);
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("exhb2@email.com",1);
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("exhb3@email.com",1);
