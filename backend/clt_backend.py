@@ -18,7 +18,6 @@ from sched import schedRoutes
 app = Flask(__name__)
 CORS(app)
 
-"""
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8080')
@@ -27,7 +26,7 @@ def after_request(response):
   response.headers.add('Access-Control-Allow-Credentials', 'true')
   return response
 
-
+"""
 @app.route('/img', methods=['POST'])
 def image_upload():
     print(request.headers)
@@ -44,7 +43,7 @@ app.register_blueprint(genRoutes)
 app.register_blueprint(exhibRoutes)
 app.register_blueprint(newsRoutes)
 app.register_blueprint(confRoutes)
-#app.register_blueprint(imgRoutes)
+app.register_blueprint(imgRoutes)
 app.register_blueprint(schedRoutes)
 
 if __name__ == "__main__":
