@@ -81,7 +81,7 @@ def newsedit(confid):
         jsonObj = simplejson.dumps(jsonObject)
         db.close()
         return Response(jsonObj, mimetype="application/json"), status
-    elif request.methods == "PATCH":
+    elif request.method == "PATCH":
         db = dbPool.connect().connection
         jsonObject, status = deleteNewsItem(db,request.json,confid)
         jsonObj = simplejson.dumps(jsonObject)
