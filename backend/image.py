@@ -5,7 +5,7 @@ import json
 import configparser
 #import requests
 import base64
-"""
+
 #custom imports
 from database import dbPool
 
@@ -14,7 +14,8 @@ imgRoutes = Blueprint("imgRoutes", __name__)
 # looked at this for example 
 # http://blog.tankorsmash.com/?p=249
 
-@imgRoutes.route("/img", methods=["POST"]):
+@imgRoutes.route("/img", methods=["POST"])
+def uploadimage():
     if request.method == "POST":
         config = configparser.ConfigParser()
         config.read("image_key")
@@ -34,5 +35,3 @@ imgRoutes = Blueprint("imgRoutes", __name__)
 
         j = json.loads(r.text)
         print(j)
-
-"""
