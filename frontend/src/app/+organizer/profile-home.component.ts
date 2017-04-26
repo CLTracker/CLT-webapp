@@ -4,7 +4,6 @@ import { FileUploader,
     FileItem,
     ParsedResponseHeaders }     from 'ng2-file-upload';
 
-import { APP }                  from '../shared';
 import { Auth }                 from '../shared';
 
 @Component({
@@ -14,7 +13,7 @@ import { Auth }                 from '../shared';
 })
 
 export class ProfileHomeComponent implements OnInit {
-    public uploader: FileUploader = new FileUploader({url: APP.routes.PostImage});
+    public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl});
 
     private conferenceName: string;
     private location: string;

@@ -6,19 +6,21 @@ import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
 
-const prod: string = 'local';
+const prod: string = 'production';
 
 @Injectable()
 export class Auth {
 
-    private userUrl: string;
-    private loginUrl: string;
-    private cnfInfoUrl: string;
-    private cnfEditUrl: string;
-    private xhbUrl: string;
-    private xhbUsersUrl: string;
-    private addXhbUrl: string;
-    private newsUrl: string;
+    public ImageUploadUrl: string;
+    
+    private UsersInfoUrl: string;
+    private LoginUrl: string;
+    private ConferenceInfoUrl: string;
+    private ConferenceEditUrl: string;
+    private ExhibitorsInfoUrl: string;
+    private ExhibitorsUsersInfoUrl: string;
+    private ExhibitorEditUrl: string;
+    private NewsInfoUrl: string;
 
     Lock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
@@ -40,32 +42,35 @@ export class Auth {
     constructor(private router: Router, private http: Http) {
         
         if (prod === 'production-test') {
-            this.userUrl = 'http://localhost:5000/user';
-            this.loginUrl = 'http://cltglobal.ddns.net:5000/login';
-            this.cnfEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference/1';
-            this.cnfInfoUrl = 'http://cltglobal.ddns.net:5000/info/1';
-            this.xhbUrl = 'http://cltglobal.ddns.net:5000/exhibitors/1';
-            this.xhbUsersUrl = 'http://cltglobal.ddns.net:5000/user/exhibitors/1';
-            this.addXhbUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitors/1';
-            this.newsUrl = 'http://cltglobal.ddns.net:5000/news/1';
+            this.ImageUploadUrl = 'http://cltglobal.ddns.net:5000/img';
+            this.UsersInfoUrl = 'http://cltglobal.ddns.net:5000/user';
+            this.LoginUrl = 'http://cltglobal.ddns.net:5000/login';
+            this.ConferenceEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference/1';
+            this.ConferenceInfoUrl = 'http://cltglobal.ddns.net:5000/info/1';
+            this.ExhibitorsInfoUrl = 'http://cltglobal.ddns.net:5000/exhibitors/1';
+            this.ExhibitorsUsersInfoUrl = 'http://cltglobal.ddns.net:5000/user/exhibitors/1';
+            this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitors/1';
+            this.NewsInfoUrl = 'http://cltglobal.ddns.net:5000/news/1';
         } else if (prod === 'production') {
-            this.userUrl = 'http://localhost:8080/user';
-            this.loginUrl = 'http://cltglobal.ddns.net:8080/login';
-            this.cnfEditUrl = 'http://cltglobal.ddns.net:8080/edit/conference/1';
-            this.cnfInfoUrl = 'http://cltglobal.ddns.net:8080/info/1';
-            this.xhbUrl = 'http://cltglobal.ddns.net:8080/exhibitors/1';
-            this.xhbUsersUrl = 'http://cltglobal.ddns.net:8080/user/exhibitors/1';
-            this.addXhbUrl = 'http://cltglobal.ddns.net:8080/edit/exhibitors/1';
-            this.newsUrl = 'http://cltglobal.ddns.net:8080/news/1';
+            this.ImageUploadUrl = 'http://cltglobal.ddns.net:8080/img';
+            this.UsersInfoUrl = 'http://cltglobal.ddns.net:8080/user';
+            this.LoginUrl = 'http://cltglobal.ddns.net:8080/login';
+            this.ConferenceEditUrl = 'http://cltglobal.ddns.net:8080/edit/conference/1';
+            this.ConferenceInfoUrl = 'http://cltglobal.ddns.net:8080/info/1';
+            this.ExhibitorsInfoUrl = 'http://cltglobal.ddns.net:8080/exhibitors/1';
+            this.ExhibitorsUsersInfoUrl = 'http://cltglobal.ddns.net:8080/user/exhibitors/1';
+            this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:8080/edit/exhibitors/1';
+            this.NewsInfoUrl = 'http://cltglobal.ddns.net:8080/news/1';
         } else {
-            this.userUrl = 'http://localhost:5000/user';
-            this.loginUrl = 'http://localhost:5000/login';
-            this.cnfEditUrl = 'http://localhost:5000/edit/conference/1';
-            this.cnfInfoUrl = 'http://localhost:5000/info/1';
-            this.xhbUrl = 'http://localhost:5000/exhibitors/1';
-            this.xhbUsersUrl = 'http://localhost:5000/user/exhibitors/1';
-            this.addXhbUrl = 'http://localhost:5000/edit/exhibitors/1';
-            this.newsUrl = 'http://localhost:5000/news/1';
+            this.ImageUploadUrl = 'http://localhost:5000/img';
+            this.UsersInfoUrl = 'http://localhost:5000/user';
+            this.LoginUrl = 'http://localhost:5000/login';
+            this.ConferenceEditUrl = 'http://localhost:5000/edit/conference/1';
+            this.ConferenceInfoUrl = 'http://localhost:5000/info/1';
+            this.ExhibitorsInfoUrl = 'http://localhost:5000/exhibitors/1';
+            this.ExhibitorsUsersInfoUrl = 'http://localhost:5000/user/exhibitors/1';
+            this.ExhibitorEditUrl = 'http://localhost:5000/edit/exhibitors/1';
+            this.NewsInfoUrl = 'http://localhost:5000/news/1';
         }
 
         this.authToken = JSON.parse(sessionStorage.getItem('authToken'));
@@ -114,37 +119,37 @@ export class Auth {
 
     public getConferenceInfo() {
         return this.http
-            .get(`${this.cnfInfoUrl}`)
+            .get(`${this.ConferenceInfoUrl}`)
             .map((r: Response) => r.json());
     }
 
     public addExhibitor(data: Object) {
         return this.http
-            .post(`${this.addXhbUrl}`, data)
+            .post(`${this.ExhibitorEditUrl}`, data)
             .map((r: Response) => r.json());
     }
 
     public getExhibitors() {
         return this.http
-            .get(`${this.xhbUsersUrl}`)
+            .get(`${this.ExhibitorsUsersInfoUrl}`)
             .map((r: Response) => r.json());
     }
 
     public getNews() {
         return this.http
-            .get(`${this.newsUrl}`)
+            .get(`${this.NewsInfoUrl}`)
             .map((r: Response) => r.json());
     }
 
     public patchConference(data: Object) {
         return this.http
-            .patch(`${this.cnfEditUrl}`, data)
+            .patch(`${this.ConferenceEditUrl}`, data)
             .map((r: Response) => r.json());
     }
 
     public postLogin(data: any) {
         return this.http
-            .post(`${this.loginUrl}`, data)
+            .post(`${this.LoginUrl}`, data)
             .map((r: Response) => r.json());
     }
 
