@@ -31,20 +31,22 @@
                 </div>
                 <div class="col-md-9">
                     <h3 style="padding-right: 65px;">
-                        <input [(ngModel)]="newsItemTitle" />
+                        <input [(ngModel)]="newsItemTitle"
+                            [ngClass]="{'red': highlightTitle}"/>
                     </h3>
                     <div class="line-break"></div>
                     <p>
-                        <textarea [(ngModel)]="newsItemText"></textarea>
+                        <textarea [(ngModel)]="newsItemText" [ngClass]="{'red': highlightText}"></textarea>
                     </p>
                 </div>
                 <p class="author">  
-                    <input [(ngModel)]="newsItemAuthor" />
+                    <input [(ngModel)]="newsItemAuthor" [ngClass]="{'red': highlightAuthor}"/>
                 </p>
             </md-card>
         </div>
     </div>
     <div class="modal-footer">
+        <p *ngIf="errorLabel !== ''" class="error-label">{{ errorLabel }}</p>
         <button id="submit" type="button" class="btn btn-secondary" (click)="submitNewsItem(close)">Submit</button>
     </div>
 </ng-template>

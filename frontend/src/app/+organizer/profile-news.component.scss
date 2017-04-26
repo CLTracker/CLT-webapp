@@ -81,6 +81,10 @@
     }
     p {
         margin: 0;
+        color: #272727;
+    }
+    .error-label {
+        color: red;
     }
     .modal-content {
         width: 100%;
@@ -91,14 +95,16 @@
         color: red;
     }
     input {
-        border: 1px solid red;
-        color: red;
+        border: 1px solid #272727;
         font-weight: bold;
         padding: 0 10px;
     }
+    .red {
+        border: 1px solid red;
+    }
     textarea {
         padding: 10px;
-        border: 1px solid red;
+        border: 1px solid #272727;
         border-radius: 0;
     }
     input {

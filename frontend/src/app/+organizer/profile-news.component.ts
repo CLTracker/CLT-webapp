@@ -13,8 +13,14 @@ import { NgbModal,
 })
 export class ProfileNewsComponent implements OnInit {
 
-    public uploader: FileUploader = new FileUploader({url: this.auth.imgUrl});
+    public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl});
     private news: Object;
+
+    private errorLabel: string;
+    private highlightTitle: boolean = false;
+    private highlightText: boolean = false;
+    private highlightAuthor: boolean = false;
+    private highlightImage: boolean = false;
 
     private newsItemTitle: string = 'TITLE';
     private newsItemText: string = 'place news text here';
@@ -53,7 +59,45 @@ export class ProfileNewsComponent implements OnInit {
     }
 
     public submitNewsItem(close: any): void {
+        this.highlightAuthor = this.highlightImage = this.highlightText = this.highlightTitle = false;
+        if(this.newsItemTitle === '' || this.newsItemTitle === 'TITLE') {
+            this.errorLabel = 'Missing title';
+            this.highlightTitle = true;
+            return;
+        }
+        if(this.newsItemText === '' || this.newsItemText === 'place news text here') {
+            this.errorLabel = 'Missing body';
+            this.highlightText = true;
+            return;
+        }
+        if(this.newsItemAuthor === '' || this.newsItemAuthor === 'AUTHOR') {
+            this.errorLabel = 'Missing author';
+            this.highlightAuthor = true;
+            return;
+        }
+        // if(this.newsItemImg === '') {
+        //     this.errorLabel = 'Missing image';
+        //     this.highlightImage = true;
+        // }
 
+        let data: any = { 
+            source: this.auth.userProfile.email, 
+            news_item: { 
+                title: this.newsItemTitle, 
+                text: this.newsItemText, 
+                logo: this.newsItemImg, 
+                author: this.newsItemAuthor 
+            }
+        };
+
+        // this.auth.postNewsItem(data).subscribe(
+        //     result => {
+
+        //     },
+        //     error => {
+
+        //     }
+        // );
         close();
     }
 
