@@ -1,5 +1,6 @@
 import { Component }        from '@angular/core';
-import { Router }                   from '@angular/router';
+import { Router } from '@angular/router';
+import {Auth} from '../shared'
 
 @Component({
     selector: 'my-not-logged-in-page',
@@ -8,5 +9,6 @@ import { Router }                   from '@angular/router';
 })
 
 export class LoginComponent {
-    constructor() {}
+    constructor(private auth: Auth) {
+    }
 }
