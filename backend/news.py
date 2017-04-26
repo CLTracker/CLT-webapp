@@ -73,7 +73,7 @@ def deleteNewsItem(db, content, confId):
         return statJson, 200
 
 #addes new to the database
-@newsRoutes.route("/edit/news/<string:confid>", methods=["POST"])
+@newsRoutes.route("/edit/news/<string:confid>", methods=["PATCH", "POST"])
 def newsedit(confid):
     if request.method == "POST":
         db = dbPool.connect().connection
