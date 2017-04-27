@@ -4,6 +4,9 @@ installBack.sh
 #database config file
 db_config
 
+#imgur keys
+image_key
+
 #python
 __pycache__
 
