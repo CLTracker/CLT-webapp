@@ -25,8 +25,13 @@
     .logo {
         width: 150px;
         height: 150px;
-        background-color: grey;
+        background-color: #ffffff;
         font-weight: bold;
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
     }
     .edit-bar {
         position: absolute;
