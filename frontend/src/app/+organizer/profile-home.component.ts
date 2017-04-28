@@ -25,26 +25,27 @@ export class ProfileHomeComponent implements OnInit {
     private endTime: string;
 
     constructor(private auth: Auth) {
-        console.log(this.auth.userProfile);
     }
 
     ngOnInit() {
         this.uploader.onSuccessItem =
             (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
-                console.log(response);
-                // imgUrl = response
+                let x = JSON.parse(response);
+                this.imgUrl = x.link;
             };
         this.auth.getConferenceInfo().subscribe(
             result => {
+                console.log(result);
                 this.conferenceName = result.conference_name;
                 this.location = result.location;
                 this.beginDate = result.start_date;
                 this.endDate = result.end_date;
+                this.imgUrl = result.logo_url;
             },
             error => {
                 console.log(error);
             }
-        )
+        );
 
     }
 
@@ -53,30 +54,39 @@ export class ProfileHomeComponent implements OnInit {
      * with the database
      */
     public saveGeneralContent(): void {
-        console.log(this.beginTime);
         // { source: unique_id, fields: { /* fields to replace */ } }
         let data: any = {source: this.auth.userProfile.email, fields: {}};
         if (this.conferenceName) {
             data.fields.conference_name = this.conferenceName;
         }
         if (this.location) {
-            data.fields.Location = this.location;
+            data.fields.location = this.location;
         }
         if (this.imgUrl) {
-            data.fields.ImgUrl = this.imgUrl;
+            data.fields.logo_url = this.imgUrl;
         }
 
         console.log(data);
         // if any fields need to be updated, proceed
-        if (data) {
-            this.auth.patchConference(data).subscribe(
-                result => {
-                    console.log("works");
-                }, 
-                error => {
-                    console.log("fucko");
-                }
-            )
-        }
+        this.auth.patchConference(data).subscribe(
+            result => {
+                console.log(result);
+                this.auth.getConferenceInfo().subscribe(
+                    result => {
+                        this.conferenceName = result.conference_name;
+                        this.location = result.location;
+                        this.beginDate = result.start_date;
+                        this.endDate = result.end_date;
+                        this.imgUrl = result.logo_url;
+                    },
+                    error => {
+                        console.log(error);
+                    }
+                )
+            }, 
+            error => {
+                console.log("fucko");
+            }
+        )
     }
 }
