@@ -132,6 +132,11 @@ export class ProfileScheduleComponent {
 
         this.auth.getScheduleEvents().subscribe(
             result => {
+                for(let i of result) {
+                    i.start = new Date(i.start);
+                    i.end = new Date(i.end);
+                }
+                
                 console.log(result);
                 this.events = result;
                 this.refresh.next();
