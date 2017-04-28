@@ -1,7 +1,7 @@
 #THIS FILE WILL BE FOR ALL SAMPLE DATA GENERATION
 
 
-INSERT INTO conference(conference_id, floor_plan, conference_name, start_date, end_date, location, logo_url) VALUES(1, "https://lol.com", "Senior Design Competition", "2017-03-19", "2017-03-20", "4580 Maryland Pkwy", "https://lol2.com");
+INSERT INTO conference(conference_id, floor_plan, conference_name, start_date, end_date, location, logo_url) VALUES(1, "https://lol.com", "Senior Design Competition", "2017-03-19", "2017-03-20", "4580 Maryland Pkwy", "http://i.imgur.com/3TLT7QN.png");
 
 INSERT INTO permissions(permission_name) VALUES("xhb");
 INSERT INTO permissions(permission_name) VALUES("adm");
