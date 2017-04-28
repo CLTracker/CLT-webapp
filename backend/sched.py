@@ -41,8 +41,10 @@ def patchSchedInfo(db, confId, content):
         
         #update query in database
         query = "UPDATE schedule,conference SET start_time=%s, end_time=%s WHERE (conference.conference_id = %s) AND (schedule.event_name LIKE %s)"
-        if cursor.execute(query, (newStart,newEnd,confId,eventTitle,)):
-            status = 200
+        cursor.execute(query, (newStart,newEnd,confId,eventTitle,))
+        #commit changes
+        db.commit()
+        status = 200
     # after update, send back updated schedule table
     sendArr = []
     query = "SELECT event_name, schedule.start_time, schedule.end_time, primary_color, secondary_color FROM schedule, conference WHERE conference_id = %s"
