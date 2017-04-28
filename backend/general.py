@@ -22,7 +22,7 @@ def getExInfo(db, confId):
     #want title, logo_url, text
     cursor = db.cursor(dictionary=True)
     query = "SELECT conference, company_name, exhibitors.logo_url from exhibitors, conference where conference_id = %s"
-    cursor.execute(query, (confid,))
+    cursor.execute(query, (confId,))
     results = cursor.fetchall()
     return results, 200
 

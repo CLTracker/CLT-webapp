@@ -36,6 +36,7 @@ export class ProfileNewsComponent implements OnInit {
         this.auth.getNews().subscribe(
             result => {
                 this.news = result;
+                console.log(result);
             },
             error => {
                 console.log(error);

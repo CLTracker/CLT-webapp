@@ -1,7 +1,7 @@
 #THIS FILE WILL BE FOR ALL SAMPLE DATA GENERATION
 
 
-INSERT INTO conference(conference_id, floor_plan, conference_name, start_date, end_date, location, logo_url) VALUES(1, "https://lol.com", "Senior Design Competition", "2017-03-19", "2017-03-20", "4580 Maryland Pkwy", "https://lol2.com");
+INSERT INTO conference(conference_id, floor_plan, conference_name, start_date, end_date, location, logo_url) VALUES(1, "https://lol.com", "Senior Design Competition", "2017-03-19", "2017-03-20", "4580 Maryland Pkwy", "http://i.imgur.com/3TLT7QN.png");
 
 INSERT INTO permissions(permission_name) VALUES("xhb");
 INSERT INTO permissions(permission_name) VALUES("adm");
@@ -38,7 +38,7 @@ INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "HP Future Product Plan", "2017-04-28 00:00:00", "2017-04-29 00:00:00", "#ffffff", "#FAE3E3");
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Conference Raffle Drawing", "2017-05-01 09:00:00", "2017-05-01 10:00:00", "#ffffff", "#FAE3E3");
 
-INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Senior Design Kicks Off!", "http://imgur.com/a/cFmoZ", "Check out all the projects of this year's teams!", "UNLV");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Senior Design Kicks Off!", "http://i.imgur.com/3TLT7QN.png", "Check out all the projects of this year's teams!", "UNLV");
 INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Swag Giveaway", "http://i.imgur.com/s7YTXDu.png?1", "Stop by the AT&T booth for free swag!", "AT&T");
 INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Guest Speaker", "http://i.imgur.com/TV171o1.png?1", "Come listen to our head of AI devlopment speak on his work process.", "Tesla");
 INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "New Product Unveiling", "http://i.imgur.com/qtDcA1z.png?1", "See the new product we have been working on for the last year!", "HP");
