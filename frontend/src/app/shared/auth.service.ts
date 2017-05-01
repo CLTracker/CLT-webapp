@@ -6,7 +6,7 @@ import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
 
-const prod: string = 'production';
+const prod: string = 'tttproduction';
 
 @Injectable()
 export class Auth {

@@ -12,6 +12,7 @@ import { Auth }                     from '../shared';
 export class JoinComponent implements OnInit {
     private org: String = "";
     private perm: String = "";
+    private showError: boolean = false;
     constructor(
         private auth: Auth,
         private router: Router,
@@ -33,6 +34,9 @@ export class JoinComponent implements OnInit {
      * permissions to use the portal
      */
     joinOrg(): void {
+        // reset join error to not show
+        this.showError = false;
+        
         // get auth token which was set from user logging in
         let postData = this.auth.authToken;
         postData.loginType = this.perm;
@@ -45,7 +49,10 @@ export class JoinComponent implements OnInit {
                 this.auth.setProfile(result);
                 this.router.navigate([this.perm, 'profile']);
             }, error => {
-                alert(error);
+                if(error.status === 403) {
+                    this.showError = true;
+                }
+                console.log(error);
             }
         );
     }
