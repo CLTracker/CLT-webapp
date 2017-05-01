@@ -33,7 +33,7 @@ INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALU
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("attexample@email.com", 1, "AT&T", "http://i.imgur.com/s7YTXDu.png?1");
 
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "AT&T Giveaway", "2017-04-28 08:00:00", "2017-04-29 00:00:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Tesla Keynote Speech", "2017-04-28 09:00:00", "2017-045-28 11:00:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Tesla Keynote Speech", "2017-04-28 09:00:00", "2017-04-28 11:00:00", "#ffffff", "#FAE3E3");
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Apple Design Experience", "2017-04-28 00:00:00", "2017-05-03 04:00:00", "#ffffff", "#FAE3E3");
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "HP Future Product Plan", "2017-04-28 00:00:00", "2017-04-29 00:00:00", "#ffffff", "#FAE3E3");
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Conference Raffle Drawing", "2017-05-01 09:00:00", "2017-05-01 10:00:00", "#ffffff", "#FAE3E3");
