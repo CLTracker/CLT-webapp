@@ -126,6 +126,7 @@ export class Auth {
     }
 
     public refresh() {
+        this.authToken = JSON.parse(sessionStorage.getItem('authToken'));
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
     }
 

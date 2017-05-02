@@ -30,6 +30,7 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
                     this.exhibitors = result;
                 }, error => {
                     console.log(error);
+                    alert('Error getting exhibitor list!');
                 }
             )
     }
@@ -43,7 +44,7 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
                         let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
                         
                         if(!EMAIL_REGEXP.test(result)) {
-                            console.log('fails');
+                            console.log('invalid email detected');
                         } else {
                             let data = {
                                 source: this.auth.userProfile.email,
@@ -56,17 +57,17 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
                                             this.exhibitors = result;
                                         }, error => {
                                             console.log(error);
+                                            alert('Error getting exhibitor list!');
                                         }
                                     )
                                 }, error => {
                                     console.log(error);
+                                    alert('Error adding exhibitor!');
                                 }
                             )
                         }
                     }
-                }, (reason) => {
-                    console.log('exited');
-                }
+                }, (reason) => {}
             );
         
     }

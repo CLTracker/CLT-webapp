@@ -36,10 +36,10 @@ export class ProfileNewsComponent implements OnInit {
         this.auth.getNews().subscribe(
             result => {
                 this.news = result;
-                console.log(result);
             },
             error => {
                 console.log(error);
+                alert('Error getting news information!');
             }
         )
     }
@@ -65,9 +65,7 @@ export class ProfileNewsComponent implements OnInit {
         // open modal and prompt user to fill information out
         this.modalService.open(this.modalContent)
             .result.then(
-                (result) => {
-                    console.log(result);
-                }
+                (result) => {}
             )
     }
 
@@ -84,9 +82,7 @@ export class ProfileNewsComponent implements OnInit {
         // open modal and prompt user to fill information out
         this.modalService.open(this.modalContent)
             .result.then(
-                (result) => {
-                    console.log(result);
-                }
+                (result) => {}
             )
     }
 
@@ -107,7 +103,8 @@ export class ProfileNewsComponent implements OnInit {
                 this.news = result;
             },
             error => {
-                console.log('error', error);
+                console.log(error);
+                alert('Error deleting news item!');
             }
         )
     }
@@ -152,17 +149,18 @@ export class ProfileNewsComponent implements OnInit {
                     this.news = result;
                 },
                 error => {
-                    console.log('error!', error);
+                    console.log(error);
+                    alert('Error patching news item!');
                 }
             )
         } else {
             this.auth.postNewsItem(data).subscribe(
                 result => {
-                    console.log(result);
                     this.news = result;
                 },
                 error => {
-                    console.log('error!', error);
+                    console.log(error);
+                    alert('Error posting news item!');
                 }
             );
         }

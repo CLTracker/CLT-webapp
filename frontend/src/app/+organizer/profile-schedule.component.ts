@@ -137,12 +137,11 @@ export class ProfileScheduleComponent {
                     i.end = new Date(i.end);
                 }
                 
-                console.log(result);
                 this.events = result;
                 this.refresh.next();
             },
             error => {
-                console.log('error!', error);
+                console.log(error);
             }
         )
     }

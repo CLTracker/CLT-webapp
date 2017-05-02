@@ -35,7 +35,6 @@ export class ProfileHomeComponent implements OnInit {
             };
         this.auth.getConferenceInfo().subscribe(
             result => {
-                console.log(result);
                 this.conferenceName = result.conference_name;
                 this.location = result.location;
                 this.beginDate = result.start_date;
@@ -44,6 +43,7 @@ export class ProfileHomeComponent implements OnInit {
             },
             error => {
                 console.log(error);
+                alert('something went wrong retreiving conference information :(');
             }
         );
 
@@ -66,11 +66,9 @@ export class ProfileHomeComponent implements OnInit {
             data.fields.logo_url = this.imgUrl;
         }
 
-        console.log(data);
         // if any fields need to be updated, proceed
         this.auth.patchConference(data).subscribe(
             result => {
-                console.log(result);
                 this.auth.getConferenceInfo().subscribe(
                     result => {
                         this.conferenceName = result.conference_name;
@@ -81,11 +79,13 @@ export class ProfileHomeComponent implements OnInit {
                     },
                     error => {
                         console.log(error);
+                        alert('Error getting conference information!')
                     }
                 )
             }, 
             error => {
-                console.log("fucko");
+                console.log(error);
+                alert('Error patching conference data!')
             }
         )
     }

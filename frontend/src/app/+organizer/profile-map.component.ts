@@ -22,8 +22,8 @@ export class ProfileMapComponent implements OnInit{
     ngOnInit() {
         this.uploader.onSuccessItem =
         (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
-            console.log(response);
-            // imgUrl = response
+            let x = JSON.parse(response);
+            this.imgUrl = x.link;
         };
     }
 
