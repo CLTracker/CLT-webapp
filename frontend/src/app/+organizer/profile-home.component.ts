@@ -3,6 +3,7 @@ import { Router }               from '@angular/router';
 import { FileUploader,
     FileItem,
     ParsedResponseHeaders }     from 'ng2-file-upload';
+import { MdSnackBar }           from '@angular/material';
 
 import { Auth }                 from '../shared';
 
@@ -24,7 +25,9 @@ export class ProfileHomeComponent implements OnInit {
     private beginTime: string;
     private endTime: string;
 
-    constructor(private auth: Auth) {
+    private saving: boolean = false;
+
+    constructor(private auth: Auth, private snackBar: MdSnackBar) {
     }
 
     ngOnInit() {
@@ -65,7 +68,8 @@ export class ProfileHomeComponent implements OnInit {
         if (this.imgUrl) {
             data.fields.logo_url = this.imgUrl;
         }
-
+        
+        this.saving = true;
         // if any fields need to be updated, proceed
         this.auth.patchConference(data).subscribe(
             result => {
@@ -76,6 +80,8 @@ export class ProfileHomeComponent implements OnInit {
                         this.beginDate = result.start_date;
                         this.endDate = result.end_date;
                         this.imgUrl = result.logo_url;
+                        this.saving = false;
+                        this.snackBar.open('Saved!','', {duration: 2000});
                     },
                     error => {
                         console.log(error);

@@ -63,6 +63,7 @@ def upload_image(access_token,image_url):
     r = requests.post(upload_url, data=payload, headers=headers, verify=False)
 
     j = r.json()
+    json.dumps(r)
     uploaded_url = j['data']['link']
     return uploaded_url
 
