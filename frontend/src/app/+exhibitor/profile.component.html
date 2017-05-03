@@ -8,31 +8,11 @@
 <div id="profile-wrapper">
     <div class="content-view">
         <div class="container-fluid">
-            <div class="col-md-3" id="nav">
-                <md-card>
-                    <div class="nav-content">
-                        <button md-button [routerLink]="'basic'">
-                            Basic Settings
-                        </button>
-                        <button md-button [routerLink]="'logo'">
-                            Booth Logo
-                        </button>
-                        <button md-button [routerLink]="'staff'">
-                            Staff List
-                        </button>
-                        <button md-button [routerLink]="'events'">
-                            Booth Events
-                        </button>
-                    </div>
-                </md-card>
-            </div>
-            
-            <div class="col-md-9" id="primary">
+            <div class="col-md-12" id="primary">
                 <md-card>
                     <router-outlet></router-outlet>
                 </md-card>
             </div>
-            
         </div>
     </div>
 </div>
