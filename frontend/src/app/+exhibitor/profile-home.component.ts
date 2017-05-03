@@ -7,6 +7,7 @@ import { FileUploader,
 import { NgbModal,
     ModalDismissReasons }   from '@ng-bootstrap/ng-bootstrap';
 import { Auth }             from '../shared';
+import { MdSnackBar }       from '@angular/material';
 
 @Component({
     selector: 'my-profile-home',
@@ -16,7 +17,7 @@ import { Auth }             from '../shared';
 export class ProfileHomeComponent implements OnInit {
     public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl, disableMultipart: true});
     
-    private news: any;
+    private news: any = [];
 
     private company: string;
     private name: string;
@@ -38,7 +39,7 @@ export class ProfileHomeComponent implements OnInit {
 
     @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
-    constructor(private auth: Auth, private modalService: NgbModal) {
+    constructor(private auth: Auth, private modalService: NgbModal, private snackBar: MdSnackBar) {
         console.log(this.auth.userProfile);
         this.auth.getExhibitorUserInfo(this.auth.userProfile.email).subscribe(
             result => {
@@ -76,6 +77,38 @@ export class ProfileHomeComponent implements OnInit {
                 let x = JSON.parse(response);
                 this.imgUrl = x.link;
             }
+    }
+
+    public saveContent(): void {
+        let data: any = {
+            bio: this.bio,
+            company: this.company,
+            email: this.auth.userProfile.email,
+            logo_url: this.imgUrl,
+            name: this.name,
+            permissions: this.auth.userProfile.permissions,
+            userId: this.auth.userProfile.userId,
+            userType: this.auth.userProfile.userType
+        };
+
+        this.auth.patchExhibitorInfo(data).subscribe(
+            result => {
+                this.auth.getExhibitorUserInfo(this.auth.userProfile.email).subscribe(
+                    result => {
+                        console.log(result);
+                        this.auth.setProfile(result);
+                        this.snackBar.open('Saved!','',{duration: 2000});
+                    },
+                    error => {
+                        console.log(error);
+                        alert('Error getting exhibitor info!');
+                    }
+                )
+            }, error => {
+                console.log(error);
+                alert('Error patching exhibitor info!');
+            }
+        )
     }
 
     public openNewsPrompt(): void {
@@ -126,7 +159,13 @@ export class ProfileHomeComponent implements OnInit {
 
         this.auth.deleteNewsItem(data).subscribe(
             result => {
-                this.news = result;
+                this.news = [];
+                let tNews = result;
+                for(let n of tNews) {
+                    if(n.author === this.auth.userProfile.company) {
+                        this.news.push(n);
+                    }
+                }
             },
             error => {
                 console.log(error);
@@ -152,10 +191,10 @@ export class ProfileHomeComponent implements OnInit {
             this.highlightAuthor = true;
             return;
         }
-        // if(this.newsItemImg === '') {
-        //     this.errorLabel = 'Missing image';
-        //     this.highlightImage = true;
-        // }
+        if(this.newsItemImg === '') {
+            this.errorLabel = 'Missing image';
+            this.highlightImage = true;
+        }
 
         this.newsItemImg = '';
 
@@ -172,7 +211,13 @@ export class ProfileHomeComponent implements OnInit {
         if (this.isEditItem) {
             this.auth.modifyNewsItem(data).subscribe(
                 result => {
-                    this.news = result;
+                    this.news = [];
+                    let tNews = result;
+                    for(let n of tNews) {
+                        if(n.author === this.auth.userProfile.company) {
+                            this.news.push(n);
+                        }
+                    }
                 },
                 error => {
                     console.log(error);
@@ -182,7 +227,13 @@ export class ProfileHomeComponent implements OnInit {
         } else {
             this.auth.postNewsItem(data).subscribe(
                 result => {
-                    this.news = result;
+                    this.news = [];
+                    let tNews = result;
+                    for(let n of tNews) {
+                        if(n.author === this.auth.userProfile.company) {
+                            this.news.push(n);
+                        }
+                    }
                 },
                 error => {
                     console.log(error);

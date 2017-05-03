@@ -37,7 +37,16 @@ md-input-container {
 textarea {
     border: 1px solid #1b1b1b;
     border-radius: 5px;
+    height: 140px;
     resize: none;
+}
+#logo-preview {
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+}
+.tool-bar {
+    margin: 20px 0px;
 }
 .upload-overlay {
     position: relative;
