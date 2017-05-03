@@ -36,6 +36,8 @@ INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("35", "Hailey's Hang V3.0", 0, "2017-03-28 00:00:00", "0.0.0.0", "HHV3@sdc.com", 0, 1);
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("36", "Silicon Photomultiplier High Energy Radiation Detector", 0, "2017-03-28 00:00:00", "0.0.0.0", "SPHERD@sdc.com", 0, 1);
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("37", "Z-Med Alert", 0, "2017-03-28 00:00:00", "0.0.0.0", "ZMED@sdc.com", 0, 1);
+INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("38", "Project Apollo", 0, "2017-03-28 00:00:00", "0.0.0.0", "PA@sdc.com", 0, 1);
+INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("39", "Micro Grid II: Load Share", 0, "2017-03-28 00:00:00", "0.0.0.0", "MGIILS@sdc.com", 0, 1);
 
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("DRPSRS@sdc.com",1);
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("HDSC@sdc.com",1);
@@ -66,6 +68,8 @@ INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("CTRM@sd
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("HHV3@sdc.com",1);
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("SPHERD@sdc.com",1);
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("ZMED@sdc.com",1);
+INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("PA@sdc.com",1);
+INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("MGIILS@sdc.com",1);
 
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("DRPSRS@sdc.com",1, "Demand Responsive Pedestrian Safety Rumble Strips", "http://i.imgur.com/3TLT7QN.png", "The Demand Responsive Pedestrian Safety Rumble Strips (DRRS) is an innovative technology that increases pedestrian safety while reducing distracted driving.");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("HDSC@sdc.com",1, "Hoover Dam Security Checkpoint", "http://i.imgur.com/3TLT7QN.png", "The Demand Responsive Pedestrian Safety Rumble Strips (DRRS) is an innovative technology that increases pedestrian safety while reducing distracted driving.");
@@ -73,7 +77,7 @@ INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio)
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("UNLVPCF@sdc.com",1, "UNLV Paradise Campus Flooding", "http://i.imgur.com/3TLT7QN.png", "The team’s solution is to flatten the parking lot and incorporate porous pavement, along with adding solar panels to generate power and to shade the parking lot.");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("CASH@sdc.com",1, "Custom Autonomous Secure Home (CASH)", "http://i.imgur.com/3TLT7QN.png", "Our concept is to develop an application, which allows a user to integrate off-the-shelf home efficiency and security devices as these devices are purchased over time i.e. “plug and play”.");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("CLT@sdc.com",1, "Convention Logistics Tracker", "http://i.imgur.com/3TLT7QN.png", "The CLT app is developed with its focus on the attendee experience.");
-INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("FLTR@sdc.com",1, "Filterable Stock News Scanner (FLTR", "http://i.imgur.com/3TLT7QN.png", "We are here to provide a real-time on-demand platform that gives our users the sought-after news filter feature like the solutions currently available.");
+INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("FLTR@sdc.com",1, "Filterable Stock News Scanner (FLTR)", "http://i.imgur.com/3TLT7QN.png", "We are here to provide a real-time on-demand platform that gives our users the sought-after news filter feature like the solutions currently available.");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("Linked@sdc.com",1, "Linked", "http://i.imgur.com/3TLT7QN.png", "We are here to provide a real-time on-demand platform that gives our users the sought-after news filter feature like the solutions currently available.");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("spots@sdc.com",1, "Spots", "http://i.imgur.com/3TLT7QN.png", "Spots will facilitate parking in parking lots with regular drivers by integrating all parking spaces on campus in a single system that will track parking spaces to notify and advise students and staff with important information about the parking spots on every lot.");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("APS@sdc.com",1, "Adaptive Power Supply", "http://i.imgur.com/3TLT7QN.png", "At a basic level, our solution is a charger that operates to the highest USB 3.0 standard to allow for the charging of multiple devices with varying power ratings and charging requirements.");
@@ -96,6 +100,42 @@ INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio)
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("HHV3@sdc.com",1, "Hailey's Hang V3.0", "http://i.imgur.com/3TLT7QN.png", "Hailey’s Hand 3.0 addresses the identified problems, and either improves upon, or expands the scope of, previous Hailey’s Hand Designs. ");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("SPHERD@sdc.com",1, "Silicon Photomultiplier High Energy Radiation Detector", "http://i.imgur.com/3TLT7QN.png", "Our solution will utilize an in-house designed SiPM that will greatly reduce the cost of a scintillation counter device.");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("ZMED@sdc.com",1, "Z-Med Alert", "http://i.imgur.com/3TLT7QN.png", "Z-med Alert attempts to balance all the features of the current market products by using newer technology at a significantly reduced cost.");
+INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("PA@sdc.com",1, "Project Apollo", "http://i.imgur.com/3TLT7QN.png", "Bacon ipsum dolor amet capicola jowl tail chicken swine burgdoggen ribeye fatback beef ribs tenderloin andouille cow.");
+INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("MGIILS@sdc.com",1, "Micro Grid II: Load Share", "http://i.imgur.com/3TLT7QN.png", "Ham irure ham hock spare ribs, ground round et fugiat pork belly. Ut meatball ut salami aute.");
+
+
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 1", "2017-05-04 08:00:00", "2017-05-04 08:15:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 2", "2017-05-04 08:15:00", "2017-05-04 08:30:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 3", "2017-05-04 08:30:00", "2017-05-04 08:45:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 4", "2017-05-04 08:45:00", "2017-05-04 09:00:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 5", "2017-05-04 09:00:00", "2017-05-04 09:15:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 6", "2017-05-04 09:15:00", "2017-05-04 09:30:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 7", "2017-05-04 09:30:00", "2017-05-04 09:45:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 8", "2017-05-04 10:00:00", "2017-05-04 10:15:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 9", "2017-05-04 10:15:00", "2017-05-04 10:30:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 10", "2017-05-04 10:30:00", "2017-05-04 10:45:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 11", "2017-05-04 10:45:00", "2017-05-04 11:00:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 12", "2017-05-04 11:00:00", "2017-05-04 11:15:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 13", "2017-05-04 11:15:00", "2017-05-04 11:30:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 14", "2017-05-04 11:30:00", "2017-05-04 11:45:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 15", "2017-05-04 11:45:00", "2017-05-04 12:00:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 16", "2017-05-04 12:00:00", "2017-05-04 12:15:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 17", "2017-05-04 12:15:00", "2017-05-04 12:30:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 18", "2017-05-04 14:05:00", "2017-05-04 14:20:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 19", "2017-05-04 14:20:00", "2017-05-04 14:35:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 20", "2017-05-04 14:35:00", "2017-05-04 14:50:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 21", "2017-05-04 14:50:00", "2017-05-04 15:05:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 22", "2017-05-04 15:05:00", "2017-05-04 15:20:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 23", "2017-05-04 15:20:00", "2017-05-04 15:35:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 24", "2017-05-04 15:35:00", "2017-05-04 15:50:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 25", "2017-05-04 16:05:00", "2017-05-04 16:20:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 26", "2017-05-04 16:20:00", "2017-05-04 16:35:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 27", "2017-05-04 16:35:00", "2017-05-04 16:50:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 28", "2017-05-04 16:50:00", "2017-05-04 17:05:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 29", "2017-05-04 17:05:00", "2017-05-04 17:20:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 30", "2017-05-04 17:20:00", "2017-05-04 17:35:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 31", "2017-05-04 17:35:00", "2017-05-04 17:50:00", "#ffffff", "#FAE3E3");
+
 
 
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("1", "Steven Brooks", 0, "2017-03-28 00:00:00", "0.0.0.0", "brooks@unlv.nevada.edu", 1, 2);
@@ -130,7 +170,7 @@ INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "HP Future Product Plan", "2017-04-28 00:00:00", "2017-04-29 00:00:00", "#ffffff", "#FAE3E3");
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Conference Raffle Drawing", "2017-05-01 09:00:00", "2017-05-01 10:00:00", "#ffffff", "#FAE3E3");
 
-INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Senior Design Kicks Off!", "http://i.imgur.com/3TLT7QN.png", "Check out all the projects of this year's teams!", "UNLV");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Senior Design Kicks Off! 8 am 5/4/17", "http://i.imgur.com/3TLT7QN.png", "Check out all the projects of this year's teams!", "UNLV");
 INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Swag Giveaway", "http://i.imgur.com/s7YTXDu.png?1", "Stop by the AT&T booth for free swag!", "AT&T");
 INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Guest Speaker", "http://i.imgur.com/TV171o1.png?1", "Come listen to our head of AI devlopment speak on his work process.", "Tesla");
 INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "New Product Unveiling", "http://i.imgur.com/qtDcA1z.png?1", "See the new product we have been working on for the last year!", "HP");

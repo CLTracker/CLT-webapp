@@ -2,7 +2,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent }  from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { IndustryComponent} from './industry/industry.component'
+import { IndustryComponent } from './industry/industry.component'
+import { CurrentsolutionsComponent } from './currentsolutions/currentsolutions.component'
 
 import { RouteGuard }      from './shared';
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'notloggedin', loadChildren:  './+notloggedin/login.module#LoginModule' },
   { path: 'join/:portal', canActivate: [RouteGuard], loadChildren: './+join/join.module#JoinModule' },
   { path: 'about', component: AboutComponent },
-  { path: 'industry', component: IndustryComponent}
+  { path: 'industry', component: IndustryComponent },
+  { path: 'currentsolutions', component: CurrentsolutionsComponent }
 ];
 
 export const routing = RouterModule.forRoot(routes);
