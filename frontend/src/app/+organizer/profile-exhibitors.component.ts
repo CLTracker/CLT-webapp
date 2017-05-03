@@ -20,6 +20,7 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
 
     private currentSelected: number;
     private closeResult: String;
+    private loadingExhibitors: boolean = true;
 
     public exhibitors: any;
 
@@ -28,6 +29,7 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
             this.auth.getExhibitors().subscribe(
                 result => {
                     this.exhibitors = result;
+                    this.loadingExhibitors = false;
                 }, error => {
                     console.log(error);
                     alert('Error getting exhibitor list!');
@@ -50,11 +52,13 @@ export class ProfileExhibitorsComponent implements AfterViewChecked {
                                 source: this.auth.userProfile.email,
                                 email: result
                             }
+                            this.loadingExhibitors = true;
                             this.auth.addExhibitor(data).subscribe(
                                 result => {
                                     this.auth.getExhibitors().subscribe(
                                         result => {
                                             this.exhibitors = result;
+                                            this.loadingExhibitors = false;
                                         }, error => {
                                             console.log(error);
                                             alert('Error getting exhibitor list!');

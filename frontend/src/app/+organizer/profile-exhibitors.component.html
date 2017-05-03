@@ -39,6 +39,7 @@
     </div>
     <div class="col-md-12 no-pad table-view">
         <md-card>
+            <md-spinner id="spinner" *ngIf="loadingExhibitors"></md-spinner>
             <table class="table table-hover">
                 <thead>
                     <tr>

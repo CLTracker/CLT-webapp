@@ -20,13 +20,21 @@
         <li *ngIf="auth.authenticated() && perms === 'org'" ><a href="/org/profile">Profile</a></li>
         <li *ngIf="auth.authenticated() && perms === 'xhb'" ><a href="/xhb/profile">Profile</a></li>
         <li *ngIf="auth.authenticated() && perms === 'adm'" ><a href="/adm/profile">Profile</a></li>
-        <li *ngIf="auth.authenticated()" ><a href="" (click)="auth.logout()">Log Out</a></li>
+        <li *ngIf="auth.authenticated()" ><a href="/" (click)="auth.logout()">Log Out</a></li>
       </ul>
       <a href="#" class="close">Close</a>
     </div>
   </nav>
 
-  <md-spinner *ngIf="loading" id="spinner"></md-spinner>
+    <div class="loading" *ngIf="loading" id="spinner">
+      <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+    </div>
 
   <!-- Content -->
   <router-outlet></router-outlet>
