@@ -38,24 +38,29 @@ def patchSchedInfo(db, confId, content):
         #dtNewEnd = datetime.strptime(newEnd, "%Y-%m-%d %H:%M:%S")
         eventTitle = item["title"]
         #print(eventTitle)
-        
+        newPrimary = item["color"]["primary"]
+        newSecondary = item["color"]["secondary"]
         #update query in database
-        query = "UPDATE schedule,conference SET start_time=%s, end_time=%s WHERE (conference.conference_id = %s) AND (schedule.event_name LIKE %s)"
-        cursor.execute(query, (newStart,newEnd,confId,eventTitle,))
+        query = "UPDATE schedule,conference SET start_time=%s, end_time=%s, primary_color=%s, secondary_color=%s WHERE (conference.conference_id = %s) AND (schedule.event_name LIKE %s)"
+        cursor.execute(query, (newStart,newEnd,newPrimary, newSecondary, confId,eventTitle,))
         #commit changes
         db.commit()
         status = 200
+
     # after update, send back updated schedule table
     sendArr = []
     query = "SELECT event_name, schedule.start_time, schedule.end_time, primary_color, secondary_color FROM schedule, conference WHERE conference_id = %s"
     cursor.execute(query, (confId,))
     results = cursor.fetchall()
     for row in results:
+            colorObj = {}
+            colorObj["primary"] = row["primary_color"]
+            colorObj["secondary"] = row["secondary_color"]
+            sendObj["color"] = colorObj
             sendObj["title"] = row["event_name"]
             sendObj["start"] = str(row["start_time"])
             sendObj["end"] = str(row["end_time"])
-            sendObj["color"]["primary"] = row["primary_color"]
-            sendObj["color"]["secondary"] = row["secondary_color"]
+            print(sendObj)
             sendArr.append(sendObj.copy())
     return sendArr, status
 
@@ -81,12 +86,15 @@ def getSchedInfo(db, confId):
     cursor.execute(query, (confId,))
     results = cursor.fetchall()
     for row in results:
+            colorObj = {}
+            colorObj["primary"] = row["primary_color"]
+            colorObj["secondary"] = row["secondary_color"]
             sendObj["title"] = row["event_name"]
             sendObj["start"] = str(row["start_time"])
             sendObj["end"] = str(row["end_time"])
-            sendObj["color"]["primary"] = row["primary_color"]
-            sendObj["color"]["secondary"] = row["secondary_color"]
+            sendObj["color"] = colorObj
             sendArr.append(sendObj.copy())
+    print(sendArr)
     return sendArr, 200
 
 @schedRoutes.route("/schedule/<string:confId>", methods=["GET", "PATCH"])
