@@ -104,37 +104,37 @@ INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio)
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("MGIILS@sdc.com",1, "Micro Grid II: Load Share", "http://i.imgur.com/3TLT7QN.png", "Ham irure ham hock spare ribs, ground round et fugiat pork belly. Ut meatball ut salami aute.");
 
 
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 1", "2017-05-04 08:00:00", "2017-05-04 08:15:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 2", "2017-05-04 08:15:00", "2017-05-04 08:30:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 3", "2017-05-04 08:30:00", "2017-05-04 08:45:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 4", "2017-05-04 08:45:00", "2017-05-04 09:00:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 5", "2017-05-04 09:00:00", "2017-05-04 09:15:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 6", "2017-05-04 09:15:00", "2017-05-04 09:30:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 7", "2017-05-04 09:30:00", "2017-05-04 09:45:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 8", "2017-05-04 10:00:00", "2017-05-04 10:15:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 9", "2017-05-04 10:15:00", "2017-05-04 10:30:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 10", "2017-05-04 10:30:00", "2017-05-04 10:45:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 11", "2017-05-04 10:45:00", "2017-05-04 11:00:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 12", "2017-05-04 11:00:00", "2017-05-04 11:15:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 13", "2017-05-04 11:15:00", "2017-05-04 11:30:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 14", "2017-05-04 11:30:00", "2017-05-04 11:45:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 15", "2017-05-04 11:45:00", "2017-05-04 12:00:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 16", "2017-05-04 12:00:00", "2017-05-04 12:15:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 17", "2017-05-04 12:15:00", "2017-05-04 12:30:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 18", "2017-05-04 14:05:00", "2017-05-04 14:20:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 19", "2017-05-04 14:20:00", "2017-05-04 14:35:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 20", "2017-05-04 14:35:00", "2017-05-04 14:50:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 21", "2017-05-04 14:50:00", "2017-05-04 15:05:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 22", "2017-05-04 15:05:00", "2017-05-04 15:20:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 23", "2017-05-04 15:20:00", "2017-05-04 15:35:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 24", "2017-05-04 15:35:00", "2017-05-04 15:50:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 25", "2017-05-04 16:05:00", "2017-05-04 16:20:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 26", "2017-05-04 16:20:00", "2017-05-04 16:35:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 27", "2017-05-04 16:35:00", "2017-05-04 16:50:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 28", "2017-05-04 16:50:00", "2017-05-04 17:05:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 29", "2017-05-04 17:05:00", "2017-05-04 17:20:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 30", "2017-05-04 17:20:00", "2017-05-04 17:35:00", "#ffffff", "#FAE3E3");
-INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Presentation 31", "2017-05-04 17:35:00", "2017-05-04 17:50:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Damping System Test Drop Tower", "2017-05-04 08:00:00", "2017-05-04 08:15:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Project Apollo", "2017-05-04 08:15:00", "2017-05-04 08:30:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Card Shoe Projection System", "2017-05-04 08:30:00", "2017-05-04 08:45:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Jox-T", "2017-05-04 08:45:00", "2017-05-04 09:00:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "FLTR", "2017-05-04 09:00:00", "2017-05-04 09:15:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Silicon Photomultiplier High Energy Radiation Detector", "2017-05-04 09:15:00", "2017-05-04 09:30:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Casino Dice Project", "2017-05-04 09:30:00", "2017-05-04 09:45:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "The Hi Ball", "2017-05-04 10:00:00", "2017-05-04 10:15:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "LVB Light Rail", "2017-05-04 10:15:00", "2017-05-04 10:30:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "CLT", "2017-05-04 10:30:00", "2017-05-04 10:45:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "A.P.E.L.", "2017-05-04 10:45:00", "2017-05-04 11:00:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Micro Grid II: Controls and Revisions", "2017-05-04 11:00:00", "2017-05-04 11:15:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Coanda Quadcopter", "2017-05-04 11:15:00", "2017-05-04 11:30:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "CASH", "2017-05-04 11:30:00", "2017-05-04 11:45:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Wastewater Evaporator", "2017-05-04 11:45:00", "2017-05-04 12:00:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "The Electrical Tester", "2017-05-04 12:00:00", "2017-05-04 12:15:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Universally Expanding Cage - ME Team", "2017-05-04 12:15:00", "2017-05-04 12:30:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Universally Expanding Cage - EE Team", "2017-05-04 14:05:00", "2017-05-04 14:20:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Bombyx Mori Silk Antimicrobial Gel", "2017-05-04 14:20:00", "2017-05-04 14:35:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Demand Responsive Pedestrian Safety Rumble", "2017-05-04 14:35:00", "2017-05-04 14:50:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Z-Med Alert", "2017-05-04 14:50:00", "2017-05-04 15:05:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Spots", "2017-05-04 15:05:00", "2017-05-04 15:20:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Hailey’s Hand Version 3.0", "2017-05-04 15:20:00", "2017-05-04 15:35:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Micro Grid II: Load Share", "2017-05-04 15:35:00", "2017-05-04 15:50:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Harco Spray Gun", "2017-05-04 16:05:00", "2017-05-04 16:20:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "UNLV Paradise Campus Flooding", "2017-05-04 16:20:00", "2017-05-04 16:35:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Carpel Tunnel Relief Massager", "2017-05-04 16:35:00", "2017-05-04 16:50:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Linked", "2017-05-04 16:50:00", "2017-05-04 17:05:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Adaptive Power Supply", "2017-05-04 17:05:00", "2017-05-04 17:20:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Hoover Dam Security Checkpoint", "2017-05-04 17:20:00", "2017-05-04 17:35:00", "#ffffff", "#FAE3E3");
+INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Impact Solutions", "2017-05-04 17:35:00", "2017-05-04 17:50:00", "#ffffff", "#FAE3E3");
 
 
 
