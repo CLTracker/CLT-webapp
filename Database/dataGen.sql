@@ -17,6 +17,7 @@ INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("6", "Tesla", 0, "2017-03-28 00:00:00", "0.0.0.0", "teslaexample@email.com", 0, 1);
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("7", "AT&T", 0, "2017-03-28 00:00:00", "0.0.0.0", "attexample@email.com", 0, 1);
 INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("google-oauth2|105950922553210130192", "Grant Organizer", 0, "2017-03-28 00:00:00", "0.0.0.0", "gmercer015@gmail.com", 0, 3);
+INSERT INTO users(user_id, name, login_count, last_login, last_ip, email, gender, permissions) VALUES("8", "Grant Exhibitor", 0, "2017-03-28 00:00:00", "0.0.0.0", "mercerg2@unlv.nevada.edu", 0, 1);
 
 INSERT INTO permitted_organizers(organizer_email, conference_id) VALUES("gmercer015@gmail.com",1 );
 INSERT INTO permitted_organizers(organizer_email, conference_id) VALUES("leil1@unlv.nevada.edu",1 );
@@ -25,12 +26,14 @@ INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("hpexamp
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("appleexample@email.com",1);
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("teslaexample@email.com",1);
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("attexample@email.com",1);
+INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("mercerg2@unlv.nevada.edu",1);
 
 INSERT INTO organizers(organizer_email, conference) VALUES("gmercer015@gmail.com", 1);
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("hpexample@email.com", 1, "HP", "http://i.imgur.com/qtDcA1z.png?1");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("appleexample@email.com", 1, "Apple", "http://i.imgur.com/3Vhuu59.jpg?1");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("teslaexample@email.com", 1, "Tesla", "http://i.imgur.com/TV171o1.png?1");
 INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("attexample@email.com", 1, "AT&T", "http://i.imgur.com/s7YTXDu.png?1");
+INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("mercerg2@unlv.nevada.edu", 1, "Grant Exhibitor", "http://i.imgur.com/3TLT7QN.png");
 
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "AT&T Giveaway", "2017-04-28 08:00:00", "2017-04-29 00:00:00", "#ffffff", "#FAE3E3");
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Tesla Keynote Speech", "2017-04-28 09:00:00", "2017-04-28 11:00:00", "#ffffff", "#FAE3E3");
