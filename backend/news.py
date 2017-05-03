@@ -59,7 +59,7 @@ def updateNewsItem(db, content, confId):
     # 1 == xhib
     # 2 == admin
     # 3 == org
-    if result["permission_name"] == "adm" or result["permission_name"] == "xhb":
+    if result["permission_name"] == "adm":
         statJson,ta = getNews(db, confId)
         return statJson, 401
     else:
