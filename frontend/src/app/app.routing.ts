@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent }  from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { IndustryComponent} from './industry/industry.component'
 
 import { RouteGuard }      from './shared';
 
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'adm/profile', loadChildren:  './+administrator/profile.module#AdminProfileModule' },
   { path: 'notloggedin', loadChildren:  './+notloggedin/login.module#LoginModule' },
   { path: 'join/:portal', canActivate: [RouteGuard], loadChildren: './+join/join.module#JoinModule' },
-  { path: 'about', component: AboutComponent}
+  { path: 'about', component: AboutComponent },
+  { path: 'industry', component: IndustryComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);
