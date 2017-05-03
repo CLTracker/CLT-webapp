@@ -35,19 +35,18 @@ export class ProfileHomeComponent implements OnInit {
     private newsItemTitle: string = 'TITLE';
     private newsItemText: string = 'place news text here';
     private newsItemAuthor: string = 'AUTHOR';
-    private newsItemImg: string;
+    private newsItemImg: string = '';
 
     @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
     constructor(private auth: Auth, private modalService: NgbModal, private snackBar: MdSnackBar) {
-        console.log(this.auth.userProfile);
         this.auth.getExhibitorUserInfo(this.auth.userProfile.email).subscribe(
             result => {
-                console.log(result);
                 this.bio = result.bio;
                 this.name = result.name;
                 this.company = result.company;
                 this.imgUrl = result.logo_url;
+                this.newsItemAuthor = result.company;
                 this.auth.setProfile(result);
             },
             error => {
@@ -116,15 +115,26 @@ export class ProfileHomeComponent implements OnInit {
         this.errorLabel = undefined;
         this.newsItemTitle = 'TITLE';
         this.newsItemText = 'place news text here';
-        this.newsItemAuthor = 'AUTHOR';
-        this.newsItemImg = undefined;
+        this.newsItemImg = '';
 
         this.isEditItem = false;
+
+        this.uploader.onSuccessItem = 
+            (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
+                let x = JSON.parse(response);
+                this.newsItemImg = x.link;
+            }
 
         // open modal and prompt user to fill information out
         this.modalService.open(this.modalContent)
             .result.then(
-                (result) => { console.log(result); }
+                (result) => { 
+                    this.uploader.onSuccessItem = 
+                        (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
+                            let x = JSON.parse(response);
+                            this.imgUrl = x.link;
+                        }
+                 }
             )
     }
 
@@ -134,7 +144,7 @@ export class ProfileHomeComponent implements OnInit {
         this.newsItemTitle = item.title;
         this.newsItemText = item.text;
         this.newsItemAuthor = item.author;
-        this.newsItemImg = item.logo;
+        this.newsItemImg = item.logo_url;
 
         this.isEditItem = true;
 
@@ -146,7 +156,6 @@ export class ProfileHomeComponent implements OnInit {
     }
 
     public deleteItem(item: any): void {
-
         let data: any = { 
             source: this.auth.userProfile.email, 
             news_item: { 
@@ -195,8 +204,6 @@ export class ProfileHomeComponent implements OnInit {
             this.errorLabel = 'Missing image';
             this.highlightImage = true;
         }
-
-        this.newsItemImg = '';
 
         let data: any = {
             source: this.auth.userProfile.email, 

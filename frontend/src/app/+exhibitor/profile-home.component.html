@@ -23,7 +23,7 @@
                     <span id="edit">Edit</span>
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" *ngIf="newsItemImg === ''">
                     <button class="btn btn-primary logo upload-overlay">
                         Upload
                         <input id="uploader-input"
@@ -32,6 +32,9 @@
                         [uploader]="uploader"
                         (change)="uploader.uploadAll()"/>
                     </button>
+                </div>
+                <div class="col-md-3" *ngIf="newsItemImg !== ''">
+                    <img [src]="newsItemImg" class="logo">
                 </div>
                 <div class="col-md-9">
                     <h3 style="padding-right: 65px;">
@@ -44,7 +47,7 @@
                     </p>
                 </div>
                 <p class="author">  
-                    <input [(ngModel)]="newsItemAuthor" [ngClass]="{'red': highlightAuthor}"/>
+                    <input [disabled]="true" [(ngModel)]="newsItemAuthor" [ngClass]="{'red': highlightAuthor}"/>
                 </p>
             </md-card>
         </div>
