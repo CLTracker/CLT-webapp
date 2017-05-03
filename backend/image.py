@@ -27,7 +27,7 @@ def getPin(client_id, client_secret):
 def getToken(client_id,client_secret, pin):
     """takes the client_id and client_secret from the registered application URL,
     along with the pin returned from `getPin()`, and return an access_token and a
-    refresh_token"""
+    refresh_token""" 
  
     #the query parameters you'll send along with the POST request
     params ={ "client_id" :client_id,
@@ -61,11 +61,22 @@ def upload_image(access_token,image_url):
     #make the upload, ensuring that the data, headers are included, and
     # make sure to disable the verification of the SSL. Potential insecurty though
     r = requests.post(upload_url, data=payload, headers=headers, verify=False)
-
     j = r.json()
     json.dumps(r)
     uploaded_url = j['data']['link']
     return uploaded_url
+
+def refreshtoken(refresh_token, client_id, client_secret):
+    url = "https://api.imgur.com/oauth2/token"
+
+    payload = {'refresh_token' : refresh_token, 
+               'client_id' : client_id,
+               'client_secret' : client_secret,
+               'grant_type' : 'refresh_token'}
+    r = requests.post(url,data=payload)
+    j= r.json()
+    return j['access_token'],j['refresh_token']
+ 
 
 @imgRoutes.route("/img", methods=["POST"])
 def uploadimage():
@@ -74,16 +85,17 @@ def uploadimage():
         config.read("image_key")
         client_id = config.get('img', 'Client-Id')
         client_secret = config.get('img', 'Client-Secret')
-        access_token = config.get('img', 'access_token')
-        
+        refresh_token = config.get('img', 'refresh_token')
+        #access_token = config.get('img', 'access_token')
         #4/25/217:access_token expires in 30 days
         #pin_url = getPin(client_id,client_secret)
-        #access_token,refresh_token = getToken(client_id,client_secret,'9d6a88e7b1')
+        access_token, refresh_token = refreshtoken(refresh_token,client_id,client_secret)
         data = request.data
         req = upload_image(access_token,data)
 
-        empty_json = {}
+        empty_json = {} 
         empty_json["link"]=req
+        print(empty_json);
         result = simplejson.dumps(empty_json)
         return Response(result, mimetype="application/json")
 
