@@ -217,6 +217,8 @@ export class Auth {
         // removes id token from storage so user is no longer authenticated
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('redir');
         this.userProfile = undefined;
     }
 }
