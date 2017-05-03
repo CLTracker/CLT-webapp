@@ -6,7 +6,7 @@ import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
 
-const prod: string = 'tttproduction';
+const prod: string = 'ssproduction';
 
 @Injectable()
 export class Auth {
@@ -85,7 +85,7 @@ export class Auth {
             this.ScheduleEditUrl = 'http://localhost:5000/edit/schedule/1';
         }
 
-        this.authToken = JSON.parse(sessionStorage.getItem('authToken'));
+        this.authToken = JSON.parse(localStorage.getItem('authToken'));
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
         // callback event for authenticated users
@@ -98,8 +98,8 @@ export class Auth {
                 }
 
                 this.authToken = profile;
-                sessionStorage.setItem('authToken', JSON.stringify(profile));
-                let redirectUrl = JSON.parse(sessionStorage.getItem('redir'));
+                localStorage.setItem('authToken', JSON.stringify(profile));
+                let redirectUrl = JSON.parse(localStorage.getItem('redir'));
                 this.router.navigate(redirectUrl);
             });
         });
@@ -111,23 +111,35 @@ export class Auth {
     }
 
     public loginOrganizer() {
-        sessionStorage.setItem('redir', JSON.stringify(['org', 'profile']));
+        localStorage.setItem('redir', JSON.stringify(['org', 'profile']));
         this.Lock.show();
     }
 
     public loginExhibitor() {
-        sessionStorage.setItem('redir', JSON.stringify(['xhb', 'profile']));
+        localStorage.setItem('redir', JSON.stringify(['xhb', 'profile']));
         this.Lock.show();
     }
 
     public loginAdministrator() {
-        sessionStorage.setItem('redir', JSON.stringify(['adm', 'profile']));
+        localStorage.setItem('redir', JSON.stringify(['adm', 'profile']));
         this.Lock.show();
     }
 
     public refresh() {
-        this.authToken = JSON.parse(sessionStorage.getItem('authToken'));
+        this.authToken = JSON.parse(localStorage.getItem('authToken'));
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
+    }
+
+    public getExhibitorUserInfo(email: string) {
+        return this.http
+            .get(`${this.ExhibitorsInfoUrl}/${email}`)
+            .map((r: Response) => r.json());
+    }
+
+    public patchExhibitorInfo(data: any) {
+        return this.http
+            .patch(`${this.ExhibitorEditUrl}`, data)
+            .map((r: Response) => r.json());
     }
 
     public getConferenceInfo() {
