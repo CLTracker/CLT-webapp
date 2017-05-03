@@ -13,7 +13,7 @@ import { NgbModal,
 })
 export class ProfileNewsComponent implements OnInit {
 
-    public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl});
+    public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl, disableMultipart: true});
     private news: any;
 
     private isEditItem: boolean = false;
@@ -27,7 +27,7 @@ export class ProfileNewsComponent implements OnInit {
     private newsItemTitle: string = 'TITLE';
     private newsItemText: string = 'place news text here';
     private newsItemAuthor: string = 'AUTHOR';
-    private newsItemImg: string;
+    private newsItemImg: string = '';
 
     @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
@@ -47,8 +47,8 @@ export class ProfileNewsComponent implements OnInit {
     ngOnInit() {
         this.uploader.onSuccessItem =
         (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
-            console.log(response);
-            // newsItemImg = response;
+            let x = JSON.parse(response);
+            this.newsItemImg = x.link;
         }
     }
 
@@ -58,7 +58,7 @@ export class ProfileNewsComponent implements OnInit {
         this.newsItemTitle = 'TITLE';
         this.newsItemText = 'place news text here';
         this.newsItemAuthor = 'AUTHOR';
-        this.newsItemImg = undefined;
+        this.newsItemImg = '';
 
         this.isEditItem = false;
 
@@ -75,7 +75,7 @@ export class ProfileNewsComponent implements OnInit {
         this.newsItemTitle = item.title;
         this.newsItemText = item.text;
         this.newsItemAuthor = item.author;
-        this.newsItemImg = item.logo;
+        this.newsItemImg = item.logo_url;
 
         this.isEditItem = true;
 
@@ -126,12 +126,10 @@ export class ProfileNewsComponent implements OnInit {
             this.highlightAuthor = true;
             return;
         }
-        // if(this.newsItemImg === '') {
-        //     this.errorLabel = 'Missing image';
-        //     this.highlightImage = true;
-        // }
-
-        this.newsItemImg = '';
+        if(this.newsItemImg === '') {
+            this.errorLabel = 'Missing image';
+            this.highlightImage = true;
+        }
 
         let data: any = {
             source: this.auth.userProfile.email, 
