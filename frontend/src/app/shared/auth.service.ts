@@ -12,7 +12,7 @@ const prod: string = 'ssproduction';
 export class Auth {
 
     public ImageUploadUrl: string;
-    
+
     private UsersInfoUrl: string;
     private LoginUrl: string;
     private ConferenceInfoUrl: string;
@@ -26,15 +26,15 @@ export class Auth {
     private ScheduleEditUrl: string;
 
     Lock = new Auth0Lock(
-        'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC', 
-        'clt-global.auth0.com', 
-        {  
+        'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC',
+        'clt-global.auth0.com',
+        {
             theme: {
                 logo: 'http://i.imgur.com/XDKwjRv.png',
                 primaryColor: '#0F4c60'
             },
             languageDictionary: {
-                title: "CLTracker"
+                title: 'CLTracker'
             },
         }
     );
@@ -55,7 +55,7 @@ export class Auth {
             this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitor/1';
             this.NewsInfoUrl = 'http://cltglobal.ddns.net:5000/news/1';
             this.NewsEditUrl = 'http://cltglobal.ddns.net:5000/edit/news/1';
-            this.ScheduleInfoUrl ='http://cltglobal.ddns.net:5000/schedule/1';
+            this.ScheduleInfoUrl = 'http://cltglobal.ddns.net:5000/schedule/1';
             this.ScheduleEditUrl = 'http://cltglobal.ddns.net:5000/edit/schedule/1';
         } else if (prod === 'production') {
             this.ImageUploadUrl = 'http://cltglobal.ddns.net:8080/img';

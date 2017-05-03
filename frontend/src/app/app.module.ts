@@ -10,7 +10,7 @@ import { AppComponent }   from './app.component';
 import { HomeComponent }  from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { IndustryComponent } from './industry/industry.component';
-import { CurrentsolutionsComponent } from './currentsolutions/currentsolutions.component'
+import { CurrentsolutionsComponent } from './currentsolutions/currentsolutions.component';
 import { Auth }               from './shared';
 import { routing }        from './app.routing';
 import { RouteGuard }      from './shared';

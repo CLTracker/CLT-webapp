@@ -25,6 +25,15 @@ export class ProfileMapComponent implements OnInit {
             let x = JSON.parse(response);
             this.imgUrl = x.link;
         };
+        this.auth.getConferenceInfo().subscribe(
+            result => {
+                console.log(result);
+            },
+            error => {
+                console.log(error);
+                alert('something went wrong retreiving conference information :(');
+            }
+        );
     }
 
     submitFloorPlan() {

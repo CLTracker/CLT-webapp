@@ -22,8 +22,6 @@ export class OrgRouteGuard implements CanActivateChild {
         // TODO: change from Auth0 database to our own database
 
         this.auth.refresh()
-        
-        console.log(this.auth.userProfile);
 
         let url: Array<string> = state.url.split('/');
 
