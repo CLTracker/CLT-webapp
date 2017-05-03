@@ -62,6 +62,7 @@ def upload_image(access_token,image_url):
     # make sure to disable the verification of the SSL. Potential insecurty though
     r = requests.post(upload_url, data=payload, headers=headers, verify=False)
     j = r.json()
+    print(j)
     uploaded_url = j['data']['link']
     return uploaded_url
 

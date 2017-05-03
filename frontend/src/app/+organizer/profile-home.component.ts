@@ -93,6 +93,6 @@ export class ProfileHomeComponent implements OnInit {
                 console.log(error);
                 alert('Error patching conference data!')
             }
-        )
+        );
     }
 }
