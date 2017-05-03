@@ -29,11 +29,11 @@ INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("attexam
 INSERT INTO permitted_exhibitors(exhibitor_email, conference_id) VALUES("mercerg2@unlv.nevada.edu",1);
 
 INSERT INTO organizers(organizer_email, conference) VALUES("gmercer015@gmail.com", 1);
-INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("hpexample@email.com", 1, "HP", "http://i.imgur.com/qtDcA1z.png?1");
-INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("appleexample@email.com", 1, "Apple", "http://i.imgur.com/3Vhuu59.jpg?1");
-INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("teslaexample@email.com", 1, "Tesla", "http://i.imgur.com/TV171o1.png?1");
-INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("attexample@email.com", 1, "AT&T", "http://i.imgur.com/s7YTXDu.png?1");
-INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url) VALUES("mercerg2@unlv.nevada.edu", 1, "Grant Exhibitor", "http://i.imgur.com/3TLT7QN.png");
+INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("hpexample@email.com", 1, "HP", "http://i.imgur.com/qtDcA1z.png?1", "HP bio sample");
+INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("appleexample@email.com", 1, "Apple", "http://i.imgur.com/3Vhuu59.jpg?1", "Apple bio sample");
+INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("teslaexample@email.com", 1, "Tesla", "http://i.imgur.com/TV171o1.png?1", "Telsa bio Sample");
+INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("attexample@email.com", 1, "AT&T", "http://i.imgur.com/s7YTXDu.png?1", "ATT bio sample");
+INSERT INTO exhibitors(exhibitor_email, conference, company_name, logo_url, bio) VALUES("mercerg2@unlv.nevada.edu", 1, "Grant Exhibitor", "http://i.imgur.com/3TLT7QN.png", "Grant bio sample");
 
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "AT&T Giveaway", "2017-04-28 08:00:00", "2017-04-29 00:00:00", "#ffffff", "#FAE3E3");
 INSERT INTO schedule(conference, event_name, start_time, end_time,primary_color,secondary_color) VALUES(1, "Tesla Keynote Speech", "2017-04-28 09:00:00", "2017-04-28 11:00:00", "#ffffff", "#FAE3E3");
