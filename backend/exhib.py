@@ -23,7 +23,7 @@ def editExhib(db, content, confId):
     userQuery = "UPDATE users SET name=%s WHERE email=%s"
 
     #exhibitor query
-    cursor.execute(exhQuery, (content["company_name"], content["logo_url"], content["bio"],content["email"]))
+    cursor.execute(exhQuery, (content["company"], content["logo_url"], content["bio"],content["email"]))
     cursor.execute(userQuery, (content["name"], content["email"]))
     db.commit()
     retObj = {"status":200}
