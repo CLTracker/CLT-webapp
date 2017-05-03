@@ -7,6 +7,7 @@ import { FileUploader,
 import { NgbModal,
     ModalDismissReasons }   from '@ng-bootstrap/ng-bootstrap';
 import { Auth }             from '../shared';
+import { MdSnackBar }       from '@angular/material';
 
 @Component({
     selector: 'my-profile-home',
@@ -16,7 +17,7 @@ import { Auth }             from '../shared';
 export class ProfileHomeComponent implements OnInit {
     public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl, disableMultipart: true});
     
-    private news: any;
+    private news: any = [];
 
     private company: string;
     private name: string;
@@ -34,19 +35,18 @@ export class ProfileHomeComponent implements OnInit {
     private newsItemTitle: string = 'TITLE';
     private newsItemText: string = 'place news text here';
     private newsItemAuthor: string = 'AUTHOR';
-    private newsItemImg: string;
+    private newsItemImg: string = '';
 
     @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
-    constructor(private auth: Auth, private modalService: NgbModal) {
-        console.log(this.auth.userProfile);
+    constructor(private auth: Auth, private modalService: NgbModal, private snackBar: MdSnackBar) {
         this.auth.getExhibitorUserInfo(this.auth.userProfile.email).subscribe(
             result => {
-                console.log(result);
                 this.bio = result.bio;
                 this.name = result.name;
                 this.company = result.company;
                 this.imgUrl = result.logo_url;
+                this.newsItemAuthor = result.company;
                 this.auth.setProfile(result);
             },
             error => {
@@ -78,20 +78,63 @@ export class ProfileHomeComponent implements OnInit {
             }
     }
 
+    public saveContent(): void {
+        let data: any = {
+            bio: this.bio,
+            company: this.company,
+            email: this.auth.userProfile.email,
+            logo_url: this.imgUrl,
+            name: this.name,
+            permissions: this.auth.userProfile.permissions,
+            userId: this.auth.userProfile.userId,
+            userType: this.auth.userProfile.userType
+        };
+
+        this.auth.patchExhibitorInfo(data).subscribe(
+            result => {
+                this.auth.getExhibitorUserInfo(this.auth.userProfile.email).subscribe(
+                    result => {
+                        console.log(result);
+                        this.auth.setProfile(result);
+                        this.snackBar.open('Saved!','',{duration: 2000});
+                    },
+                    error => {
+                        console.log(error);
+                        alert('Error getting exhibitor info!');
+                    }
+                )
+            }, error => {
+                console.log(error);
+                alert('Error patching exhibitor info!');
+            }
+        )
+    }
+
     public openNewsPrompt(): void {
         // reset all input bindings to default text
         this.errorLabel = undefined;
         this.newsItemTitle = 'TITLE';
         this.newsItemText = 'place news text here';
-        this.newsItemAuthor = 'AUTHOR';
-        this.newsItemImg = undefined;
+        this.newsItemImg = '';
 
         this.isEditItem = false;
+
+        this.uploader.onSuccessItem = 
+            (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
+                let x = JSON.parse(response);
+                this.newsItemImg = x.link;
+            }
 
         // open modal and prompt user to fill information out
         this.modalService.open(this.modalContent)
             .result.then(
-                (result) => { console.log(result); }
+                (result) => { 
+                    this.uploader.onSuccessItem = 
+                        (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
+                            let x = JSON.parse(response);
+                            this.imgUrl = x.link;
+                        }
+                 }
             )
     }
 
@@ -101,7 +144,7 @@ export class ProfileHomeComponent implements OnInit {
         this.newsItemTitle = item.title;
         this.newsItemText = item.text;
         this.newsItemAuthor = item.author;
-        this.newsItemImg = item.logo;
+        this.newsItemImg = item.logo_url;
 
         this.isEditItem = true;
 
@@ -113,7 +156,6 @@ export class ProfileHomeComponent implements OnInit {
     }
 
     public deleteItem(item: any): void {
-
         let data: any = { 
             source: this.auth.userProfile.email, 
             news_item: { 
@@ -126,7 +168,13 @@ export class ProfileHomeComponent implements OnInit {
 
         this.auth.deleteNewsItem(data).subscribe(
             result => {
-                this.news = result;
+                this.news = [];
+                let tNews = result;
+                for(let n of tNews) {
+                    if(n.author === this.auth.userProfile.company) {
+                        this.news.push(n);
+                    }
+                }
             },
             error => {
                 console.log(error);
@@ -152,12 +200,10 @@ export class ProfileHomeComponent implements OnInit {
             this.highlightAuthor = true;
             return;
         }
-        // if(this.newsItemImg === '') {
-        //     this.errorLabel = 'Missing image';
-        //     this.highlightImage = true;
-        // }
-
-        this.newsItemImg = '';
+        if(this.newsItemImg === '') {
+            this.errorLabel = 'Missing image';
+            this.highlightImage = true;
+        }
 
         let data: any = {
             source: this.auth.userProfile.email, 
@@ -172,7 +218,13 @@ export class ProfileHomeComponent implements OnInit {
         if (this.isEditItem) {
             this.auth.modifyNewsItem(data).subscribe(
                 result => {
-                    this.news = result;
+                    this.news = [];
+                    let tNews = result;
+                    for(let n of tNews) {
+                        if(n.author === this.auth.userProfile.company) {
+                            this.news.push(n);
+                        }
+                    }
                 },
                 error => {
                     console.log(error);
@@ -182,7 +234,13 @@ export class ProfileHomeComponent implements OnInit {
         } else {
             this.auth.postNewsItem(data).subscribe(
                 result => {
-                    this.news = result;
+                    this.news = [];
+                    let tNews = result;
+                    for(let n of tNews) {
+                        if(n.author === this.auth.userProfile.company) {
+                            this.news.push(n);
+                        }
+                    }
                 },
                 error => {
                     console.log(error);

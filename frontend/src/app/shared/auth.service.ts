@@ -52,7 +52,7 @@ export class Auth {
             this.ConferenceInfoUrl = 'http://cltglobal.ddns.net:5000/info/1';
             this.ExhibitorsInfoUrl = 'http://cltglobal.ddns.net:5000/exhibitors/1';
             this.ExhibitorsUsersInfoUrl = 'http://cltglobal.ddns.net:5000/user/exhibitors/1';
-            this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitors/1';
+            this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitor/1';
             this.NewsInfoUrl = 'http://cltglobal.ddns.net:5000/news/1';
             this.NewsEditUrl = 'http://cltglobal.ddns.net:5000/edit/news/1';
             this.ScheduleInfoUrl ='http://cltglobal.ddns.net:5000/schedule/1';
@@ -65,7 +65,7 @@ export class Auth {
             this.ConferenceInfoUrl = 'http://cltglobal.ddns.net:8080/info/1';
             this.ExhibitorsInfoUrl = 'http://cltglobal.ddns.net:8080/exhibitors/1';
             this.ExhibitorsUsersInfoUrl = 'http://cltglobal.ddns.net:8080/user/exhibitors/1';
-            this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:8080/edit/exhibitors/1';
+            this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:8080/edit/exhibitor/1';
             this.NewsInfoUrl = 'http://cltglobal.ddns.net:8080/news/1';
             this.NewsEditUrl = 'http://cltglobal.ddns.net:8080/edit/news/1';
             this.ScheduleInfoUrl = 'http://cltglobal.ddns.net:8080/schedule/1';
@@ -78,7 +78,7 @@ export class Auth {
             this.ConferenceInfoUrl = 'http://localhost:5000/info/1';
             this.ExhibitorsInfoUrl = 'http://localhost:5000/exhibitors/1';
             this.ExhibitorsUsersInfoUrl = 'http://localhost:5000/user/exhibitors/1';
-            this.ExhibitorEditUrl = 'http://localhost:5000/edit/exhibitors/1';
+            this.ExhibitorEditUrl = 'http://localhost:5000/edit/exhibitor/1';
             this.NewsInfoUrl = 'http://localhost:5000/news/1';
             this.NewsEditUrl = 'http://localhost:5000/edit/news/1';
             this.ScheduleInfoUrl = 'http://localhost:5000/schedule/1';
@@ -217,6 +217,8 @@ export class Auth {
         // removes id token from storage so user is no longer authenticated
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('redir');
         this.userProfile = undefined;
     }
 }

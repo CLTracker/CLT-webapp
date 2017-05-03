@@ -23,7 +23,7 @@
                     <span id="edit">Edit</span>
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" *ngIf="newsItemImg === ''">
                     <button class="btn btn-primary logo upload-overlay">
                         Upload
                         <input id="uploader-input"
@@ -32,6 +32,9 @@
                         [uploader]="uploader"
                         (change)="uploader.uploadAll()"/>
                     </button>
+                </div>
+                <div class="col-md-3" *ngIf="newsItemImg !== ''">
+                    <img [src]="newsItemImg" class="logo">
                 </div>
                 <div class="col-md-9">
                     <h3 style="padding-right: 65px;">
@@ -44,7 +47,7 @@
                     </p>
                 </div>
                 <p class="author">  
-                    <input [(ngModel)]="newsItemAuthor" [ngClass]="{'red': highlightAuthor}"/>
+                    <input [disabled]="true" [(ngModel)]="newsItemAuthor" [ngClass]="{'red': highlightAuthor}"/>
                 </p>
             </md-card>
         </div>
@@ -85,10 +88,12 @@
                         </div>
                     </div>
                     <div class="crow">
-                        <div class="col-md-5">
+                        <div class="col-md-12">
                             <h3>Biography</h3>
                         </div>
-                        <div class="col-md-7">
+                    </div>
+                    <div class="crow">
+                        <div class="col-md-12">
                             <textarea [(ngModel)]="bio"></textarea>
                         </div>
                     </div>
@@ -113,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="crow">
+                    <div class="crow" style="text-align: center;    ">
                         <img *ngIf="imgUrl !== ''" id="logo-preview"
                         [src]="imgUrl">
                         <img *ngIf="imgUrl === ''" id="logo-preview" 
@@ -127,10 +132,14 @@
         <button md-button color="primary" (click)="openNewsPrompt()">
             Create News Item
         </button>
+        <button md-button color="primary" (click)="saveContent()">
+            Save
+        </button>
     </div>
     <div *ngIf="!news" class="fill col-md-12">
         <p>No News items yet...</p>
     </div>
+    <div class="grey-bg" style="position: absolute; height: 300px; background-color: grey;"></div>
     <div class="col-md-12 news-item no-pad" *ngFor="let item of news">
     <md-card>
         <div class="edit-bar pull-right">
@@ -149,5 +158,5 @@
         </div>
         <p class="author">{{ item.author }}</p>
     </md-card>
-</div>
+    </div>
 </div>
