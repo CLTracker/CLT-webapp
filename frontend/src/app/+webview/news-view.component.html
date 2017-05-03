@@ -1,0 +1,16 @@
+<div class="margin"></div>
+<div class="col-md-12 news-item no-pad" *ngFor="let item of news">
+    <md-card>
+        <div class="col-xs-2">
+            <div class="logo">
+                <img src="{{item.logo_url}}"/>
+            </div>
+        </div>
+        <div class="col-xs-10">
+            <h3>{{ item.title }}</h3>
+            <div class="line-break"></div>
+            <p>{{ item.text }}</p>
+        </div>
+        <p class="author">{{ item.author }}</p>
+    </md-card>
+</div>

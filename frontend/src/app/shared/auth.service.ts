@@ -13,17 +13,17 @@ export class Auth {
 
     public ImageUploadUrl: string;
 
-    private UsersInfoUrl: string;
-    private LoginUrl: string;
-    private ConferenceInfoUrl: string;
-    private ConferenceEditUrl: string;
-    private ExhibitorsInfoUrl: string;
-    private ExhibitorsUsersInfoUrl: string;
-    private ExhibitorEditUrl: string;
-    private NewsInfoUrl: string;
-    private NewsEditUrl: string;
-    private ScheduleInfoUrl: string;
-    private ScheduleEditUrl: string;
+    public UsersInfoUrl: string;
+    public LoginUrl: string;
+    public ConferenceInfoUrl: string;
+    public ConferenceEditUrl: string;
+    public ExhibitorsInfoUrl: string;
+    public ExhibitorsUsersInfoUrl: string;
+    public ExhibitorEditUrl: string;
+    public NewsInfoUrl: string;
+    public NewsEditUrl: string;
+    public ScheduleInfoUrl: string;
+    public ScheduleEditUrl: string;
 
     Lock = new Auth0Lock(
         'jyb8nxXVywA8ezS3Vin9CnEhkY3FH7fC',

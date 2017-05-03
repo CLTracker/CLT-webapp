@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'adm/profile', loadChildren:  './+administrator/profile.module#AdminProfileModule' },
   { path: 'notloggedin', loadChildren:  './+notloggedin/login.module#LoginModule' },
   { path: 'join/:portal', canActivate: [RouteGuard], loadChildren: './+join/join.module#JoinModule' },
+  { path: 'webview/seniordesign', loadChildren: './+webview/view.module#ViewModule'},
   { path: 'about', component: AboutComponent },
   { path: 'industry', component: IndustryComponent },
   { path: 'currentsolutions', component: CurrentsolutionsComponent }

@@ -1,0 +1,18 @@
+#header {
+    background-color: #25B5B1;
+    .fa-bars {
+        display: inline-block;
+    }
+    h4 {
+        display: inline-block;
+        margin: 0;
+        margin-left: 30px;
+    }
+}
+/deep/ header {
+    display: none;
+}
+/deep/ body {
+    background-color: #E5E5E5;
+    background-image: none;
+}

@@ -7,7 +7,7 @@ import { NgbModule }                    from '@ng-bootstrap/ng-bootstrap';
 import { NgbCollapseModule }               from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule }               from 'angular-calendar';
 import { FileUploadModule }             from 'ng2-file-upload';
-import { CalendarUtilsModule }          from './utils/module';
+import { CalendarUtilsModule }          from '../utils/module';
 import { OrgRouteGuard }                from './../shared';
 import { ProfileRoutingModule }         from './profile.routing';
 import { ProfileComponent }             from './profile.component';
