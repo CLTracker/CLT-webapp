@@ -175,3 +175,8 @@ INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Swag Giv
 INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Guest Speaker", "http://i.imgur.com/TV171o1.png?1", "Come listen to our head of AI devlopment speak on his work process.", "Tesla");
 INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "New Product Unveiling", "http://i.imgur.com/qtDcA1z.png?1", "See the new product we have been working on for the last year!", "HP");
 INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "UX Team Panel", "http://i.imgur.com/3Vhuu59.jpg?1", "Ask a few members of our User Experience team any questions you may have!", "Apple");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "CLT Special Event", "http://i.imgur.com/65LAMrK.png", "Convention Logistics Tracker Dance Battle!", "CLT");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "S.B. LV Poetry Slam", "http://i.imgur.com/65LAMrK.png", "Slam Poetry from renowned author S.Brooks LV.", "AT&T");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Free Lunch at Great Hall", "http://i.imgur.com/3TLT7QN.png", "Sandwiches and drinks, courtesy of UNLV", "UNLV");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Private funding opportunity", "http://i.imgur.com/qtDcA1z.png?1", "HP will listen to product pitches for 1 hour.", "HP");
+INSERT INTO news(conference, title, logo_url, text, author) VALUES (1, "Omega Event", "http://i.imgur.com/3TLT7QN.png", "I am the alpha and the omega. All begins and ends with me.", "UNLV");
