@@ -18,15 +18,6 @@ def getConfInfo(db, confId):
     return result, 200
 
 
-def getExInfo(db, confId):
-    #want title, logo_url, text
-    cursor = db.cursor(dictionary=True)
-    query = "SELECT conference, company_name, exhibitors.logo_url from exhibitors, conference where conference_id = %s"
-    cursor.execute(query, (confId,))
-    results = cursor.fetchall()
-    return results, 200
-
-    
 
 @genRoutes.route("/info/<string:confId>", methods=["GET"])
 def info(confId):
@@ -37,13 +28,5 @@ def info(confId):
         db.close()
         return Response(result, mimetype="application/json"), status
 
-@genRoutes.route("/exhibitors/<string:confId>", methods=["GET"])
-def exhbitors(confId):
-    if request.method == "GET":
-        db = dbPool.connect().connection
-        result, status = getExInfo(db, confId)
-        result = simplejson.dumps(result)
-        db.close()
-        return Response(result, mimetype="application/json"), status
 
         

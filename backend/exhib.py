@@ -165,6 +165,15 @@ def getallexhib(confid):
         db.close()
         return Response(jsonObject, mimetype="application/json"),status
 
+@genRoutes.route("/exhibitors/<string:confId>", methods=["GET"])
+def exhbitors(confId):
+    if request.method == "GET":
+        db= dbPool.connect().connection
+        jsonOb,status = get_all_exhib(db,confid,"")
+        jsonObject = simplejson.dumps(jsonOb)
+        db.close()
+        return Response(jsonObject, mimetype="application/json"),status
+
 @exhibRoutes.route("/exhibitors/<string:confid>/<string:exhibId>", methods=["GET"])
 def getexhib(confid,exhibId):
     if request.method == "GET":
