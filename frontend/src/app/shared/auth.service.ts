@@ -5,8 +5,8 @@ import { Http, Response }   from '@angular/http';
 import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
-    
-const prod: string = 'sproduction';
+
+const prod: string = 'production';
 
 @Injectable()
 export class Auth {
