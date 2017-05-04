@@ -1,4 +1,8 @@
 import { Component }        from '@angular/core';
+import { Http, Response }   from '@angular/http';
+import { Observable }       from 'rxjs/Observable';
+
+import { ROUTES }           from './api-routes';
 
 @Component({
     selector: 'my-exhibitors-view',
@@ -7,6 +11,19 @@ import { Component }        from '@angular/core';
 })
 
 export class ExhibitorsViewComponent {
-    constructor() {
+
+    private exhibitors: any;
+
+    constructor(private http: Http) {
+        this.http.get(ROUTES.ExhibitorsInfoUrl)
+            .map((r: Response) => r.json())
+            .subscribe(
+                result => {
+                    this.exhibitors = result;
+                },
+                error => {
+                    console.log('error retreiving news.....');
+                }
+            );
     }
 }

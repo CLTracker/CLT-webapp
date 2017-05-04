@@ -9,6 +9,19 @@
         margin-left: 30px;
     }
 }
+.list-view {
+    margin-top: 40px;
+    margin-right: 40px;
+
+    p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    p:active {
+        color: red;
+    }
+}
 /deep/ header {
     display: none;
 }

@@ -1,5 +1,17 @@
+<md-sidenav-container class="example-container">
 <div id="header">
-    <i class="fa fa-bars" aria-hidden="true"></i>
+    <div class="example-sidenav-content">
+        <i class="fa fa-bars" aria-hidden="true" (click)="sidenav.open()"></i>
+    </div>
     <h4>News View</h4>
 </div>
+<md-sidenav #sidenav class="example-sidenav">
+    <div class="col-md-12 list-view">
+        <p (click) = "sidenav.close()" [routerLink]="['news']">News</p>
+        <p (click)="sidenav.close()" [routerLink]="['exhibitors']">Exhibitors</p>
+        <p [routerLink]="['map']">Convention Map</p>
+        <p [routerLink]="['schedule']">Schedule</p>
+    </div>
+</md-sidenav>
 <router-outlet></router-outlet>
+</md-sidenav-container>

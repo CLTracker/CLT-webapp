@@ -1,7 +1,6 @@
 import { Component }        from '@angular/core';
 import { Http, Response }   from '@angular/http';
 import { Observable }       from 'rxjs/Observable';
-import { Auth }             from '../shared';
 
 import { ROUTES }           from './api-routes';
 
@@ -26,6 +25,6 @@ export class NewsViewComponent {
                 error => {
                     console.log('error retreiving news.....');
                 }
-            )
+            );
     }
 }
