@@ -53,13 +53,14 @@ md-sidenav {
         margin-bottom: 10px;
     }
 }
-md-sidenav-container {
-    background-color: #E5E5E5;
-}
 /deep/ header {
     display: none;
 }
+md-sidenav-container {
+    background-color: #e5e5e5;
+    min-height: 100%;
+}
 /deep/ body {
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     background-image: none;
 }

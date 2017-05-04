@@ -29,7 +29,7 @@ export class ExhibitorsViewComponent {
                     this.isLoading = false;
                 },
                 error => {
-                    console.log('error retreiving news.....');
+                    console.log('error retreiving news....', error);
                 }
             );
     }
