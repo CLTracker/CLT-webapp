@@ -1,0 +1,48 @@
+<div class="margin"></div>
+<div class="fill-all">
+<div class="col-md-4" style="margin-bottom: 10px;">
+    <div class="btn btn-default"
+        mwlCalendarPreviousView
+        [view]="view"
+        [(viewDate)]="viewDate">
+        Previous
+    </div>
+    <div class="btn btn-default"
+        mwlCalendarToday
+        [(viewDate)]="viewDate">
+        Today
+    </div>
+    <div class="btn btn-default"
+        mwlCalendarNextView
+        [view]="view"
+        [(viewDate)]="viewDate">
+        Next
+    </div>
+</div>
+<div class="col-md-4">
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+</div>
+<div class="col-md-12 line-break"></div>
+<br>
+<div [ngSwitch]="view">
+    <mwl-calendar-week-view
+        *ngSwitchCase="'week'"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view
+        *ngSwitchCase="'day'"
+        [viewDate]="viewDate"
+        [hourSegments]="6"
+        [dayStartHour]="7"
+        [dayEndHour]="20"
+        [events]="events"
+        [refresh]="refresh"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-day-view>
+</div>
+</div>

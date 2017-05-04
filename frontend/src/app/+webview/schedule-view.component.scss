@@ -1,0 +1,33 @@
+.margin {
+    margin-top: 40px;
+}
+.fill-all {
+    padding-top: 20px;
+    background-color: #fff;
+}
+button {
+    color: #1b1b1b !important;
+}
+h3 {
+    color: #1b1b1b;
+}
+.col-md-4 {
+    text-align: center;
+}
+.line-break {
+    border-bottom: 1px solid #1b1b1b;
+    padding: 0 10px;
+    margin: 20px 0;
+    height: 1px;
+    width: 100%;
+    position: relative;
+}
+/deep/ .cal-event-title {
+    color: #1b1b1b;
+}
+/deep/ .cal-event-title:focus {
+    color: #1b1b1b;
+}
+/deep/ .cal-day-view {
+    background-color: #fff;
+}
