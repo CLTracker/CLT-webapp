@@ -49,7 +49,6 @@ export class ScheduleViewComponent {
                         i.start = new Date(i.start);
                         i.end = new Date(i.end);
                     }
-                    console.log(result);
                     
                     this.events = result;
                     this.refresh.next();

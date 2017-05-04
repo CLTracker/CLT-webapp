@@ -20,7 +20,6 @@ export class MapViewComponent {
             .map((r: Response) => r.json())
             .subscribe(
                 result => {
-                    console.log(result);
                     this.imgUrl = result.floor_plan;
                     this.isLoading = false;
                 },
