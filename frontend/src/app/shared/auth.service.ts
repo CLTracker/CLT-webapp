@@ -6,7 +6,7 @@ import { Observable }       from 'rxjs/Observable';
 
 declare var Auth0Lock: any;
 
-const prod: string = 'ssproduction';
+const prod: string = 'production';
 
 @Injectable()
 export class Auth {
@@ -45,31 +45,31 @@ export class Auth {
     constructor(private router: Router, private http: Http) {
         
         if (prod === 'production-test') {
-            this.ImageUploadUrl = 'http://cltglobal.ddns.net:5000/img';
-            this.UsersInfoUrl = 'http://cltglobal.ddns.net:5000/user';
-            this.LoginUrl = 'http://cltglobal.ddns.net:5000/login';
-            this.ConferenceEditUrl = 'http://cltglobal.ddns.net:5000/edit/conference/1';
-            this.ConferenceInfoUrl = 'http://cltglobal.ddns.net:5000/info/1';
-            this.ExhibitorsInfoUrl = 'http://cltglobal.ddns.net:5000/exhibitors/1';
-            this.ExhibitorsUsersInfoUrl = 'http://cltglobal.ddns.net:5000/user/exhibitors/1';
-            this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:5000/edit/exhibitor/1';
-            this.NewsInfoUrl = 'http://cltglobal.ddns.net:5000/news/1';
-            this.NewsEditUrl = 'http://cltglobal.ddns.net:5000/edit/news/1';
-            this.ScheduleInfoUrl = 'http://cltglobal.ddns.net:5000/schedule/1';
-            this.ScheduleEditUrl = 'http://cltglobal.ddns.net:5000/edit/schedule/1';
+            this.ImageUploadUrl = 'https://clt.website:5000/img';
+            this.UsersInfoUrl = 'https://clt.website:5000/user';
+            this.LoginUrl = 'https://clt.website:5000/login';
+            this.ConferenceEditUrl = 'https://clt.website:5000/edit/conference/1';
+            this.ConferenceInfoUrl = 'https://clt.website:5000/info/1';
+            this.ExhibitorsInfoUrl = 'https://clt.website:5000/exhibitors/1';
+            this.ExhibitorsUsersInfoUrl = 'https://clt.website:5000/user/exhibitors/1';
+            this.ExhibitorEditUrl = 'https://clt.website:5000/edit/exhibitor/1';
+            this.NewsInfoUrl = 'https://clt.website:5000/news/1';
+            this.NewsEditUrl = 'https://clt.website:5000/edit/news/1';
+            this.ScheduleInfoUrl = 'https://clt.website:5000/schedule/1';
+            this.ScheduleEditUrl = 'https://clt.website:5000/edit/schedule/1';
         } else if (prod === 'production') {
-            this.ImageUploadUrl = 'http://cltglobal.ddns.net:8080/img';
-            this.UsersInfoUrl = 'http://cltglobal.ddns.net:8080/user';
-            this.LoginUrl = 'http://cltglobal.ddns.net:8080/login';
-            this.ConferenceEditUrl = 'http://cltglobal.ddns.net:8080/edit/conference/1';
-            this.ConferenceInfoUrl = 'http://cltglobal.ddns.net:8080/info/1';
-            this.ExhibitorsInfoUrl = 'http://cltglobal.ddns.net:8080/exhibitors/1';
-            this.ExhibitorsUsersInfoUrl = 'http://cltglobal.ddns.net:8080/user/exhibitors/1';
-            this.ExhibitorEditUrl = 'http://cltglobal.ddns.net:8080/edit/exhibitor/1';
-            this.NewsInfoUrl = 'http://cltglobal.ddns.net:8080/news/1';
-            this.NewsEditUrl = 'http://cltglobal.ddns.net:8080/edit/news/1';
-            this.ScheduleInfoUrl = 'http://cltglobal.ddns.net:8080/schedule/1';
-            this.ScheduleEditUrl = 'http://cltglobal.ddns.net:8080/edit/schedule/1';
+            this.ImageUploadUrl = 'https://clt.website/img';
+            this.UsersInfoUrl = 'https://clt.website/user';
+            this.LoginUrl = 'https://clt.website/login';
+            this.ConferenceEditUrl = 'https://clt.website/edit/conference/1';
+            this.ConferenceInfoUrl = 'https://clt.website/info/1';
+            this.ExhibitorsInfoUrl = 'https://clt.website/exhibitors/1';
+            this.ExhibitorsUsersInfoUrl = 'https://clt.website/user/exhibitors/1';
+            this.ExhibitorEditUrl = 'https://clt.website/edit/exhibitor/1';
+            this.NewsInfoUrl = 'https://clt.website/news/1';
+            this.NewsEditUrl = 'https://clt.website/edit/news/1';
+            this.ScheduleInfoUrl = 'https://clt.website/schedule/1';
+            this.ScheduleEditUrl = 'https://clt.website/edit/schedule/1';
         } else {
             this.ImageUploadUrl = 'http://localhost:5000/img';
             this.UsersInfoUrl = 'http://localhost:5000/user';

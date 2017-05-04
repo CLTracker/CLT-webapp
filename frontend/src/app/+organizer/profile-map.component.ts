@@ -14,9 +14,7 @@ import { Auth }                  from '../shared';
 export class ProfileMapComponent implements OnInit {
     public uploader: FileUploader = new FileUploader({url: this.auth.ImageUploadUrl, disableMultipart: true});
 
-    // example: https://conferencecenter.ce.byu.edu/sites/conferencecenter.ce.byu.edu/files/map.png
-    private imgUrl: string = 'https://conferencecenter.ce.byu.edu/sites/conferencecenter.ce.byu.edu/files/map.png';
-
+    private imgUrl: string;
     constructor(private auth: Auth, private snackBar: MdSnackBar) {}
 
     ngOnInit() {
