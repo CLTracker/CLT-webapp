@@ -19,6 +19,8 @@ import {
 } from 'angular-calendar';
 import { ROUTES }           from './api-routes';
 
+declare var $: any;
+
 @Component({
     selector: 'my-schedule-view',
     templateUrl: './schedule-view.component.html',
@@ -57,6 +59,9 @@ export class ScheduleViewComponent {
                     console.log('Error retreiving schedule...', error);
                 }
             );
+        let windowHeight = $(window).innerHeight();
+        console.log(windowHeight);
+        $('md-sidenav-container').css('height', windowHeight);
     }
 
     /**

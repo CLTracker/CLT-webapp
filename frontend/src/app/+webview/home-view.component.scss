@@ -44,9 +44,14 @@ md-sidenav {
 .list-view {
     transform: scale(2, 2);
     zoom: 0.5;
-    margin-top: 130px;
+    margin-top: 160px;
     margin-left: 110px;
+    font-size: 1em;
     overflow: hidden;
+
+    @media screen and (max-width: 400px) {
+
+    }
 
     p {
         padding-left: 20px;

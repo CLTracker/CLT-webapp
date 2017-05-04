@@ -5,6 +5,8 @@ import { NgbModal }         from '@ng-bootstrap/ng-bootstrap';
 
 import { ROUTES }           from './api-routes';
 
+declare var $: any;
+
 @Component({
     selector: 'my-exhibitors-view',
     templateUrl: './exhibitors-view.component.html',
@@ -32,6 +34,9 @@ export class ExhibitorsViewComponent {
                     console.log('error retreiving news....', error);
                 }
             );
+        let windowHeight = $(window).innerHeight();
+        console.log(windowHeight);
+        $('md-sidenav-container').css('height', windowHeight);
     }
 
     openView(item: any) {

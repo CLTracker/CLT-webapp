@@ -4,6 +4,8 @@ import { Observable }       from 'rxjs/Observable';
 
 import { ROUTES }           from './api-routes';
 
+declare var $: any;
+
 @Component({
     selector: 'my-news-view',
     templateUrl: './news-view.component.html',
@@ -28,5 +30,8 @@ export class NewsViewComponent {
                     console.log('error retreiving news.....');
                 }
             );
+        let windowHeight = $(window).innerHeight();
+        console.log(windowHeight);
+        $('md-sidenav-container').css('height', windowHeight);
     }
 }
