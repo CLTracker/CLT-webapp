@@ -1,7 +1,15 @@
 .margin {
     margin-top: 50px;
 }
-
+.spinnerx {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    margin-top: 220px;
+    margin-left: -25px;
+}
 .news-item {
     padding-left: 10px;
     padding-right: 10px;

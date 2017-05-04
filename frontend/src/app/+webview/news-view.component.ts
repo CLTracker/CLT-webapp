@@ -13,6 +13,7 @@ import { ROUTES }           from './api-routes';
 export class NewsViewComponent {
 
     private news: any;
+    private isLoading = true;
 
     constructor(private http: Http) {
         console.log('hello');
@@ -21,6 +22,7 @@ export class NewsViewComponent {
             .subscribe(
                 result => {
                     this.news = result;
+                    this.isLoading = false;
                 },
                 error => {
                     console.log('error retreiving news.....');
