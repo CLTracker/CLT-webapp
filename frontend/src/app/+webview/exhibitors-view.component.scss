@@ -59,6 +59,7 @@
     }
 }
 /deep/ .modal-dialog {
+    position: fixed;
     width: 300px;
     height: 400px;
     top: 50%;
