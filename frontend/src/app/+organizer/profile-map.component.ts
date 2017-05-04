@@ -27,7 +27,7 @@ export class ProfileMapComponent implements OnInit {
         };
         this.auth.getConferenceInfo().subscribe(
             result => {
-                console.log(result);
+                this.imgUrl = result.floor_plan;
             },
             error => {
                 console.log(error);
