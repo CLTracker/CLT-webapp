@@ -1,3 +1,113 @@
 .margin {
     margin-top: 60px;
 }
+.page-text {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.spinnerx {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    margin-top: 220px;
+    margin-left: -25px;
+}
+.exhibitor-item {
+    padding-left: 10px;
+    padding-right: 10px;
+    md-card {
+        padding: 15px 10px;
+        width: 100%;
+        height: 75px;
+        margin-bottom: 8px;
+        position: relative;
+    }
+    .col-xs-2 {
+        padding: 0 !important;
+    }
+    .line-break {
+        height: 1px;
+        border-bottom: 1px solid #1b1b1b;
+    }
+    .logo {
+        width: 45px;
+        height: 45px;
+        background-color: #ffffff;
+        font-weight: bold;
+
+        img {
+            width: 45px;
+            height: 45px;
+        }
+    }
+    h3, p {
+        color: #1b1b1b;
+    }
+    h3 {
+        margin-top: 10px;
+        margin-bottom: 7px;
+        font-size: 10px;
+    }
+}
+/deep/ .modal-dialog {
+    width: 300px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    @media screen and (max-width: 360px) {
+        width: 250px;
+        margin-left: -125px;
+    }
+    h5 {
+        color: #1b1b1b;
+    }
+    h4 {
+        color: #1b1b1b;
+    }
+    .btn-secondary {
+        border: 1px solid #1b1b1b;
+        color: black !important;
+        font-weight: bold;
+        line-height: auto;
+        height: auto;
+    }
+    p {
+        color: #1b1b1b;
+        margin-bottom: 20px;
+    }
+    hr {
+        border: 1px solid #1b1b1b;
+        margin: 3px 0;
+        margin-bottom: 10px;
+    }
+    .modal-body {
+        padding-bottom: 0;
+    }
+    .modal-header {
+        background-color: #ffffff;
+    }
+    .modal-content {
+        width: 100%;
+        height: 100%;
+    }
+    .close {
+        padding: 2px;
+        height: auto;
+        border: none;
+        color: black;
+    }
+    span {
+        line-height: auto;
+        width: auto;
+    }
+    #submit {
+        line-height: auto;
+        padding: 5px 55px;
+        color: black !important;
+        font-weight: bold;
+    }
+}

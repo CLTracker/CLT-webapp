@@ -1,6 +1,39 @@
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">{{ selectedExhibitor.company }}</h5>
+        <button type="button" class="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h4>Biography</h4>
+        <hr/>
+        <p>{{ selectedExhibitor.bio }}</p>
+        <h4>Email</h4>
+        <hr/>
+        <p>{{ selectedExhibitor.email }}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="close()">OK</button>
+    </div>
+</ng-template>
+
 <div class="margin"></div>
 <div class="col-md-12">
-    <md-card>
-        <h3>ExhibitorView</h3>
+    <p class="page-text">Click any exhibitor to view additional details</p>
+</div>
+<div class="fill">
+<md-spinner class="spinnerx" *ngIf="isLoading"></md-spinner>
+</div>
+<div class="col-md-12 exhibitor-item no-pad" *ngFor="let item of exhibitors">
+    <md-card (click)="openView(item)">
+        <div class="col-xs-2">
+            <div class="logo">
+                <img src="{{item.logo_url}}"/>
+            </div>
+        </div>
+        <div class="col-xs-10">
+            <h3>{{ item.company }}</h3>
+        </div>
     </md-card>
 </div>

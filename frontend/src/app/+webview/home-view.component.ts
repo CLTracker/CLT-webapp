@@ -12,7 +12,6 @@ export class HomeViewComponent {
     private currentRoute: string;
 
     constructor(private router: Router) {
-        console.log(this.router.routerState)
     }
 
     navigate(nav: any, route: string) {

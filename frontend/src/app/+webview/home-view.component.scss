@@ -34,6 +34,9 @@ md-sidenav {
         margin-bottom: 10px;
     }
 }
+md-sidenav-container {
+    background-color: #E5E5E5;
+}
 /deep/ header {
     display: none;
 }
