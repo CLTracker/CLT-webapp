@@ -85,6 +85,9 @@
                 </mwl-calendar-week-view>
                 <mwl-calendar-day-view
                     *ngSwitchCase="'day'"
+                    [hourSegments]="6"
+                    [dayStartHour]="7"
+                    [dayEndHour]="18"
                     [viewDate]="viewDate"
                     [events]="events"
                     [refresh]="refresh"
